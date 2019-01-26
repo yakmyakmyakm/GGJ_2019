@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 81169062993604b5dad3148e83f367cc, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  objectName: New MyScriptableObject
+  forward:
+  - {fileID: 21300000, guid: 3f9d6c4a3d16646d78f0ee61807d7dc0, type: 3}
+  - {fileID: 21300000, guid: a907addb9a6874f91b0a546c83558240, type: 3}
+  - {fileID: 21300000, guid: 421a7c8775b824b5aba8a1840cf98f78, type: 3}
+  - {fileID: 21300000, guid: 63a5e474ccbda452c8e182442b8e43df, type: 3}
+  back:
+  - {fileID: 21300000, guid: 9ef4e900e3ddd4db1b974c87a4e9db7d, type: 3}
+  - {fileID: 21300000, guid: 64f566fd730e74c78b23ad50334020e7, type: 3}
+  - {fileID: 21300000, guid: 233e8535b22254133a01b7f9dd63ef33, type: 3}
+  - {fileID: 21300000, guid: 7ba9f21111afe41b280a6209eae53a1d, type: 3}
+  sideways:
+  - {fileID: 21300000, guid: b1198079de01a479883cf8634288b71c, type: 3}
+  - {fileID: 21300000, guid: e95f039fa06c14c12970f3c7c6712fa7, type: 3}
+  - {fileID: 21300000, guid: bbe4a5c75113343c0a53a1709272af42, type: 3}
+  - {fileID: 21300000, guid: 9b12d212ad6c04a79a0bda68dc7adb1f, type: 3}
+  idle: {fileID: 21300000, guid: 3f9d6c4a3d16646d78f0ee61807d7dc0, type: 3}
