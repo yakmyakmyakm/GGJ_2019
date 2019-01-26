@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class PlayerObject : MonoBehaviour
 {
-    MoveToClickPoint moveToClickPoint;
+    InputManager inputManager;
     MoveableObject moveableObject;
+
+    GameObject targetDistraction;
 
     void Start()
     {
-        moveToClickPoint = GetComponent<MoveToClickPoint>();
+        inputManager = GetComponent<InputManager>();
         moveableObject = GetComponent<MoveableObject>();
+        
 
-        moveToClickPoint.onHitLocation += MoveObject;
+        inputManager.onHitLocation += MoveObject;
+        inputManager.onHitDistraction += MoveToDistraction;
+
+    }
+
+    Distraction currentDistraction;
+    
+    void ReachedDestination()
+    {
+        currentDistraction = targetDistraction.GetComponent<Distraction>();
+        currentDistraction.StartDistraction();
+        currentDistraction.progressBar.Increase(currentDistraction.duration);
+        currentDistraction.progressBar.onCompleteIncrease = DoneDistracting;
+    }
+
+    void DoneDistracting()
+    {
+        currentDistraction.EndDistraction();
+    }
+
+    void MoveToDistraction(GameObject o)
+    {
+        targetDistraction = o;
+        moveableObject.onReachedDestination = ReachedDestination;
+        moveableObject.MoveToPosition(o.transform.position);    
     }
 
     void MoveObject(Vector3 position)

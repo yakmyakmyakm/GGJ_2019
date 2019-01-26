@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class MoveableObject : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class MoveableObject : MonoBehaviour
     Vector3 targetPosition;
     bool isMoving;
     MovementDirection movementDirection;
+
+    public Action onReachedDestination;
 
     public enum State
     {
@@ -35,10 +38,11 @@ public class MoveableObject : MonoBehaviour
     {
         if(isMoving)
         {
-            if(Vector3.Distance(targetPosition, this.transform.position) <= 1)
+            if(Vector3.Distance(targetPosition, this.transform.position) <= 3)
             {
-                isMoving = true;
+                isMoving = false;
                 playImageSequence.StopAnimation();
+                if (onReachedDestination != null) onReachedDestination();
             }
         }
     }

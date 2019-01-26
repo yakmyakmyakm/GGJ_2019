@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snoop
+public class Snoop : Interactable
 {
-    public string name;
+    // public string name;
 
-    public List<Sprite> inactive;
-    public List<Sprite> active;
+    // public List<Sprite> inactive;
+    // public List<Sprite> active;
 
-    private List<Sprite> currentAnim;
+    // private List<Sprite> currentAnim;
     private bool isActive;
 
     public bool IsActive
@@ -20,13 +20,18 @@ public class Snoop
         }
     }
 
-    public float duration; // time required, in seconds, to inspect
+    //public float duration; // time required, in seconds, to inspect
 
     public Vector2 location; // (x,z) constrained to the floor
 
     public delegate int IntDelegate();
 
     public IntDelegate OnAwardSoulPoints;
+
+    public override Interactable.Type GetInteractableType()
+    {
+        return Type.Snoop;
+    }
 
     public void StartDistraction()
     {

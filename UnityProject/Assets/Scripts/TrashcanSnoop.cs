@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashcanSnoop : MonoBehaviour
+public class TrashcanSnoop : Snoop
 {
-    public List<Sprite> inactive;
-    public List<Sprite> active;
+    // public List<Sprite> inactive;
+    // public List<Sprite> active;
 
     public float duration = 1.0f;
 
-    private Snoop trashcan;
+    //private Snoop trashcan;
 
     public int OnAwardSoulPoints()
     {
@@ -27,14 +27,14 @@ public class TrashcanSnoop : MonoBehaviour
 
     void Awake()
     {
-        this.trashcan = new Snoop();
-        this.trashcan.active = this.active;
-        this.trashcan.inactive = this.inactive;
-        this.trashcan.name = "trashcan";
-        this.trashcan.duration = this.duration;
-//        Vector3 pos = GameObject.transform.position;
-//        this.trashcan.location = new Vector2(pos.x, pos.z);
-        this.trashcan.OnAwardSoulPoints = this.OnAwardSoulPoints;
+//         this.trashcan = new Snoop();
+//         this.trashcan.active = this.active;
+//         this.trashcan.inactive = this.inactive;
+//         this.trashcan.name = "trashcan";
+//         this.trashcan.duration = this.duration;
+// //        Vector3 pos = GameObject.transform.position;
+// //        this.trashcan.location = new Vector2(pos.x, pos.z);
+//         this.trashcan.OnAwardSoulPoints = this.OnAwardSoulPoints;
     }
 
     // Start is called before the first frame update

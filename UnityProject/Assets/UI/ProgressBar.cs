@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ProgressBar : MonoBehaviour
 {
     public Image fillImage;
+
+    public Action onCompleteIncrease;
 
     public void Show()
     {
@@ -35,7 +38,8 @@ public class ProgressBar : MonoBehaviour
 
     void DoneIncreasing()
     {
-
+        if (onCompleteIncrease != null) onCompleteIncrease();
+        Hide();
     }
 
     public void SetFill(float value)
@@ -45,12 +49,12 @@ public class ProgressBar : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Increase(5);
         }
 
-        if(Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Decrease(5);
         }

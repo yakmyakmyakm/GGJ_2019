@@ -2,42 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KittenDistraction : MonoBehaviour
+public class KittenDistraction : Distraction
 {
-    public List<Sprite> inactive;
-    public List<Sprite> active;
-
-    public float duration;
-
-    private Distraction kitten;
-
     void Awake()
     {
-        this.kitten = new Distraction();
-        this.kitten.active = this.active;
-        this.kitten.inactive = this.inactive;
-        this.kitten.name = "kitten";
-        this.kitten.duration =  4.0f + Random.Range(0.0f, 4.0f);
+        // this.kitten = new Distraction();
+        // this.kitten.active = this.active;
+        // this.kitten.inactive = this.inactive;
+        // this.kitten
+        // this.kitten
         //Vector3 pos = GameObject.transform.position;
         //this.kitten.location = new Vector2(pos.x, pos.z);
+
+        name = "kitten";
+        duration =  4.0f + Random.Range(0.0f, 4.0f);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public override void StartDistraction()
     {
-
+        base.StartDistraction();
+        Debug.Log("kitten distractin");
     }
 
-    void BeginDistraction()
+     public override void EndDistraction()
     {
-        this.kitten.StartDistraction();
-        MyFriend.Instance.EnqueueDistraction(this.kitten);
-
+        base.EndDistraction();
+        Debug.Log("complete kitten distractin");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // void BeginDistraction()
+    // {
+    //     this.kitten.StartDistraction();
+    //     MyFriend.Instance.EnqueueDistraction(this.kitten);
 }
