@@ -11,6 +11,9 @@ public class MoveToClickPoint : MonoBehaviour {
         }
         
         void Update() {
+
+            this.transform.rotation = Quaternion.Euler(Vector3.zero);
+
             if (Input.GetMouseButtonDown(0)) {
                 RaycastHit hit;
                 
