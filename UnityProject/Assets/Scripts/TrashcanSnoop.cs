@@ -8,7 +8,7 @@ public class TrashcanSnoop : Snoop
         base.StartSnoop();
     }
 
-    public void EndSnoop() {
+    public override void EndSnoop() {
         base.EndSnoop();
         TalkingManager.instance.AddSpeechData(
         CharacterType.EVIDENCE,

@@ -528,7 +528,6 @@ GameObject:
   - component: {fileID: 376440369}
   - component: {fileID: 376440368}
   - component: {fileID: 376440367}
-  - component: {fileID: 376440371}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -618,19 +617,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &376440371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376440366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 3d22def93645548b38ac40abe76ad3a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &452203970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1354,7 @@ GameObject:
   - component: {fileID: 1105861000}
   - component: {fileID: 1105861002}
   - component: {fileID: 1105861001}
+  - component: {fileID: 1105861003}
   m_Layer: 5
   m_Name: blackscreen
   m_TagString: Untagged
@@ -1434,6 +1421,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105860999}
   m_CullTransparentMesh: 0
+--- !u!114 &1105861003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105860999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3d22def93645548b38ac40abe76ad3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1140481490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   player: {fileID: 130504143}
   ai: {fileID: 1482382664}
   inputManager: {fileID: 1178863319}
-  evidenceManager: {fileID: 376440371}
+  evidenceManager: {fileID: 1105861003}
   speeches: []
   conversationIndex: 0
 --- !u!4 &1407214175
@@ -2806,6 +2806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585422000278522840, guid: d314073864bc8476a846e6fab6d875cc,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc,
         type: 3}

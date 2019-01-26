@@ -87,6 +87,7 @@ public class PlayerObject : MonoBehaviour
 
     void DoneSnooping()
     {
+        Debug.Log("ENDING SNOOP");
         currentState = State.IDLE;
         currentSnoop.EndSnoop();
         currentSnoop.progressBar.onCompleteDecrease = null;
