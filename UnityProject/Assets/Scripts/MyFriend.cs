@@ -228,13 +228,16 @@ public class MyFriend : MonoBehaviour
         }
         else if (Input.GetButtonDown("Pause"))
         {
-            Debug.Log("[Mock] Pause");
-            Pause();
-        }
-        else if (Input.GetButtonDown("Resume"))
-        {
-            Debug.Log("[Mock] Resume");
-            Resume();
+            if (isPaused)
+            {
+                Debug.Log("[Mock] Resume");
+                Resume();
+            }
+            else
+            {
+                Debug.Log("[Mock] Pause");
+                Pause();
+            }
         }
     }
 
