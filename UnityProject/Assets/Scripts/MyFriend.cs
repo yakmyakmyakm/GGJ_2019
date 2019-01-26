@@ -32,8 +32,7 @@ public class MyFriend : MonoBehaviour
     private State currentState;
 
     private State nextState;
-
-    private bool activeSnoop;  // set by a callback function
+    
     private bool catchSnooping;  // set by a callback function
 
     private bool distractionStarted; 
