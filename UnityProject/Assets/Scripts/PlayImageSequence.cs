@@ -13,7 +13,7 @@ public class PlayImageSequence : MonoBehaviour
     public Image image;
     int index;
 
-    IEnumerator animation;
+    IEnumerator anim;
 
    public void StartAnimation(List<Sprite> sprites, bool isLeft = false)
    {
@@ -23,8 +23,8 @@ public class PlayImageSequence : MonoBehaviour
        index = 0;
        this.sprites = sprites;
        image.sprite = sprites[index];
-       animation = RunAnimation();
-       StartCoroutine(animation);
+       anim = RunAnimation();
+       StartCoroutine(anim);
    }
 
    public void StopAnimation()
