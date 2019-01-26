@@ -19,9 +19,4 @@ public class PlayerObject : MonoBehaviour
     {
         moveableObject.MoveToPosition(position);
     }
-
-    void Update()
-    {
-        
-    }
 }
