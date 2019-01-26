@@ -6,7 +6,7 @@ public enum CharacterType
 {
     PLAYER,
     AI,
-    CAT
+    EVIDENCE
 }
 
 public class TalkingManager : MonoBehaviour
@@ -15,6 +15,8 @@ public class TalkingManager : MonoBehaviour
     public Speakable ai;
 
     public static TalkingManager instance;
+
+    public InputManager inputManager;
 
     void Awake() 
     {
@@ -30,6 +32,16 @@ public class TalkingManager : MonoBehaviour
             case CharacterType.PLAYER: player.Speak(time, textToSay); break;
             case CharacterType.AI: ai.Speak(time, textToSay); break;
         }
+    }
+
+    public void EnterConvoMode()
+    {
+        inputManager.SetState(InputManager.State.CONVERSATION);
+    }
+
+    public void ExitConvoMode()
+    {
+        inputManager.SetState(InputManager.State.MOVEMENT);
     }
 
     void Update()
