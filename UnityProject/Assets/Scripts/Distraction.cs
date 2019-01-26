@@ -26,7 +26,7 @@ public class Distraction : Interactable
         this.OnStart();
         //MyFriend.Instance.EnqueueDistraction(this);
 
-         playImageSequence.StartAnimation(inactive);
+         playImageSequence.StartAnimationOnce(active);
     }
 
     public virtual void EndDistraction()
