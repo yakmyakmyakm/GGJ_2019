@@ -35,7 +35,9 @@ public class MyFriend : MonoBehaviour
     
     private bool catchSnooping;  // set by a callback function
 
-    private bool distractionStarted; 
+    private bool distractionStarted;
+
+    private bool isPaused;
 
     private Action OnDistractionTimeOut;
 
@@ -68,9 +70,24 @@ public class MyFriend : MonoBehaviour
         moveableObject.MoveToPosition(inDistraction.Destination);
     }
 
+    // Is my friend in watchful state?
     public bool IsWatchful()
     {
         return currentState == State.WATCHFUL;
+    }
+
+    // pause the update
+    public void Pause()
+    {
+        isPaused = true;
+        moveableObject.Pause();
+    }
+
+    // resume the update
+    public void Resume()
+    {
+        isPaused = false;
+        moveableObject.Resume();
     }
 
     // Get the first distraction from the queue
@@ -120,6 +137,12 @@ public class MyFriend : MonoBehaviour
     // Update the state machine
     private void Update()
     {
+        // Early return
+        if (isPaused)
+        {
+            return;
+        }
+
         if (currentState == State.WATCHFUL)
         {
             // WATCHFUL state: not move, just look around
@@ -169,13 +192,15 @@ public class MyFriend : MonoBehaviour
                 nextState = State.WATCHFUL;
             }
         }
-    }
 
-    private void LateUpdate()
-    {
+        // housekeeping
         lastState = currentState;
         currentState = nextState;
-
+    }
+    
+    // Always run input update
+    private void LateUpdate()
+    {
         UpdateInput();
     }
 
@@ -183,20 +208,33 @@ public class MyFriend : MonoBehaviour
     {
         if (Input.GetButtonDown("Watchful"))
         {
+            Debug.Log("[Mock] Watchful");
             nextState = State.WATCHFUL;
         }
         else if (Input.GetButtonDown("Be Distracted"))
         {
-            // mock
+            Debug.Log("[Mock] Be Distracted");
             EnqueueDistraction(sendInDistraction);
         }
         else if (Input.GetButtonDown("Approach"))
         {
+            Debug.Log("[Mock] Approach");
             nextState = State.APPROACH;
         }
         else if (Input.GetButtonDown("Catch"))
         {
+            Debug.Log("[Mock] Catch");
             nextState = State.CATCH;
+        }
+        else if (Input.GetButtonDown("Pause"))
+        {
+            Debug.Log("[Mock] Pause");
+            Pause();
+        }
+        else if (Input.GetButtonDown("Resume"))
+        {
+            Debug.Log("[Mock] Resume");
+            Resume();
         }
     }
 
@@ -212,6 +250,7 @@ public class MyFriend : MonoBehaviour
 
         catchSnooping = false;
         distractionStarted = false;
+        isPaused = false;
 
         destination = transform.position;
     }
