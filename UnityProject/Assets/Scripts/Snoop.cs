@@ -20,8 +20,6 @@ public class Snoop : Interactable
         }
     }
 
-    //public float duration; // time required, in seconds, to inspect
-
     public Vector2 location; // (x,z) constrained to the floor
 
     public delegate int IntDelegate();

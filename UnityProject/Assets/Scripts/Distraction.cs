@@ -8,8 +8,6 @@ public class Distraction : Interactable
 
     public Vector3 Destination;
     public string name;
-
-    public float duration; //  duration of distraction
     public Vector2 location; // (x,z) on the floor
 
     delegate void Handler();
@@ -40,6 +38,8 @@ public class Distraction : Interactable
     public virtual void StartAIDistraction()
     {
         //playImageSequence.StartAnimation(active);
+        progressBar.Decrease(Duration);
+        //progressBar.onCompleteDecrease = EndAIDistraction;
     }
 
     public virtual void EndAIDistraction()
