@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public const float DEFAULT_DIALOG_DURATION = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
