@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EvidenceManager : MonoBehaviour
 {
-
-
     public void ShowEvidence()
     {
         this.gameObject.SetActive(true);

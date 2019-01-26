@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public Action<GameObject> onHitSnoopable;
     public Action releasedMouseButton;
     public Action onMouseClick;
+    public Action onEvidenceMouseClick;
 
     public enum State
     {
@@ -43,9 +44,16 @@ public class InputManager : MonoBehaviour
                     if (releasedMouseButton != null) releasedMouseButton();
                 }
                 break;
+
             case State.CONVERSATION:
-            case State.EVIDENCE:
                 BroadcastMouseClick();
+                break;
+
+            case State.EVIDENCE:
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if (onEvidenceMouseClick != null) onEvidenceMouseClick();
+                }
                 break;
         }
     }
