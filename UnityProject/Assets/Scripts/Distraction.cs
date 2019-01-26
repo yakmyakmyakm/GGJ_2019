@@ -22,7 +22,7 @@ public class Distraction : Interactable
         return Type.Distraction;
     }
 
-    public virtual void StartDistraction()
+    public virtual void StartPlayerDistraction()
     {
         currentAnim = active;
         this.OnStart();
@@ -31,12 +31,21 @@ public class Distraction : Interactable
         playImageSequence.StartAnimation(active);
     }
 
-    public virtual void EndDistraction()
+    public virtual void EndPlayerDistraction()
     {
         currentAnim = inactive;
         this.OnEnd();
 
         playImageSequence.StartAnimation(inactive);
+    }
 
+    public virtual void StartAIDistraction()
+    {
+        //playImageSequence.StartAnimation(active);
+    }
+
+    public virtual void EndAIDistraction()
+    {
+        //playImageSequence.StartAnimation(inactive);
     }
 }

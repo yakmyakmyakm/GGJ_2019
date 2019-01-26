@@ -18,15 +18,15 @@ public class KittenDistraction : Distraction
         duration =  4.0f + Random.Range(0.0f, 4.0f);
     }
 
-    public override void StartDistraction()
+    public override void StartPlayerDistraction()
     {
-        base.StartDistraction();
+        base.StartPlayerDistraction();
         Debug.Log("kitten distractin");
     }
 
-     public override void EndDistraction()
+     public override void EndPlayerDistraction()
     {
-        base.EndDistraction();
+        base.EndPlayerDistraction();
         Debug.Log("complete kitten distractin");
     }
 

@@ -15,6 +15,11 @@ public class PlayImageSequence : MonoBehaviour
 
     IEnumerator anim;
 
+    public void SetImage(Sprite s)
+    {
+        image.sprite = s;
+    }
+
    public void StartAnimation(List<Sprite> sprites, bool isLeft = false)
    {
        image.transform.localRotation = Quaternion.Euler(Vector3.zero);

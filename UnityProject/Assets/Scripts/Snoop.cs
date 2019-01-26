@@ -42,6 +42,17 @@ public class Snoop : Interactable
         playImageSequence.StartAnimation(active);
     }
 
+    public void PlayerInterruptSnoop()
+    {
+        progressBar.StopProgress();
+        playImageSequence.SetImage(active[0]);
+    }
+
+    public void AIInterruptSnoop()
+    {
+
+    }
+
     public void EndSnoop()
     {
         currentAnim = this.inactive;

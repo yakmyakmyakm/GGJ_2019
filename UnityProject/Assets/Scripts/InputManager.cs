@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     public Action<GameObject> onHitDistraction;
     public Action<GameObject> onHitSnoopable;
 
+    public Action releasedMouseButton;
+
     void Update()
     {
         this.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -34,6 +36,11 @@ public class InputManager : MonoBehaviour
                     if (onHitLocation != null) onHitLocation(hit.point);
                 }
             }
+        }
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            if(releasedMouseButton != null) releasedMouseButton();
         }
     }
 }

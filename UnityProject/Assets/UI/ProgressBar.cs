@@ -7,7 +7,6 @@ using System;
 public class ProgressBar : MonoBehaviour
 {
     public Image fillImage;
-
     public Action onCompleteIncrease;
     public Action onCompleteDecrease;
 
@@ -23,13 +22,13 @@ public class ProgressBar : MonoBehaviour
 
     public void Decrease(float time)
     {
-         Show();
+        Show();
         Ease.Go(this, 1, 0, time, SetFill, DoneDecreasing, Ease.Type.Linear);
     }
 
     void DoneDecreasing()
     {
-        if(onCompleteDecrease != null) onCompleteDecrease();
+        if (onCompleteDecrease != null) onCompleteDecrease();
         Hide();
     }
 
@@ -45,8 +44,14 @@ public class ProgressBar : MonoBehaviour
         Hide();
     }
 
-    public void SetFill(float value)
+    void SetFill(float value)
     {
         fillImage.fillAmount = value;
+    }
+
+    public void StopProgress()
+    {
+        this.StopAllCoroutines();
+        Hide();
     }
 }
