@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
-public class MoveToClickPoint : MonoBehaviour {
-        NavMeshAgent agent;
+public class MoveToClickPoint : MonoBehaviour 
+{
+        public Action<Vector3> onHitLocation;
         
-        void Start() {
-            agent = GetComponent<NavMeshAgent>();
-        }
-        
-        void Update() {
-
+        void Update() 
+        {
             this.transform.rotation = Quaternion.Euler(Vector3.zero);
 
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0)) 
+            {
                 RaycastHit hit;
                 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
-                    agent.destination = hit.point;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) 
+                {
+                    if(onHitLocation != null) onHitLocation(hit.point);
                 }
             }
         }
