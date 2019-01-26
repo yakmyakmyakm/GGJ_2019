@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerObject : MonoBehaviour
 {
     MoveToClickPoint moveToClickPoint;
     MoveableObject moveableObject;
@@ -18,10 +18,5 @@ public class Player : MonoBehaviour
     void MoveObject(Vector3 position)
     {
         moveableObject.MoveToPosition(position);
-    }
-
-    void Update()
-    {
-        
     }
 }
