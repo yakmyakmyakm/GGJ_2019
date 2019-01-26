@@ -21,7 +21,19 @@ public class KittenDistraction : Distraction
     public override void StartPlayerDistraction()
     {
         base.StartPlayerDistraction();
+        TalkingManager.instance.EnterConvoMode();
+        TalkingManager.instance.Speak(
+            CharacterType.AI,
+            "Seriously, kicking a kitten?"
+            2.0f
+        );
+        TalkingManager.instance.Speak(
+            CharacterType.AI,
+            "That is messed up! Poor kitty.",
+            2.0f
+        );
         Debug.Log("kitten distractin");
+        base.StartAIDistraction();
     }
 
      public override void EndPlayerDistraction()
