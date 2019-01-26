@@ -69,6 +69,11 @@ public class MyFriend : MonoBehaviour
         moveableObject.MoveToPosition(inDistraction.Destination);
     }
 
+    public bool IsWatchful()
+    {
+        return currentState == State.WATCHFUL;
+    }
+
     // Get the first distraction from the queue
     private Distraction GetDistraction()
     {
