@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public PlayImageSequence playImageSequence;
-    public ProgressBar progressBar;
+    public PlayImageSequence PlayImageSequence;
+    public ProgressBar ProgressBar;
     public float Duration;
-    public List<Sprite> inactive; // public for easy component editing
-    public List<Sprite> active;
-    public List<Sprite> currentAnim;
+    public List<Sprite> Inactive; // public for easy component editing
+    public List<Sprite> Active;
+    public List<Sprite> CurrentAnim;
 
     public virtual Interactable.Type GetInteractableType()
     {
