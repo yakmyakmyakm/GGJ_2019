@@ -63,6 +63,16 @@ public class MoveableObject : MonoBehaviour
         agent.destination = pos;
     }
 
+    public void Pause()
+    {
+        agent.Stop();
+    }
+
+    public void Resume()
+    {
+        agent.Resume();
+    }
+
     private Vector2 startPos;
     private Vector2 endPos;
 
