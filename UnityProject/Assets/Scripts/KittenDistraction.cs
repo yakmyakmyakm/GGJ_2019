@@ -24,9 +24,9 @@ public class KittenDistraction : Distraction
         Debug.Log("kitten distractin");
     }
 
-     public override void EndPlayerDistraction()
+     public override void EndDistraction()
     {
-        base.EndPlayerDistraction();
+        base.EndDistraction();
         Debug.Log("complete kitten distractin");
     }
 

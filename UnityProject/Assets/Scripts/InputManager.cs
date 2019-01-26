@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     {
         MOVEMENT,
         CONVERSATION,
+        EVIDENCE,
     }
 
     State currentState = State.MOVEMENT;
@@ -24,43 +25,55 @@ public class InputManager : MonoBehaviour
         currentState = state;
     }
 
+
     void Update()
     {
         this.transform.rotation = Quaternion.Euler(Vector3.zero);
 
-        if (currentState == State.MOVEMENT)
+        switch (currentState)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                RaycastHit hit;
-
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            case State.MOVEMENT:
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.transform.CompareTag("Distraction"))
-                    {
-                        if (onHitDistraction != null) onHitDistraction(hit.transform.gameObject);
-                    }
-                    else if (hit.transform.CompareTag("Snoopable"))
-                    {
-                        if (onHitSnoopable != null) onHitSnoopable(hit.transform.gameObject);
-                    }
-                    else
-                    {
-                        if (onHitLocation != null) onHitLocation(hit.point);
-                    }
+                    BroadcastHitPoint();
                 }
-            }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (releasedMouseButton != null) releasedMouseButton();
-            }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if (releasedMouseButton != null) releasedMouseButton();
+                }
+                break;
+            case State.CONVERSATION:
+            case State.EVIDENCE:
+                BroadcastMouseClick();
+                break;
         }
-        else
+    }
+
+    void BroadcastMouseClick()
+    {
+        if (Input.GetMouseButtonUp(0))
         {
-            if (Input.GetMouseButtonUp(0))
+            if (onMouseClick != null) onMouseClick();
+        }
+    }
+
+    void BroadcastHitPoint()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+        {
+            if (hit.transform.CompareTag("Distraction"))
             {
-                if (onMouseClick != null) onMouseClick();
+                if (onHitDistraction != null) onHitDistraction(hit.transform.gameObject);
+            }
+            else if (hit.transform.CompareTag("Snoopable"))
+            {
+                if (onHitSnoopable != null) onHitSnoopable(hit.transform.gameObject);
+            }
+            else
+            {
+                if (onHitLocation != null) onHitLocation(hit.point);
             }
         }
     }
