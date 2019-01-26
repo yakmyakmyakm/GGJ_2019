@@ -10,6 +10,7 @@ public class MoveableObject : MonoBehaviour
     public AnimationSprites animationSprites;
     Vector3 targetPosition;
     bool isMoving;
+    MovementDirection movementDirection;
 
     public enum State
     {
@@ -37,7 +38,6 @@ public class MoveableObject : MonoBehaviour
             if(Vector3.Distance(targetPosition, this.transform.position) <= 1)
             {
                 isMoving = true;
-                playImageSequence.image.sprite = animationSprites.idle;
                 playImageSequence.StopAnimation();
             }
         }
@@ -106,26 +106,34 @@ public class MoveableObject : MonoBehaviour
     void OnSwipeUp()
     {
         //left
-        playImageSequence.StartAnimation(animationSprites.sideways);
+        MoveInDirection(MovementDirection.Left);
     }
 
     void OnSwipeDown()
     {
         //right
-        playImageSequence.StartAnimation(animationSprites.sideways);
+        MoveInDirection(MovementDirection.Right);
     }
 
     void OnSwipeLeft()
     {
         //forward
-        playImageSequence.StartAnimation(animationSprites.forward);
+        MoveInDirection(MovementDirection.Forward);
     }
 
     void OnSwipeRight()
     {
-        //back
-        playImageSequence.StartAnimation(animationSprites.back);
+       MoveInDirection(MovementDirection.Back);
     }
 
-
+    void MoveInDirection(MovementDirection direction)
+    {
+        switch(direction)
+        {
+            case MovementDirection.Left: playImageSequence.StartAnimation(animationSprites.sideways, true);break;
+            case MovementDirection.Right: playImageSequence.StartAnimation(animationSprites.sideways);break;
+            case MovementDirection.Forward:  playImageSequence.StartAnimation(animationSprites.forward);break;
+            case MovementDirection.Back: playImageSequence.StartAnimation(animationSprites.back); break;
+        }
+    }
 }

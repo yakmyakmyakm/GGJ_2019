@@ -15,8 +15,11 @@ public class PlayImageSequence : MonoBehaviour
 
     IEnumerator animation;
 
-   public void StartAnimation(List<Sprite> sprites)
+   public void StartAnimation(List<Sprite> sprites, bool isLeft = false)
    {
+       image.transform.localRotation = Quaternion.Euler(Vector3.zero);
+       if(isLeft) image.transform.localRotation = Quaternion.Euler(new Vector3(0,180,0));
+
        index = 0;
        this.sprites = sprites;
        image.sprite = sprites[index];
@@ -26,6 +29,7 @@ public class PlayImageSequence : MonoBehaviour
 
    public void StopAnimation()
    {
+       if(sprites.Count > 0) image.sprite = sprites[0];
        StopAllCoroutines();
    }
 
