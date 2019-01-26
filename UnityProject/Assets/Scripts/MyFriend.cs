@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 // todo: forward declaration. can be removed later
@@ -23,20 +24,31 @@ public class MyFriend : MonoBehaviour
     };
 
     // Keeps a distraction queue
-    private Queue<Distraction> distractionQueue;
+    private Queue<Distraction> distractionQueue = new Queue<Distraction>();
 
     private State lastState;
 
+    [SerializeField]
     private State currentState;
 
     private State nextState;
+    
+    private bool catchSnooping;  // set by a callback function
 
-    private bool activeSnoop;  // set by a callback function
+    private bool distractionStarted; 
 
-    private float distractionTimer;  // start timer when a distraciton starts. 
-    // end when it reaches the distractio duration
+    private Action OnDistractionTimeOut;
 
-    private Distraction currentDistraction;
+    private MoveableObject moveableObject;
+
+    private Vector3 destination;
+
+    [SerializeField]
+    private GameObject player;
+
+    // todo: mock
+    [SerializeField]
+    private Distraction sendInDistraction;
 
     [SerializeField]
     private float nearDistance = 1.0f; // when the player is near, stop approach
@@ -46,22 +58,42 @@ public class MyFriend : MonoBehaviour
 
     [SerializeField]
     private float reachDistance = 1.0f; // when the player reaches a position
-
+    
     // Add distraction to the end of queue
+    // Called by the Distraction
     public void EnqueueDistraction(Distraction inDistraction)
     {
+        Debug.Log("EnqueueDistraction");
         distractionQueue.Enqueue(inDistraction);
+        moveableObject.MoveToPosition(inDistraction.Destination);
+    }
+
+    public bool IsWatchful()
+    {
+        return currentState == State.WATCHFUL;
     }
 
     // Get the first distraction from the queue
     private Distraction GetDistraction()
     {
-        return distractionQueue.Peek();
+        if (IsDistracted())
+        {
+            return distractionQueue.Peek();
+        }
+        return null;
     }
 
     private void RemoveDistraction()
     {
-        distractionQueue.Dequeue();
+        Debug.Log("RemoveDistraction");
+        distractionStarted = false;
+        OnDistractionTimeOut -= RemoveDistraction;
+        if (IsDistracted())
+        {
+            // send end event to the distraction and remove it from the queue
+            GetDistraction().EndDistraction();
+            distractionQueue.Dequeue();
+        }
     }
 
     // Initialize
@@ -82,7 +114,7 @@ public class MyFriend : MonoBehaviour
 
     private void Start()
     {
-        
+        moveableObject = GetComponent<MoveableObject>();
     }
 
     // Update the state machine
@@ -93,13 +125,13 @@ public class MyFriend : MonoBehaviour
             // WATCHFUL state: not move, just look around
             UpdateWatchful();
 
-            // go to CATCH state if it sees the action
-            if (activeSnoop)
+            // go to CATCH state if it catches the snooping action
+            if (catchSnooping)
             {
                 nextState = State.CATCH;  // todo: end game
             }
 
-            // go to NOT_WATCHFUL if the distraction queue is not empty
+            // go to BE_DISTRACTED if the distraction queue is not empty
             if (IsDistracted())
             {
                 nextState = State.BE_DISTRACTED;
@@ -114,6 +146,12 @@ public class MyFriend : MonoBehaviour
         else if (currentState == State.APPROACH)
         {
             UpdateApproach();
+
+            // go to BE_DISTRACTED if the distraction queue is not empty
+            if (IsDistracted())
+            {
+                nextState = State.BE_DISTRACTED;
+            }
 
             // go to WATCHFUL state when the player is near
             if (IsPlayerNear())
@@ -137,6 +175,29 @@ public class MyFriend : MonoBehaviour
     {
         lastState = currentState;
         currentState = nextState;
+
+        UpdateInput();
+    }
+
+    private void UpdateInput()
+    {
+        if (Input.GetButtonDown("Watchful"))
+        {
+            nextState = State.WATCHFUL;
+        }
+        else if (Input.GetButtonDown("Be Distracted"))
+        {
+            // mock
+            EnqueueDistraction(sendInDistraction);
+        }
+        else if (Input.GetButtonDown("Approach"))
+        {
+            nextState = State.APPROACH;
+        }
+        else if (Input.GetButtonDown("Catch"))
+        {
+            nextState = State.CATCH;
+        }
     }
 
     private void Initialize()
@@ -149,19 +210,27 @@ public class MyFriend : MonoBehaviour
         // clear queue
         distractionQueue.Clear();
 
-        activeSnoop = false;
-        distractionTimer = 0;
+        catchSnooping = false;
+        distractionStarted = false;
+
+        destination = transform.position;
     }
 
     private bool IsPlayerFar()
     {
-        float distance = Vector3.Distance(Player.Instance.transform.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        return distance > farDistance;
+    }
+
+    private bool IsPlayerFar(Vector3 position)
+    {
+        float distance = Vector3.Distance(player.transform.position, position);
         return distance > farDistance;
     }
 
     private bool IsPlayerNear()
     {
-        float distance = Vector3.Distance(Player.Instance.transform.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position, transform.position);
         return distance < nearDistance;
     }
 
@@ -178,36 +247,35 @@ public class MyFriend : MonoBehaviour
 
     private void UpdateWatchful()
     {
-        // todo: look around
+        // nothing happens
     }
 
     private void UpdateApproach()
     {
-        if (lastState != currentState)
+        if (IsPlayerFar(destination))
         {
-            // todo: use the nav mesh to move to destination
+            destination = player.transform.position;
+            moveableObject.MoveToPosition(destination);
         }
     }
 
     private void UpdateBeDistracted()
     {
-        if (lastState != currentState)
+        if (GetDistraction() == null)
         {
-            currentDistraction = GetDistraction();
-            // todo: use the nav mesh to move to destination
+            // early return
             return;
         }
 
-        if (IsReached(currentDistraction.Destination))
+        if (IsReached(GetDistraction().Destination) && distractionStarted == false)
         {
-            distractionTimer = 0;
-        }
-
-        // wait for a duration, and remove the distraction from the queue
-        distractionTimer += Time.deltaTime;
-        if (distractionTimer >= currentDistraction.Duration)
-        {
-            RemoveDistraction();
+            // start timer, when the time is out, call remove distraction
+            Debug.Log("UpdateBeDistracted start timer for " + GetDistraction().Duration + " s");
+            destination = transform.position;
+            distractionStarted = true;
+            OnDistractionTimeOut -= RemoveDistraction;
+            OnDistractionTimeOut += RemoveDistraction;
+            Timer.RunTimer(GetDistraction().Duration, OnDistractionTimeOut);
         }
     }
 }
