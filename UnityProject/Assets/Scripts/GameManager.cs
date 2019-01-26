@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public const float DEFAULT_DIALOG_DURATION = 3.0f;
 
+    public static int score = 0;
+
+    public static List<string> learned = new List<string>();
+
     // Start is called before the first frame update
     void Start()
     {

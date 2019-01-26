@@ -40,6 +40,7 @@ public class MoveableObject : MonoBehaviour
         {
             if(Vector3.Distance(targetPosition, this.transform.position) <= 3)
             {
+                agent.isStopped = true;
                 isMoving = false;
                 playImageSequence.StopAnimation();
                 if (onReachedDestination != null) onReachedDestination();
@@ -49,6 +50,7 @@ public class MoveableObject : MonoBehaviour
 
     public void MoveToPosition(Vector3 pos)
     {
+        agent.isStopped = false;
         isMoving = true;
         targetPosition = pos;
         Vector3 heading = (pos - this.transform.position).normalized;
