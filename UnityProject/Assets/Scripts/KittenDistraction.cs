@@ -7,7 +7,7 @@ public class KittenDistraction : MonoBehaviour
     public List<Sprite> inactive;
     public List<Sprite> active;
 
-    public float duration = 4.0f + Random.Range(0.0f, 4.0f);
+    public float duration;
 
     private Distraction kitten;
 
@@ -17,7 +17,7 @@ public class KittenDistraction : MonoBehaviour
         this.kitten.active = this.active;
         this.kitten.inactive = this.inactive;
         this.kitten.name = "kitten";
-        this.kitten.duration = this.duration;
+        this.kitten.duration =  4.0f + Random.Range(0.0f, 4.0f);
         //Vector3 pos = GameObject.transform.position;
         //this.kitten.location = new Vector2(pos.x, pos.z);
     }

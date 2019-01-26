@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Distraction
 {
+    public float Duration;
+    public Vector3 Destination;
     public string name;
 
     public List<Sprite> inactive; // public for easy component editing

@@ -1,13 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
-// todo: forward declaration. can be removed later
-public partial class Distraction
-{
-    public float Duration;
-    public Vector3 Destination;
-}
+
 
 // todo: forward declaration. can be removed later
 public partial class Player
@@ -15,7 +9,7 @@ public partial class Player
     public static Player Instance;
     public Transform transform;
 }
-*/
+
 public class MyFriend : MonoBehaviour
 {
     // Make it a singleton
