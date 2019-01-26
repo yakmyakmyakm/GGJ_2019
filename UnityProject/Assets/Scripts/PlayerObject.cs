@@ -52,16 +52,17 @@ public class PlayerObject : MonoBehaviour
         moveableObject.onReachedDestination = null;
         currentDistraction = target.GetComponent<Distraction>();
         currentDistraction.StartPlayerDistraction();
-        currentDistraction.progressBar.Increase(currentDistraction.duration);
-        currentDistraction.progressBar.onCompleteIncrease = DoneDistracting;
+        // currentDistraction.progressBar.Increase(0.1f);
+        // currentDistraction.progressBar.onCompleteIncrease = DoneDistracting;
+        currentState = State.IDLE;
     }
 
-    void DoneDistracting()
-    {
-        currentState = State.IDLE;
-        currentDistraction.EndPlayerDistraction();
-        currentDistraction.progressBar.onCompleteIncrease = null;
-    }
+    // void DoneDistracting()
+    // {
+        
+    //     currentDistraction.EndPlayerDistraction();
+    //     currentDistraction.progressBar.onCompleteIncrease = null;
+    // }
 
     void MoveToSnoopable(GameObject o)
     {
