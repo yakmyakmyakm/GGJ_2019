@@ -35,7 +35,12 @@ public class Snoop : Interactable
     {
         currentAnim = this.active;
         isActive = true;
-        // crc do delegate dance
+
+        if(MyFriend.Instance.IsWatchful())
+        {
+            //trigger endgame if the AI watches either start or end
+        }
+
 
         playImageSequence.StartAnimation(active);
     }
@@ -48,7 +53,7 @@ public class Snoop : Interactable
 
     public void AIInterruptSnoop()
     {
-
+        // XXX this should never happen
     }
 
     public void EndSnoop()
@@ -56,6 +61,11 @@ public class Snoop : Interactable
         currentAnim = this.inactive;
         isActive = false;
         // crc do delegate dance
+
+        if (MyFriend.Instance.IsWatchful())
+        {
+            //trigger endgame if the AI watches either start or end
+        }
 
         playImageSequence.StartAnimation(inactive);
     }

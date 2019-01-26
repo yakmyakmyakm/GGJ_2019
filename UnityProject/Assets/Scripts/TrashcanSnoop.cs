@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class TrashcanSnoop : Snoop
 {
-    // public List<Sprite> inactive;
-    // public List<Sprite> active;
+    public void StartSnoop() {
+        base.StartSnoop();
+    }
 
-    //public float duration = 1.0f;
+    public void EndSnoop() {
+        base.EndSnoop();
+        TalkingManager.instance.AddSpeechData(
+        CharacterType.EVIDENCE,
+        "Hmm, an empty bottle of chloroform. They must be super into organic chemistry!",
+        GameManager.DEFAULT_DIALOG_DURATION
+        );
 
-    //private Snoop trashcan;
+        GameManager.learned.Add("Your love of organic chemistry!");
+        GameManager.score += 20;
+    }
+
 
     public int OnAwardSoulPoints()
     {
@@ -27,14 +37,8 @@ public class TrashcanSnoop : Snoop
 
     void Awake()
     {
-//         this.trashcan = new Snoop();
-//         this.trashcan.active = this.active;
-//         this.trashcan.inactive = this.inactive;
-//         this.trashcan.name = "trashcan";
-//         this.trashcan.duration = this.duration;
-// //        Vector3 pos = GameObject.transform.position;
-// //        this.trashcan.location = new Vector2(pos.x, pos.z);
-//         this.trashcan.OnAwardSoulPoints = this.OnAwardSoulPoints;
+        name = "trashcan";
+        Duration = 2.0f + Random.Range(0.0f, 1.0f);
     }
 
     // Start is called before the first frame update
