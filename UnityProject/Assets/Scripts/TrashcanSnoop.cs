@@ -7,7 +7,7 @@ public class TrashcanSnoop : Snoop
     // public List<Sprite> inactive;
     // public List<Sprite> active;
 
-    public float duration = 1.0f;
+    //public float duration = 1.0f;
 
     //private Snoop trashcan;
 

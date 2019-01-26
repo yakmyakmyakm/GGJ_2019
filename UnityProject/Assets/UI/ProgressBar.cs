@@ -9,6 +9,7 @@ public class ProgressBar : MonoBehaviour
     public Image fillImage;
 
     public Action onCompleteIncrease;
+    public Action onCompleteDecrease;
 
     public void Show()
     {
@@ -22,12 +23,14 @@ public class ProgressBar : MonoBehaviour
 
     public void Decrease(float time)
     {
+         Show();
         Ease.Go(this, 1, 0, time, SetFill, DoneDecreasing, Ease.Type.Linear);
     }
 
     void DoneDecreasing()
     {
-
+        if(onCompleteDecrease != null) onCompleteDecrease();
+        Hide();
     }
 
     public void Increase(float time)
@@ -45,18 +48,5 @@ public class ProgressBar : MonoBehaviour
     public void SetFill(float value)
     {
         fillImage.fillAmount = value;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Increase(5);
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Decrease(5);
-        }
     }
 }

@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     public Action<Vector3> onHitLocation;
 
     public Action<GameObject> onHitDistraction;
+    public Action<GameObject> onHitSnoopable;
 
     void Update()
     {
@@ -26,7 +27,7 @@ public class InputManager : MonoBehaviour
                 }
                 else if (hit.transform.CompareTag("Snoopable"))
                 {
-
+                    if(onHitSnoopable != null) onHitSnoopable(hit.transform.gameObject);
                 }
                 else
                 {

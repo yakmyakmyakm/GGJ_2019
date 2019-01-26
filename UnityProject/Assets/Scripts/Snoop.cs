@@ -33,17 +33,21 @@ public class Snoop : Interactable
         return Type.Snoop;
     }
 
-    public void StartDistraction()
+    public void StartSnoop()
     {
         currentAnim = this.active;
         isActive = true;
         // crc do delegate dance
+
+        playImageSequence.StartAnimation(active);
     }
 
-    public void EndDistraction()
+    public void EndSnoop()
     {
         currentAnim = this.inactive;
         isActive = false;
         // crc do delegate dance
+
+        playImageSequence.StartAnimation(inactive);
     }
 }

@@ -7,24 +7,32 @@ public class PlayerObject : MonoBehaviour
     InputManager inputManager;
     MoveableObject moveableObject;
 
-    GameObject targetDistraction;
+    GameObject target;
+    Distraction currentDistraction;
+    Snoop currentSnoop;
 
     void Start()
     {
         inputManager = GetComponent<InputManager>();
         moveableObject = GetComponent<MoveableObject>();
-        
+
 
         inputManager.onHitLocation += MoveObject;
         inputManager.onHitDistraction += MoveToDistraction;
+        inputManager.onHitSnoopable += MoveToSnoopable;
 
     }
 
-    Distraction currentDistraction;
-    
-    void ReachedDestination()
+    void MoveToDistraction(GameObject o)
     {
-        currentDistraction = targetDistraction.GetComponent<Distraction>();
+        target = o;
+        moveableObject.onReachedDestination = ReachedDistractionDestination;
+        moveableObject.MoveToPosition(o.transform.position);
+    }
+
+    void ReachedDistractionDestination()
+    {
+        currentDistraction = target.GetComponent<Distraction>();
         currentDistraction.StartDistraction();
         currentDistraction.progressBar.Increase(currentDistraction.duration);
         currentDistraction.progressBar.onCompleteIncrease = DoneDistracting;
@@ -35,11 +43,24 @@ public class PlayerObject : MonoBehaviour
         currentDistraction.EndDistraction();
     }
 
-    void MoveToDistraction(GameObject o)
+    void MoveToSnoopable(GameObject o)
     {
-        targetDistraction = o;
-        moveableObject.onReachedDestination = ReachedDestination;
-        moveableObject.MoveToPosition(o.transform.position);    
+        target = o;
+        moveableObject.onReachedDestination = ReachedSnoopDestination;
+        moveableObject.MoveToPosition(o.transform.position);
+    }
+
+    void ReachedSnoopDestination()
+    {
+        currentSnoop = target.GetComponent<Snoop>();
+        currentSnoop.StartSnoop();
+        currentSnoop.progressBar.Decrease(currentSnoop.Duration);
+        currentSnoop.progressBar.onCompleteDecrease = DoneSnooping;
+    }
+
+    void DoneSnooping()
+    {
+        currentSnoop.EndSnoop();
     }
 
     void MoveObject(Vector3 position)
