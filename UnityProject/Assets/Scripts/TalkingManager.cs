@@ -17,48 +17,113 @@ public class TalkingManager : MonoBehaviour
     public static TalkingManager instance;
 
     public InputManager inputManager;
+    public EvidenceManager evidenceManager;
 
-    void Awake() 
+    [System.Serializable]
+    public class SpeechData
+    {
+        public SpeechData(CharacterType type, string text, float time)
+        {
+            this.characterType = type;
+            this.text = text;
+            this.time = time;
+        }
+
+        public SpeechData() { }
+
+        public string text;
+        public float time;
+        public CharacterType characterType;
+    }
+
+    public List<SpeechData> speeches = new List<SpeechData>();
+
+    void Awake()
     {
         TalkingManager.instance = this;
         player.HideBubble();
         ai.HideBubble();
+        inputManager.onEvidenceMouseClick = EvidenceMouseClick;
     }
 
-    public void Speak(CharacterType character, string textToSay, float time)
+    public int conversationIndex;
+    IEnumerator conversation;
+    IEnumerator Conversation()
     {
-        switch(character)
+        SpeechData data = speeches[conversationIndex];
+        Speak(data.characterType, data.text, data.time);
+        yield return new WaitForSeconds(data.time);
+        conversationIndex++;
+        if (conversationIndex >= speeches.Count)
+        {
+            inputManager.SetState(InputManager.State.MOVEMENT);
+            conversation = null;
+        }
+        else
+        {
+            conversation = Conversation();
+            StartCoroutine(conversation);
+        }
+
+        //pass to next string on mouseclick
+    }
+
+    void Speak(CharacterType character, string textToSay, float time)
+    {
+        switch (character)
         {
             case CharacterType.PLAYER: player.Speak(time, textToSay); break;
             case CharacterType.AI: ai.Speak(time, textToSay); break;
+            case CharacterType.EVIDENCE:
+                evidenceManager.ShowEvidence();
+                inputManager.SetState(InputManager.State.EVIDENCE);
+                break;
         }
+    }
+
+    public void AddSpeechData(CharacterType character, string textToSay, float time)
+    {
+        inputManager.SetState(InputManager.State.CONVERSATION);
+        speeches.Add(new SpeechData(character, textToSay, time));
+
+        if (conversation == null)
+        {
+            conversation = Conversation();
+            StartCoroutine(conversation);
+        }
+    }
+
+    void EvidenceMouseClick()
+    {
+        evidenceManager.HideEvidence();
+        inputManager.SetState(InputManager.State.MOVEMENT);
     }
 
     public void EnterConvoMode()
     {
-        inputManager.SetState(InputManager.State.CONVERSATION);
+
     }
 
     public void ExitConvoMode()
     {
-        inputManager.SetState(InputManager.State.MOVEMENT);
+
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            Speak(CharacterType.PLAYER, "HELLO!", 3);
+            AddSpeechData(CharacterType.PLAYER, "HELLO!", 3);
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            Speak(CharacterType.PLAYER, "HaaaaaHa!", 3);
+            AddSpeechData(CharacterType.PLAYER, "HaaaaaHa!", 3);
         }
 
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            Speak(CharacterType.AI, "SUP!", 3);
+            AddSpeechData(CharacterType.AI, "SUP!", 3);
         }
     }
 }

@@ -22,36 +22,37 @@ public class KittenDistraction : Distraction
     {
         base.StartPlayerDistraction();
         //MyFriend.Instance.EnqueueDistraction(this);
-        TalkingManager.instance.EnterConvoMode();
-        TalkingManager.instance.Speak(
+
+        TalkingManager.instance.AddSpeechData(
             CharacterType.AI,
             "Seriously, kicking a kitten?",
             GameManager.DEFAULT_DIALOG_DURATION
         );
-        TalkingManager.instance.Speak(
+        TalkingManager.instance.AddSpeechData(
             CharacterType.AI,
             "That is messed up! Poor kitty.",
             GameManager.DEFAULT_DIALOG_DURATION
         );
-        TalkingManager.instance.ExitConvoMode();
-        Debug.Log("kitten distractin");
-        base.StartAIDistraction();
+
+        //AI can begin moving
+        //base.StartAIDistraction();
     }
 
+    //AI calls when compelte fixing
      public override void EndDistraction()
     {
-        TalkingManager.instance.EnterConvoMode();
-        TalkingManager.instance.Speak(
+
+        TalkingManager.instance.AddSpeechData(
             CharacterType.PLAYER,
             "I'm sorry I kicked the cat.",
             GameManager.DEFAULT_DIALOG_DURATION
         );
-        TalkingManager.instance.Speak(
+        TalkingManager.instance.AddSpeechData(
             CharacterType.AI,
             "Why are we even friends?",
             GameManager.DEFAULT_DIALOG_DURATION
         );
-        TalkingManager.instance.ExitConvoMode();
+
         base.EndDistraction();
 
         Debug.Log("complete kitten distractin");
