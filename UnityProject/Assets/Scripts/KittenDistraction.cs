@@ -21,12 +21,39 @@ public class KittenDistraction : Distraction
     public override void StartPlayerDistraction()
     {
         base.StartPlayerDistraction();
+        //MyFriend.Instance.EnqueueDistraction(this);
+        TalkingManager.instance.EnterConvoMode();
+        TalkingManager.instance.Speak(
+            CharacterType.AI,
+            "Seriously, kicking a kitten?",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
+        TalkingManager.instance.Speak(
+            CharacterType.AI,
+            "That is messed up! Poor kitty.",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
+        TalkingManager.instance.ExitConvoMode();
         Debug.Log("kitten distractin");
+        base.StartAIDistraction();
     }
 
      public override void EndDistraction()
     {
+        TalkingManager.instance.EnterConvoMode();
+        TalkingManager.instance.Speak(
+            CharacterType.PLAYER,
+            "I'm sorry I kicked the cat.",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
+        TalkingManager.instance.Speak(
+            CharacterType.AI,
+            "Why are we even friends?",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
+        TalkingManager.instance.ExitConvoMode();
         base.EndDistraction();
+
         Debug.Log("complete kitten distractin");
     }
 
