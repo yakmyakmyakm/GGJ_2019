@@ -2,22 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstrat class Snoop
+public class Snoop
 {
-    public Start();
+    public string name;
 
-    public float duration; // time required, in seconds, to inspect
-    public int soulpoints;
+    public List<Sprite> inactive;
+    public List<Sprite> active;
 
+    private List<Sprite> currentAnim;
     private bool isActive;
 
     public bool IsActive
     {
         get
         {
-            return this.isActive;
+            return isActive;
         }
     }
 
-    public Caught();
+    public float duration; // time required, in seconds, to inspect
+
+    public Vector2 location; // (x,z) constrained to the floor
+
+    public delegate int IntDelegate();
+
+    public IntDelegate OnAwardSoulPoints;
+
+    public void StartDistraction()
+    {
+        currentAnim = this.active;
+        isActive = true;
+        // crc do delegate dance
+    }
+
+    public void EndDistraction()
+    {
+        currentAnim = this.inactive;
+        isActive = false;
+        // crc do delegate dance
+    }
 }

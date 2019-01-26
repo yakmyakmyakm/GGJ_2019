@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Distraction
+public class Distraction
 {
-    public Start();
-
     public string name;
 
-    public float duration; // fixed duration of distraction
-    public float durationRandom; // uniform distribution, added to duration
+    public List<Sprite> inactive; // public for easy component editing
+    public List<Sprite> active;
 
-    private bool isActive;
+    private List<Sprite> currentAnim;
 
-    public bool IsActive
+    public float duration; //  duration of distraction
+    public Vector2 location; // (x,z) on the floor
+
+    delegate void Handler();
+
+    Handler OnStart = () => { };
+    Handler OnEnd = () => { };
+
+    public void StartDistraction()
     {
-        get
-        {
-            return this.isActive;
-        }
+        currentAnim = active;
+        this.OnStart();
+        MyFriend.Instance.EnqueueDistraction(this);
     }
 
-    public UnityEvent end;
+    public void EndDistraction ()
+    {
+        currentAnim = inactive;
+        this.OnEnd();
+
+    }
 
 }
