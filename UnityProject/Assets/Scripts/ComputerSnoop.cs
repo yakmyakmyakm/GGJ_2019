@@ -41,8 +41,6 @@ public class ComputerSnoop : Snoop
             );
         }
 
-        GameManager.instance.ComposeLitany();
-
         bool isGood = GameManager.instance.RollFinalOutcome();
 
         if (isGood)
