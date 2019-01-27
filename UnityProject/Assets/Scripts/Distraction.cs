@@ -18,6 +18,8 @@ public class Distraction : Interactable
 
     public int distractedCount = 0;
 
+    public bool isActiveForPlayer = true;
+
     public override Interactable.Type GetInteractableType()
     {
         return Type.Distraction;
@@ -25,21 +27,27 @@ public class Distraction : Interactable
 
     public virtual void StartPlayerDistraction()
     {
-        this.OnStart();
-        MyFriend.Instance.EnqueueDistraction(this);
+        if (isActiveForPlayer)
+        {
+            isActiveForPlayer = false;
+            this.OnStart();
+            MyFriend.Instance.EnqueueDistraction(this);
 
-        // if(animSprite.Count > 0)
-        // {
-        //     playImageSequence.StartAnimationOnce(animSprite);
-        // }else
-        // {
-        //     playImageSequence.SetImage(isDistracting);
-        // }
-        image.overrideSprite = isDistracting;
+            // if(animSprite.Count > 0)
+            // {
+            //     playImageSequence.StartAnimationOnce(animSprite);
+            // }else
+            // {
+            //     playImageSequence.SetImage(isDistracting);
+            // }
+            image.overrideSprite = isDistracting;
+        }
+
     }
 
     public virtual void EndDistraction()
     {
+        isActiveForPlayer = true;
         distractedCount++;
         image.overrideSprite = canDistract;
     }
@@ -63,6 +71,6 @@ public class Distraction : Interactable
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
 
         image.sprite = canDistract;
-    
+
     }
 }

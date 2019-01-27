@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BackpackSnoop : Snoop
 {
-    public void StartSnoop()
+    public override void StartSnoop()
     {
         base.StartSnoop();
     }

@@ -7,15 +7,8 @@ public class Snoop : Interactable
     public Sprite idle;
     public Sprite snooped;
 
-    private bool isActive;
+    public bool isActiveForPlayer = true;
 
-    public bool IsActive
-    {
-        get
-        {
-            return isActive;
-        }
-    }
 
     public Vector2 location; // (x,z) constrained to the floor
 
@@ -41,25 +34,22 @@ public class Snoop : Interactable
 
     public virtual void StartSnoop()
     {
-        isActive = true;
-
-        //enable to endgame
-        // if (MyFriend.Instance.IsPlayerCaught())
-        // {
-        //     //trigger endgame if the AI watches either start or end
-        //     GameManager.instance.EndGame(true);
-        // }
+        if (isActiveForPlayer)
+        {
+            isActiveForPlayer = false;
 
 
-        //playImageSequence.StartAnimation(active);
+            //playImageSequence.StartAnimation(active);
 
-        if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
-        if (playerProgressBarStart) playerProgressBarStart.Raise();
+            if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
+            if (playerProgressBarStart) playerProgressBarStart.Raise();
 
-        if (snooped != null) playImageSequence.SetImage(snooped);
-        if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
-        progressBar.Increase(Duration);
-        progressBar.onCompleteIncrease = EndSnoop;
+            if (snooped != null) playImageSequence.SetImage(snooped);
+            if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
+            progressBar.Increase(Duration);
+            progressBar.onCompleteIncrease = EndSnoop;
+        }
+
     }
 
     public void PlayerInterruptSnoop()
@@ -79,13 +69,7 @@ public class Snoop : Interactable
     {
         //currentAnim = this.inactive;
         playImageSequence.SetImage(idle);
-        isActive = false;
-
-        //enable to endgame
-        // if (MyFriend.Instance.IsPlayerCaught())
-        // {
-        //     GameManager.instance.EndGame(true);
-        // }
+        isActiveForPlayer = true;
 
         // if (playImageSequence) playImageSequence.StartAnimation(inactive);
         // if (playerProgressBarEnd) playerProgressBarEnd.Raise();

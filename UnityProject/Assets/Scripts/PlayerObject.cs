@@ -35,7 +35,7 @@ public class PlayerObject : MonoBehaviour
     void Start()
     {
         startingPos = this.transform.position;
-        
+
         inputManager = GetComponent<InputManager>();
         moveableObject = GetComponent<MoveableObject>();
 
@@ -76,18 +76,12 @@ public class PlayerObject : MonoBehaviour
         currentState = State.DISTRACTING;
         moveableObject.onReachedDestination = null;
         currentDistraction = target.GetComponent<Distraction>();
-        currentDistraction.StartPlayerDistraction();
-        // currentDistraction.progressBar.Increase(0.1f);
-        // currentDistraction.progressBar.onCompleteIncrease = DoneDistracting;
-        currentState = State.IDLE;
-    }
+        if (currentDistraction.isActiveForPlayer)
+        {
+            currentDistraction.StartPlayerDistraction(); 
+        }currentState = State.IDLE;
 
-    // void DoneDistracting()
-    // {
-        
-    //     currentDistraction.EndPlayerDistraction();
-    //     currentDistraction.progressBar.onCompleteIncrease = null;
-    // }
+    }
 
     void MoveToSnoopable(GameObject o)
     {
@@ -105,17 +99,17 @@ public class PlayerObject : MonoBehaviour
         currentState = State.SNOOPING;
         moveableObject.onReachedDestination = null;
         currentSnoop = target.GetComponent<Snoop>();
-        currentSnoop.StartSnoop();
-        // currentSnoop.progressBar.Decrease(currentSnoop.Duration);
-        // currentSnoop.progressBar.onCompleteDecrease = DoneSnooping;
-        Timer.RunTimer(currentSnoop.Duration, DoneSnooping);
+        if (currentSnoop.isActiveForPlayer)
+        {
+            currentSnoop.StartSnoop();
+            Timer.RunTimer(currentSnoop.Duration, DoneSnooping);
+        }
     }
 
     public void DoneSnooping()
     {
         currentState = State.IDLE;
         currentSnoop.EndSnoop();
-        //currentSnoop.progressBar.onCompleteDecrease = null;
     }
 
     void OnMouseButtonUp()

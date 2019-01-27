@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class ReceiptSnoop : Snoop
+public class DresserSnoop : Snoop
 {
-    public void StartSnoop()
+    public override void StartSnoop()
     {
         base.StartSnoop();
     }

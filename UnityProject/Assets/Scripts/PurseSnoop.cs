@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PurseSnoop : Snoop
 {
-    public void StartSnoop()
+    public override void StartSnoop()
     {
         base.StartSnoop();
     }
