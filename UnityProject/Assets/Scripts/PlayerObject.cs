@@ -22,13 +22,18 @@ public class PlayerObject : MonoBehaviour
     Snoop currentSnoop;
     bool isSnooping;
 
+    Vector3 startingPos;
+
     public void Initalize()
     {
         currentState = State.IDLE;
+        this.transform.position = startingPos;
     }
 
     void Start()
     {
+        startingPos = this.transform.position;
+        
         inputManager = GetComponent<InputManager>();
         moveableObject = GetComponent<MoveableObject>();
 
