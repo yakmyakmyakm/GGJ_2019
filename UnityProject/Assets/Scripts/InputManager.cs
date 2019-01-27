@@ -12,7 +12,8 @@ public class InputManager : MonoBehaviour
     public Action releasedMouseButton;
     public Action onConversationClick;
     public Action onEvidenceMouseClick;
-    public Action<State> currentStateChanged;
+    public Action pause;
+    public Action resume;
 
     public enum State
     {
@@ -26,12 +27,12 @@ public class InputManager : MonoBehaviour
     {
         currentState = state;
 
-        // switch (state)
-        // {
-        //     case State.CONVERSATION: Time.timeScale = 0;break;
-        //     case State.EVIDENCE: Time.timeScale = 0;break;
-        //     case State.MOVEMENT: Time.timeScale = 1; break;
-        // }
+        switch (state)
+        {
+            case State.CONVERSATION: if (pause != null) pause(); break;
+            case State.EVIDENCE: if (pause != null) pause(); break;
+            case State.MOVEMENT: if (resume != null) resume(); break;
+        }
     }
 
 
@@ -55,9 +56,9 @@ public class InputManager : MonoBehaviour
 
             case State.CONVERSATION:
                 if (Input.GetMouseButtonUp(0))
-        {
-            if (onConversationClick != null) onConversationClick();
-        }
+                {
+                    if (onConversationClick != null) onConversationClick();
+                }
                 break;
 
             case State.EVIDENCE:
