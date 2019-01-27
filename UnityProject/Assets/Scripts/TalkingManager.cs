@@ -68,7 +68,7 @@ public class TalkingManager : MonoBehaviour
         //pass to next string on mouseclick
     }
 
-    void Speak(CharacterType character, string textToSay, float time)
+    void Speak(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
         switch (character)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 [System.Serializable]
@@ -21,7 +22,8 @@ public class TrashcanSnoop : Snoop
     }
 
     public override void EndSnoop() {
-        TrashCanOptionsData item = data[Random.next(0, data.Count)];
+        int i = Mathf.FloorToInt(Random.Range(0, data.Count));
+        TrashCanOptionsData item = data[i];
 
         TalkingManager.instance.AddSpeechData(
         CharacterType.EVIDENCE,
