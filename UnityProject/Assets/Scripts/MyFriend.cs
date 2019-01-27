@@ -138,10 +138,10 @@ public class MyFriend : MonoBehaviour
     private void Update()
     {
         // Early return
-        if (isPaused)
-        {
-            return;
-        }
+        // if (isPaused)
+        // {
+        //     return;
+        // }
 
         if (currentState == State.WATCHFUL)
         {

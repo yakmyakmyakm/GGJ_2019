@@ -22,11 +22,11 @@ public class Distraction : Interactable
 
     public virtual void StartPlayerDistraction()
     {
+        Debug.Log("start distraction");
         currentAnim = active;
         this.OnStart();
-        //MyFriend.Instance.EnqueueDistraction(this);
-
-         playImageSequence.StartAnimationOnce(active);
+        MyFriend.Instance.EnqueueDistraction(this);
+        playImageSequence.StartAnimationOnce(active);
     }
 
     public virtual void EndDistraction()

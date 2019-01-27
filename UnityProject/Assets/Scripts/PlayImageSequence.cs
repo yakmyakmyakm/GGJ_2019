@@ -65,6 +65,6 @@ public class PlayImageSequence : MonoBehaviour
             StartCoroutine(RunAnimationOnce());
         }
 
-        Debug.Log(index + " " + sprites.Count);
+        //Debug.Log(index + " " + sprites.Count);
     }
 }

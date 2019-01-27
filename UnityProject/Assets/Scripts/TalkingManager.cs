@@ -22,6 +22,14 @@ public class TalkingManager : MonoBehaviour
     [System.Serializable]
     public class SpeechData
     {
+        public SpeechData(CharacterType type, string text, float time, Sprite s)
+        {
+            this.characterType = type;
+            this.text = text;
+            this.time = time;
+            this.s = s;
+        }
+
         public SpeechData(CharacterType type, string text, float time)
         {
             this.characterType = type;
@@ -31,6 +39,7 @@ public class TalkingManager : MonoBehaviour
 
         public SpeechData() { }
 
+        public Sprite s;
         public string text;
         public float time;
         public CharacterType characterType;
@@ -81,7 +90,7 @@ public class TalkingManager : MonoBehaviour
         }
     }
 
-    public void AddSpeechData(CharacterType character, string textToSay, float time)
+    public void AddSpeechData(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
         inputManager.SetState(InputManager.State.CONVERSATION);
         speeches.Add(new SpeechData(character, textToSay, time));
