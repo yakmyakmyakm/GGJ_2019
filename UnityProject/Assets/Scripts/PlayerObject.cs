@@ -24,6 +24,8 @@ public class PlayerObject : MonoBehaviour
 
     Vector3 startingPos;
 
+    private ProgressBar progressBar;
+
     public void Initalize()
     {
         currentState = State.IDLE;
@@ -91,15 +93,15 @@ public class PlayerObject : MonoBehaviour
         moveableObject.onReachedDestination = null;
         currentSnoop = target.GetComponent<Snoop>();
         currentSnoop.StartSnoop();
-        currentSnoop.progressBar.Decrease(currentSnoop.Duration);
-        currentSnoop.progressBar.onCompleteDecrease = DoneSnooping;
+        //currentSnoop.progressBar.Decrease(currentSnoop.Duration);
+        //currentSnoop.progressBar.onCompleteDecrease = DoneSnooping;
     }
 
     void DoneSnooping()
     {
         currentState = State.IDLE;
         currentSnoop.EndSnoop();
-        currentSnoop.progressBar.onCompleteDecrease = null;
+        //currentSnoop.progressBar.onCompleteDecrease = null;
     }
 
     void OnMouseButtonUp()

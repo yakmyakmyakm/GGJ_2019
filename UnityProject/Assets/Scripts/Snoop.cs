@@ -26,6 +26,15 @@ public class Snoop : Interactable
 
     public IntDelegate OnAwardSoulPoints;
 
+    [SerializeField]
+    private FloatVariable currentSnoopingDuration;
+
+    [SerializeField]
+    private GameEvent playerProgressBarStart;
+
+    [SerializeField]
+    private GameEvent playerProgressBarEnd;
+
     public override Interactable.Type GetInteractableType()
     {
         return Type.Snoop;
@@ -43,12 +52,17 @@ public class Snoop : Interactable
 
 
         playImageSequence.StartAnimation(active);
+
+        if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
+        if (playerProgressBarStart) playerProgressBarStart.Raise();
     }
 
     public void PlayerInterruptSnoop()
     {
-        progressBar.StopProgress();
+        //progressBar.StopProgress();
         playImageSequence.SetImage(active[0]);
+
+        if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }
 
     public void AIInterruptSnoop()
@@ -67,16 +81,13 @@ public class Snoop : Interactable
         //     //trigger endgame if the AI watches either start or end
         // }
 
-        playImageSequence.StartAnimation(inactive);
+        if (playImageSequence) playImageSequence.StartAnimation(inactive);
+        if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }
 
     void Start()
     {
-        if (progressBar == null)
-            progressBar = this.transform.Find("ProgressBar").GetComponent<ProgressBar>();
-
         if (playImageSequence == null)
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
-
     }
 }

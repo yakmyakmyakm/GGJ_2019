@@ -46,6 +46,9 @@ public class MyFriend : MonoBehaviour
     private Vector3 destination;
 
     [SerializeField]
+    private FloatVariable currentDistractionDuration;
+
+    [SerializeField]
     private GameObject player;
 
     // todo: mock
@@ -120,6 +123,10 @@ public class MyFriend : MonoBehaviour
             // send end event to the distraction and remove it from the queue
             GetDistraction().EndDistraction();
             distractionQueue.Dequeue();
+            if (currentDistractionDuration)
+            {
+                currentDistractionDuration.SetValue(0);
+            }
         }
     }
 
@@ -338,6 +345,10 @@ public class MyFriend : MonoBehaviour
             OnDistractionTimeOut += RemoveDistraction;
             Timer.RunTimer(GetDistraction().Duration, OnDistractionTimeOut);
             GetDistraction().StartAIDistraction();
+            if (currentDistractionDuration)
+            {
+                currentDistractionDuration.SetValue(GetDistraction().Duration);
+            }
         }
     }
 

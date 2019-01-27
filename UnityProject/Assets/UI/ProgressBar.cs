@@ -26,6 +26,12 @@ public class ProgressBar : MonoBehaviour
         Ease.Go(this, 1, 0, time, SetFill, DoneDecreasing, Ease.Type.Linear);
     }
 
+    public void Decrease(FloatVariable time)
+    {
+        Show();
+        Ease.Go(this, 1, 0, time.Value, SetFill, DoneDecreasing, Ease.Type.Linear);
+    }
+
     void DoneDecreasing()
     {
         if (onCompleteDecrease != null) onCompleteDecrease();

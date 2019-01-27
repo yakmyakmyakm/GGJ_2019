@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9024101584997342294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -587,10 +587,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playImageSequence: {fileID: 0}
-  progressBar: {fileID: 6302272030448202440}
   Duration: 0
   inactive: []
   active: []
   currentAnim: []
   Destination: {x: 0, y: 0, z: 0}
   name: 
+  AIProgressBarStart: {fileID: 11400000, guid: 0f267e8f8ecfe134da1bd652911c3fd8, type: 2}
+  AIProgressBarStop: {fileID: 11400000, guid: 1867f043b648e8044ba72f08c7de1c40, type: 2}
