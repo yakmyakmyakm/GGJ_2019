@@ -87,12 +87,13 @@ public class TalkingManager : MonoBehaviour
     void Speak(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
         evidenceManager.HideEvidence();
-        
+
         switch (character)
         {
             case CharacterType.PLAYER:
             case CharacterType.AI:
                 TalkingUI.instance.ShowBubble(character, textToSay);
+                inputManager.SetState(InputManager.State.CONVERSATION);
                 break;
 
             case CharacterType.EVIDENCE:
@@ -129,8 +130,21 @@ public class TalkingManager : MonoBehaviour
 
     void EvidenceMouseClick()
     {
-        evidenceManager.HideEvidence();
-        inputManager.SetState(InputManager.State.MOVEMENT);
+        if (conversationIndex >= speeches.Count-1)
+        {
+            evidenceManager.HideEvidence();
+            inputManager.SetState(InputManager.State.MOVEMENT);
+        }else
+        {
+             if (conversation != null) StopCoroutine(conversation);
+        NextConversation();
+        }
+        // if (conversation == null)
+        // {
+        //     
+        // }
+
+       
     }
 
     void Update()
