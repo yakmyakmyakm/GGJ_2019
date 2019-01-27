@@ -95,7 +95,7 @@ public class ReceiptSnoop : Snoop
 
     void Awake()
     {
-        name = "bed";
+        name = "dresser";
         Duration = 2.0f + Random.Range(0.0f, 1.0f);
     }
 }

@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DresserSnoop.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BackpackSnoop.cs">
     <Files>
       <File FileName="Assets/Scripts/Distraction.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Snoop.cs" Line="1" Column="1" />
@@ -20,6 +20,7 @@
       <File FileName="Assets/Scripts/ThermostatDistraction.cs" Line="44" Column="39" />
       <File FileName="Assets/Scripts/ComputerSnoop.cs" Line="79" Column="96" />
       <File FileName="Assets/Scripts/DresserSnoop.cs" Line="90" Column="84" />
+      <File FileName="Assets/Scripts/BackpackSnoop.cs" Line="102" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
