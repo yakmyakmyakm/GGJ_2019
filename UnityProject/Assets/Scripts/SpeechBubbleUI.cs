@@ -27,7 +27,7 @@ public class SpeechBubbleUI : MonoBehaviour
     IEnumerator ShowDelay()
     {
         yield return new WaitForSecondsRealtime(0.15f);
-        Ease.Go(this, 0, 1, 0.15f, SetAlpha, Done, Ease.Type.Linear);
+        Ease.GoNoTimeScale(this, 0, 1, 0.15f, SetAlpha, Done, Ease.Type.Linear);
     }
 
     public void SetAlpha(float value)
@@ -37,7 +37,7 @@ public class SpeechBubbleUI : MonoBehaviour
 
     public void MoveUp()
     {
-        Ease.Go(this, this.transform.localPosition.y, this.transform.localPosition.y + offsetY, 0.15f, MoveY, Done, Ease.Type.Linear);
+        Ease.GoNoTimeScale(this, this.transform.localPosition.y, this.transform.localPosition.y + offsetY, 0.15f, MoveY, Done, Ease.Type.Linear);
     }
 
     void MoveY(float value)
