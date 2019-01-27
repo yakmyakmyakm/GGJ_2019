@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField]
-    private GameObject startUI, endUI;
+    private GameEvent GameInit, GameStart, GameEnd;
 
     public bool RollFinalOutcome()
     {
@@ -47,30 +47,37 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-        if (startUI)
-            startUI.SetActive(true);
-        if (endUI)
-            endUI.SetActive(false);
+        if (instance == null)
+        {
+            instance = this;
+            if (GameInit)
+                GameInit.Raise();
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this);
     }
 
     public void EndGame(bool isGood)
     {
-        if (endUI)
-            endUI.SetActive(true);
+        if (GameEnd)
+            GameEnd.Raise();
         MyFriend.Instance.EndGame();
     }
 
     public void StartGame()
     {
-        if (startUI)
-            startUI.SetActive(false);
+        if (GameStart)
+            GameStart.Raise();
         MyFriend.Instance.StartGame();
     }
 
     public void ResetGame()
     {
-        if (endUI)
-            endUI.SetActive(false);
+        if (GameStart)
+            GameStart.Raise();
     }
 }
