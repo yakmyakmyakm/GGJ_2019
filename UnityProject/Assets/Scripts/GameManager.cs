@@ -138,5 +138,8 @@ public class GameManager : MonoBehaviour
         snoopedCount = 0;
 
         Debug.Log("RESETTING GAME!!!");
+
+        if (GameInit)
+            GameInit.Raise();
     }
 }

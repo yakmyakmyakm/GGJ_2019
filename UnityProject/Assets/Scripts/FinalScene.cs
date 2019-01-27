@@ -17,6 +17,10 @@ public class FinalScene : MonoBehaviour
 
     public void ShowEnding(int num)
     {
+        if (num >= ends.Count)
+        {
+            num = ends.Count - 1;
+        }
         img.sprite = ends[num];
         this.gameObject.SetActive(true);
         Timer.RunTimer(2, Done, true);
