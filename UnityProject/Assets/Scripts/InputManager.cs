@@ -72,9 +72,8 @@ public class InputManager : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, layerMask))
-        {Debug.Log(hit.transform.name);
-
-
+        {
+            //Debug.Log(hit.transform.name);
             if (hit.transform.CompareTag("Distraction"))
             {
                 if (onHitDistraction != null) onHitDistraction(hit.transform.gameObject);
