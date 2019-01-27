@@ -11,5 +11,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 65195251b754cf84791f695c5c97d5ff, type: 3}
-  m_Name: GameStart
+  m_Name: GameInit
   m_EditorClassIdentifier: 
