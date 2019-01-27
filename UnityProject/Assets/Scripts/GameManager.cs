@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
 
     public static int scoreThreshold = 80; 
     // roll above this on 1dscore for good ending
-
+    
     public static List<string> learned = new List<string>();
 
     public static GameManager instance;
+
+    [SerializeField]
+    private GameObject startUI, endUI;
 
     public bool RollFinalOutcome()
     {
@@ -45,21 +48,24 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        startUI.SetActive(true);
+        endUI.SetActive(false);
     }
 
     public void EndGame(bool isGood)
     {
-
+        endUI.SetActive(true);
+        MyFriend.Instance.EndGame();
     }
 
     public void StartGame()
     {
-
+        startUI.SetActive(false);
+        MyFriend.Instance.StartGame();
     }
 
     public void ResetGame()
     {
-
+        endUI.SetActive(false);
     }
-
 }
