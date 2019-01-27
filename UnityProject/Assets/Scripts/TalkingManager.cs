@@ -100,6 +100,7 @@ public class TalkingManager : MonoBehaviour
 
     public void AddSpeechData(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
+        //todo -- first of convo == delay
         inputManager.SetState(InputManager.State.CONVERSATION);
         speeches.Add(new SpeechData(character, textToSay, time));
 
