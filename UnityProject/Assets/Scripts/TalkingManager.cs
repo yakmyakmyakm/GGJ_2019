@@ -6,7 +6,8 @@ public enum CharacterType
 {
     PLAYER,
     AI,
-    EVIDENCE
+    EVIDENCE,
+    ENDGAME,
 }
 
 public class TalkingManager : MonoBehaviour
@@ -95,6 +96,11 @@ public class TalkingManager : MonoBehaviour
             case CharacterType.EVIDENCE:
                 evidenceManager.ShowEvidence(textToSay, time);
                 inputManager.SetState(InputManager.State.EVIDENCE);
+                break;
+
+            case CharacterType.ENDGAME:
+                Debug.Log("END GAME NOW!");
+                GameManager.instance.EndGame(bool.Parse(textToSay));
                 break;
         }
     }

@@ -83,7 +83,7 @@ public class MyFriend : MonoBehaviour
     // Is my friend in watchful state?
     public bool IsWatchful()
     {
-        return currentState == State.WATCHFUL;
+        return currentState == State.WATCHFUL || currentState == State.APPROACH;
     }
 
     public bool IsPlayerCaught()
@@ -135,7 +135,7 @@ public class MyFriend : MonoBehaviour
             // send end event to the distraction and remove it from the queue
             GetDistraction().EndDistraction();
             distractionQueue.Dequeue();
-            //Debug.Log("Go to new distractin" + distractionQueue.Count);
+
             if(distractionQueue.Count > 0)
             {
                 moveableObject.MoveToPosition(GetDistraction().Destination);

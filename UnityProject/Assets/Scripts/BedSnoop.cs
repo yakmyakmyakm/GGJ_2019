@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BedSnoop : Snoop
 {
-    public void StartSnoop()
+    public override void StartSnoop()
     {
         base.StartSnoop();
     }
@@ -65,8 +65,6 @@ public class BedSnoop : Snoop
                     "Yarr. It be a long, sad tale. Never had I had a mate to tell.",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
-
-                GameManager.instance.EndGame(true);
             }
             else
             {
@@ -80,8 +78,10 @@ public class BedSnoop : Snoop
                     "But I do like teeth. And you have teeth... for another minute or two.",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
-                GameManager.instance.EndGame(false);
+
             }
+
+            TalkingManager.instance.AddSpeechData(CharacterType.ENDGAME, isGood.ToString(), 0);
         }
         base.EndSnoop();
     }
