@@ -1135,10 +1135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snoopObjects:
   - {fileID: 1367563044, guid: 5690059881b624362b22e443e2b0b66f, type: 3}
+  - {fileID: 4258558860753664949, guid: a706f337c8eb74002a48bfcf78bc82e4, type: 3}
   distractionObjects:
   - {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc, type: 3}
   - {fileID: 5053675778145263490, guid: c3359ae866d3b4cea809ad9679845e05, type: 3}
-  - {fileID: 830820351369477303, guid: 4e53361ec321241288e31e08394e82d2, type: 3}
   snoopCount: 3
   distractionCount: 3
   xLimit: 15
