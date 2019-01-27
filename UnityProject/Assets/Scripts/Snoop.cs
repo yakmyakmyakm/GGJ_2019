@@ -74,5 +74,9 @@ public class Snoop : Interactable
     {
         if (progressBar == null)
             progressBar = this.transform.Find("ProgressBar").GetComponent<ProgressBar>();
+
+        if (playImageSequence == null)
+            playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
+
     }
 }

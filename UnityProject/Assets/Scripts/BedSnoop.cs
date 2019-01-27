@@ -29,7 +29,7 @@ public class BedSnoop : Snoop
 
 
         GameManager.learned.Add("How you've lost more teeth than I've even had in my life!");
-        GameManager.score += item.score;
+        //GameManager.score += item.score;
         if (MyFriend.Instance.IsWatchful()) {
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,
@@ -87,17 +87,5 @@ public class BedSnoop : Snoop
     {
         name = "bed";
         Duration = 2.0f + Random.Range(0.0f, 1.0f);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
