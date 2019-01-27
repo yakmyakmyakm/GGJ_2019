@@ -46,4 +46,9 @@ public class Distraction : Interactable
     {
         //playImageSequence.StartAnimation(inactive);
     }
+
+    void Start()
+    {
+        Destination = this.transform.position;
+    }
 }
