@@ -1008,6 +1008,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1478a8f787c74e95a0835bcd2fc70e5,
+        type: 3}
     - target: {fileID: 4510887196295359949, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_AngularSpeed
@@ -1023,12 +1029,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 1014
       objectReference: {fileID: 0}
-    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a1478a8f787c74e95a0835bcd2fc70e5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5e518c4d11e4ceca13f89bd2a29506, type: 3}
 --- !u!1 &1178863317 stripped
@@ -1107,6 +1107,7 @@ MonoBehaviour:
   - {fileID: 1367563044, guid: 5690059881b624362b22e443e2b0b66f, type: 3}
   distractionObjects:
   - {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc, type: 3}
+  - {fileID: 5053675778145263490, guid: c3359ae866d3b4cea809ad9679845e05, type: 3}
   snoopCount: 2
   distractionCount: 2
   xLimit: 15
@@ -2022,6 +2023,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fbb60ddc7be4a4308a8c57619a6cf624,
+        type: 3}
+    - target: {fileID: 4510887196053402255, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4510887196295359949, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_Speed
@@ -2041,6 +2053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510887195637587425, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196053402242, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
@@ -2081,22 +2098,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fbb60ddc7be4a4308a8c57619a6cf624,
-        type: 3}
-    - target: {fileID: 4510887196053402255, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: sprites.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4510887195637587425, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196053402243, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
