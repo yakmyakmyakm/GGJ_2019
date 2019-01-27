@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5589180385184758741}
   - component: {fileID: 10895780737070378}
   - component: {fileID: 8007020507035221541}
+  - component: {fileID: 228886758}
   m_Layer: 0
   m_Name: StartEndScreen
   m_TagString: Untagged
@@ -155,6 +156,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &228886758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870191042695223421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da740f347e584c0792f1999680b1631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t: {fileID: 5314656424850737867}
 --- !u!1001 &4392796809532589106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,7 +262,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Raise
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 670141530942661018, guid: 3ff8de11f53ea3a4481a9d0df53d68b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3ff8de11f53ea3a4481a9d0df53d68b1, type: 3}
 --- !u!1 &5314656425057887056 stripped
 GameObject:
@@ -262,6 +277,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4392796809532589106}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5314656424850737867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8446266564391538425, guid: 3ff8de11f53ea3a4481a9d0df53d68b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4392796809532589106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5314656425322794334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8446266565119445356, guid: 3ff8de11f53ea3a4481a9d0df53d68b1,
@@ -287,16 +314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4018436921520914568}
     m_Modifications:
-    - target: {fileID: 6368773328001396486, guid: f98412fa4e2f67a4e8af7d4056e641c7,
-        type: 3}
-      propertyPath: m_Name
-      value: StartUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6368773328001396486, guid: f98412fa4e2f67a4e8af7d4056e641c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6368773328001396487, guid: f98412fa4e2f67a4e8af7d4056e641c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -350,6 +367,16 @@ PrefabInstance:
     - target: {fileID: 6368773328001396487, guid: f98412fa4e2f67a4e8af7d4056e641c7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368773328001396486, guid: f98412fa4e2f67a4e8af7d4056e641c7,
+        type: 3}
+      propertyPath: m_Name
+      value: StartUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368773328001396486, guid: f98412fa4e2f67a4e8af7d4056e641c7,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6368773329063935681, guid: f98412fa4e2f67a4e8af7d4056e641c7,
