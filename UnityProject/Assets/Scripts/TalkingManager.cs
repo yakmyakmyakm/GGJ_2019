@@ -62,10 +62,13 @@ public class TalkingManager : MonoBehaviour
     IEnumerator conversation;
     IEnumerator Conversation()
     {
-        SpeechData data = speeches[conversationIndex];
-        Speak(data.characterType, data.text, data.time);
-        yield return new WaitForSecondsRealtime(data.time);
-        NextConversation();
+        if (speeches.Count > conversationIndex)
+        {
+            SpeechData data = speeches[conversationIndex];
+            Speak(data.characterType, data.text, data.time);
+            yield return new WaitForSecondsRealtime(data.time);
+            NextConversation();
+        }
     }
 
     void NextConversation()
