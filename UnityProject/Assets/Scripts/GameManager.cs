@@ -48,24 +48,29 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        startUI.SetActive(true);
-        endUI.SetActive(false);
+        if (startUI)
+            startUI.SetActive(true);
+        if (endUI)
+            endUI.SetActive(false);
     }
 
     public void EndGame(bool isGood)
     {
-        endUI.SetActive(true);
+        if (endUI)
+            endUI.SetActive(true);
         MyFriend.Instance.EndGame();
     }
 
     public void StartGame()
     {
-        startUI.SetActive(false);
+        if (startUI)
+            startUI.SetActive(false);
         MyFriend.Instance.StartGame();
     }
 
     public void ResetGame()
     {
-        endUI.SetActive(false);
+        if (endUI)
+            endUI.SetActive(false);
     }
 }
