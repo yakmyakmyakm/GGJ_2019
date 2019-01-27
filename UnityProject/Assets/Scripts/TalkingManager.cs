@@ -102,7 +102,9 @@ public class TalkingManager : MonoBehaviour
                 break;
 
             case CharacterType.ENDGAME:
-                Debug.Log("END GAME NOW!");
+                Debug.Log("Ending Game!");
+                evidenceManager.HideEvidence();
+                TalkingUI.instance.Hide();
                 GameManager.instance.EndGame(bool.Parse(textToSay));
                 speeches.Clear();
                 conversationIndex = 0;
