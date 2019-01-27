@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GenerateItems : MonoBehaviour
 {
+    public Snoop bed;
     public List<Snoop> snoopObjects;
     public List<Distraction> distractionObjects;
     public int snoopCount;

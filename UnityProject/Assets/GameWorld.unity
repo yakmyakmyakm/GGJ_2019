@@ -1853,13 +1853,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8f3c1004da84d0bb7b5f834ed3dc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bed: {fileID: 622359428059839246, guid: 598743f3068ee4147b3fa894b5ce5d10, type: 3}
   snoopObjects:
   - {fileID: 615418791, guid: 44cc9c0f0af5b438da3e9604b0a09cae, type: 3}
-  - {fileID: 622359428059839246, guid: 598743f3068ee4147b3fa894b5ce5d10, type: 3}
+  - {fileID: 1367563044, guid: 5690059881b624362b22e443e2b0b66f, type: 3}
   - {fileID: 4368093464567729974, guid: 29a4aac69fa4049c1a6fbf15f15e0d49, type: 3}
   - {fileID: 6389583441441145815, guid: 0b596f5c2a5404eeda8ac7452765e829, type: 3}
   - {fileID: 176151919, guid: 369f50fe269f040ecbf88f3ae7c720f9, type: 3}
-  - {fileID: 1367563044, guid: 5690059881b624362b22e443e2b0b66f, type: 3}
   distractionObjects:
   - {fileID: 4894592370248071823, guid: 3bfde2b6c15d6438daa7ea2b2fe42ef8, type: 3}
   - {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc, type: 3}
