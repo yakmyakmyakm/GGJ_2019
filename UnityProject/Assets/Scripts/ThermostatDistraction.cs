@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HouseplantDistraction : Distraction
+public class ThermostatDistraction : Distraction
 {
     void Awake()
     {
-        name = "houseplant";
-        Duration = 4.0f + Random.Range(0.0f, 2.0f);
+        name = "thermostat";
+        Duration = 1.0f + Random.Range(0.0f, 5.0f);
     }
 
     public override void StartPlayerDistraction()
@@ -15,8 +15,13 @@ public class HouseplantDistraction : Distraction
         base.StartPlayerDistraction();
 
         TalkingManager.instance.AddSpeechData(
+            CharacterType.PLAYER,
+            "Is it warm in here, or is it just me?",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
+        TalkingManager.instance.AddSpeechData(
             CharacterType.AI,
-            "Did you just push that plant over?",
+            "Oh, no, I spent hours getting the heat just right.",
             GameManager.DEFAULT_DIALOG_DURATION
         );
 
@@ -30,13 +35,13 @@ public class HouseplantDistraction : Distraction
 
         TalkingManager.instance.AddSpeechData(
             CharacterType.AI,
-            "This carpet is very stain-resistant. I spill all kinds of things on it.",
+            "I'm practically cold-blooded.",
             GameManager.DEFAULT_DIALOG_DURATION
         );
 
         base.EndDistraction();
 
-        Debug.Log("complete houseplant distractin");
+        Debug.Log("complete spillwater distractin");
     }
 
     // void BeginDistraction()
