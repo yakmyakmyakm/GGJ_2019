@@ -28,10 +28,10 @@ public class TalkingUI : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         Hide();
     }

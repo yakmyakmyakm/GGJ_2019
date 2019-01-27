@@ -47,11 +47,12 @@ public class Snoop : Interactable
         currentAnim = this.active;
         isActive = true;
 
-        if (MyFriend.Instance.IsPlayerCaught())
-        {
-            //trigger endgame if the AI watches either start or end
-            GameManager.instance.EndGame(true);
-        }
+        //enable to endgame
+        // if (MyFriend.Instance.IsPlayerCaught())
+        // {
+        //     //trigger endgame if the AI watches either start or end
+        //     GameManager.instance.EndGame(true);
+        // }
 
 
         playImageSequence.StartAnimation(active);
@@ -82,15 +83,14 @@ public class Snoop : Interactable
         currentAnim = this.inactive;
         isActive = false;
 
-        if (MyFriend.Instance.IsPlayerCaught())
-        {
-            GameManager.instance.EndGame(true);
-        }
+        //enable to endgame
+        // if (MyFriend.Instance.IsPlayerCaught())
+        // {
+        //     GameManager.instance.EndGame(true);
+        // }
 
         // if (playImageSequence) playImageSequence.StartAnimation(inactive);
         // if (playerProgressBarEnd) playerProgressBarEnd.Raise();
-
-        //if AI is watching end game
     }
 
     void Start()
