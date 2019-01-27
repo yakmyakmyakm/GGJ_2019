@@ -189,7 +189,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &1367563045
 NavMeshObstacle:
@@ -223,6 +223,7 @@ MonoBehaviour:
   Duration: 5
   idle: {fileID: 21300000, guid: 1ebb5d3505e484de09a33ecf59206975, type: 3}
   snooped: {fileID: 0}
+  isActiveForPlayer: 1
   location: {x: 0, y: 0}
   currentSnoopingDuration: {fileID: 11400000, guid: a713a8f2ed03b1a4c8e06fc2bacbfb6c,
     type: 2}

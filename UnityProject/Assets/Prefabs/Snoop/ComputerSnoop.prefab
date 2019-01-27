@@ -252,6 +252,7 @@ MonoBehaviour:
   Duration: 0
   idle: {fileID: 21300000, guid: 4098fe24bdf6a4864add9906a899d0e9, type: 3}
   snooped: {fileID: 0}
+  isActiveForPlayer: 1
   location: {x: 0, y: 0}
   currentSnoopingDuration: {fileID: 11400000, guid: a713a8f2ed03b1a4c8e06fc2bacbfb6c,
     type: 2}
