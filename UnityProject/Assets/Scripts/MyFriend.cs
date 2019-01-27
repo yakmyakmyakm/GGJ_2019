@@ -16,8 +16,6 @@ public class MyFriend : MonoBehaviour
     // Make it a singleton
     public static MyFriend Instance = null;
 
-    public InputManager inputManager;
-
     public enum State {
         WATCHFUL,       // (start) look around
         APPROACH,       // go near the player
@@ -144,23 +142,6 @@ public class MyFriend : MonoBehaviour
     private void Start()
     {
         moveableObject = GetComponent<MoveableObject>();
-
-        inputManager.currentStateChanged += InputManagerStateChange;
-        
-    }
-
-    InputManager.State inputManagerState;
-
-    void InputManagerStateChange(InputManager.State state)
-    {
-        inputManagerState = state;
-
-        switch(state)
-        {
-            case InputManager.State.MOVEMENT: Resume(); break;
-            case InputManager.State.CONVERSATION: Pause(); break;
-            case InputManager.State.EVIDENCE: Pause(); break;
-        }
     }
 
     // Update the state machine
