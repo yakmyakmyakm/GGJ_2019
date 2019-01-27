@@ -10,4 +10,27 @@ public class GameManager : MonoBehaviour
 
     public static List<string> learned = new List<string>();
 
+    public static GameManager instance;
+
+    void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad();
+    }
+
+    public void EndGame()
+    {
+
+    }
+
+    public void StartGame()
+    {
+
+    }
+
+    public void ResetGame()
+    {
+
+    }
+
 }

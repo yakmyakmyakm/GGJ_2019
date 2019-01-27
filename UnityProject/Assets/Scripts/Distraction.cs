@@ -5,11 +5,8 @@ using UnityEngine.Events;
 
 public class Distraction : Interactable
 {
-
     public Vector3 Destination;
     public string name;
-    public Vector2 location; // (x,z) on the floor
-
     delegate void Handler();
 
     Handler OnStart = () => { };

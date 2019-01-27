@@ -32,6 +32,7 @@ public class GenerateItems : MonoBehaviour
 
     Vector2 GetRandomPosition()
     {
+        
         return Vector2.zero;
     }
 
