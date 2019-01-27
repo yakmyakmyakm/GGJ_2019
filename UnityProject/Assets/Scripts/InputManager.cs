@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public Action releasedMouseButton;
     public Action onMouseClick;
     public Action onEvidenceMouseClick;
+    public Action<State> currentStateChanged;
 
     public enum State
     {
@@ -24,6 +25,8 @@ public class InputManager : MonoBehaviour
     public void SetState(State state)
     {
         currentState = state;
+
+        if(currentStateChanged != null) currentStateChanged(state);
     }
 
 
