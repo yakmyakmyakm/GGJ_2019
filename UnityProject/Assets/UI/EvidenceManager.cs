@@ -10,7 +10,7 @@ public class EvidenceManager : MonoBehaviour
 
     private void Awake()
     {
-        HideEvidence(); 
+        if(!gameObject.activeInHierarchy) HideEvidence(); 
     }
 
     public void SetText(string s)
