@@ -44,7 +44,20 @@ public class PlayerObject : MonoBehaviour
         inputManager.onHitSnoopable += MoveToSnoopable;
         inputManager.releasedMouseButton = OnMouseButtonUp;
 
+        inputManager.pause = Pause;
+        inputManager.resume = Resume;
+
         currentState = State.IDLE;
+    }
+
+    void Pause()
+    {
+        moveableObject.Pause();
+    }
+
+    void Resume()
+    {
+        moveableObject.Resume();
     }
 
     void MoveToDistraction(GameObject o)

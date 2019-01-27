@@ -67,12 +67,12 @@ public class MoveableObject : MonoBehaviour
 
     public void Pause()
     {
-        agent.Stop();
+        agent.isStopped = true;
     }
 
     public void Resume()
     {
-        agent.Resume();
+        agent.isStopped = false;
     }
 
     private Vector2 startPos;

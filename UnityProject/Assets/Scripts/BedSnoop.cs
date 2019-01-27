@@ -10,7 +10,8 @@ public class BedSnoop : Snoop
         base.StartSnoop();
     }
 
-    public override void EndSnoop() {
+    public override void EndSnoop()
+    {
         TalkingManager.instance.AddSpeechData(
             CharacterType.EVIDENCE,
             "Under the pillow, there are hundreds, perhaps even thousands, of teeth.",
@@ -32,7 +33,8 @@ public class BedSnoop : Snoop
 
         GameManager.score += 20;
 
-        if (MyFriend.Instance.IsWatchful()) {
+        if (MyFriend.Instance.IsWatchful())
+        {
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,
                 "So, you've found my little collection. I guess you have a lot of questions.",
@@ -43,45 +45,44 @@ public class BedSnoop : Snoop
                 "I thought we were close! But you never told me about your life at sea.",
                 GameManager.DEFAULT_DIALOG_DURATION
             );
+
+            bool isGood = GameManager.instance.RollFinalOutcome();
+
+            if (isGood)
+            {
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "How did you know? Was it the shark-like quantity of teeth I've lost?",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.PLAYER,
+                    "And the scurvy!",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "Yarr. It be a long, sad tale. Never had I had a mate to tell.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+
+                GameManager.instance.EndGame(true);
             }
-          
-        GameManager.instance.ComposeLitany();
-
-        bool isGood = GameManager.instance.RollFinalOutcome();
-
-        if(isGood) {
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.AI,
-                "How did you know? Was it the shark-like quantity of teeth I've lost?",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.PLAYER,
-                "And the scurvy!",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.PLAYER,
-                "Yarr. It be a long, sad tale. Never had I had a mate to tell.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-
-            GameManager.instance.EndGame(true);
+            else
+            {
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "In truth, I fear and hate the sea, ever since I had scurvy as a child.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "But I do like teeth. And you have teeth... for another minute or two.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                GameManager.instance.EndGame(false);
+            }
         }
-        else {
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.AI,
-                "In truth, I fear and hate the sea, ever since I had scurvy as a child.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.AI,
-                "But I do like teeth. And you have teeth... for another minute or two.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            GameManager.instance.EndGame(false);
-        }
-
         base.EndSnoop();
     }
 
