@@ -57,7 +57,7 @@ public class ComputerSnoop : Snoop
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
                 TalkingManager.instance.AddSpeechData(
-                    CharacterType.PLAYER,
+                    CharacterType.AI,
                     "Forever and ever.",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );

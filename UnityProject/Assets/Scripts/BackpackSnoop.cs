@@ -78,7 +78,7 @@ public class BackpackSnoop : Snoop
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
                 TalkingManager.instance.AddSpeechData(
-                    CharacterType.AI,
+                    CharacterType.PLAYER,
                     "Not a very safe one, though. It fell out of favor in the 1930s.",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );

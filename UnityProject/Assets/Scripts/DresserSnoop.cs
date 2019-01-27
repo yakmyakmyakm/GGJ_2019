@@ -84,7 +84,7 @@ public class ReceiptSnoop : Snoop
                 );
                 TalkingManager.instance.AddSpeechData(
                     CharacterType.AI,
-                    "I use it to dispose of my victims, except for their teeth. Teeth are so pretty.",
+                    "And you have so many! Temporarily.",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
                 TalkingManager.instance.AddSpeechData(CharacterType.ENDGAME, isGood.ToString(), 0);
