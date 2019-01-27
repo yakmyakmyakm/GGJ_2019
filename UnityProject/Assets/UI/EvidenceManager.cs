@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EvidenceManager : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI text;
+    public Text text;
     public Image image;
 
     private void Awake()
