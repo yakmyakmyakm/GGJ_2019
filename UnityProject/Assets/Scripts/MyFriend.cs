@@ -49,6 +49,12 @@ public class MyFriend : MonoBehaviour
     private FloatVariable currentDistractionDuration;
 
     [SerializeField]
+    private GameEvent AIProgressBarStart;
+
+    [SerializeField]
+    private GameEvent AIProgressBarEnd;
+
+    [SerializeField]
     private GameObject player;
 
     // todo: mock
@@ -126,6 +132,7 @@ public class MyFriend : MonoBehaviour
             if (currentDistractionDuration)
             {
                 currentDistractionDuration.SetValue(0);
+                if (AIProgressBarEnd) AIProgressBarEnd.Raise();
             }
         }
     }
@@ -345,10 +352,8 @@ public class MyFriend : MonoBehaviour
             OnDistractionTimeOut += RemoveDistraction;
             Timer.RunTimer(GetDistraction().Duration, OnDistractionTimeOut);
             GetDistraction().StartAIDistraction();
-            if (currentDistractionDuration)
-            {
-                currentDistractionDuration.SetValue(GetDistraction().Duration);
-            }
+            if (currentDistractionDuration) currentDistractionDuration.SetValue(GetDistraction().Duration);
+            if (AIProgressBarStart) AIProgressBarStart.Raise();
         }
     }
 

@@ -12,12 +12,6 @@ public class Distraction : Interactable
     Handler OnStart = () => { };
     Handler OnEnd = () => { };
 
-    [SerializeField]
-    private GameEvent AIProgressBarStart;
-
-    [SerializeField]
-    private GameEvent AIProgressBarStop;
-
     public override Interactable.Type GetInteractableType()
     {
         return Type.Distraction;
@@ -30,7 +24,6 @@ public class Distraction : Interactable
         this.OnStart();
         MyFriend.Instance.EnqueueDistraction(this);
         if (playImageSequence) playImageSequence.StartAnimationOnce(active);
-        if (AIProgressBarStart) AIProgressBarStart.Raise();
     }
 
     public virtual void EndDistraction()
@@ -38,7 +31,6 @@ public class Distraction : Interactable
         Debug.Log("EndDistraction");
         currentAnim = inactive;
         this.OnEnd();
-        if (AIProgressBarStop) AIProgressBarStop.Raise();
     }
 
     //call this once AI has arrived

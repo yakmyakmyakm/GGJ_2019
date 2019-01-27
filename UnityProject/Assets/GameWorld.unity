@@ -1068,6 +1068,8 @@ MonoBehaviour:
   currentState: 0
   currentDistractionDuration: {fileID: 11400000, guid: 68badd1625d96f14284645d76af84f22,
     type: 2}
+  AIProgressBarStart: {fileID: 11400000, guid: 0f267e8f8ecfe134da1bd652911c3fd8, type: 2}
+  AIProgressBarEnd: {fileID: 11400000, guid: 1867f043b648e8044ba72f08c7de1c40, type: 2}
   player: {fileID: 1178863317}
   sendInDistraction: {fileID: 0}
   nearDistance: 1
