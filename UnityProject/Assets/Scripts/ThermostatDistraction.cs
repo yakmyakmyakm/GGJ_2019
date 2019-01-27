@@ -41,7 +41,7 @@ public class ThermostatDistraction : Distraction
 
         base.EndDistraction();
 
-        Debug.Log("complete spillwater distractin");
+        Debug.Log("complete thermostat distractin");
     }
 
     // void BeginDistraction()

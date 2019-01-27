@@ -42,8 +42,6 @@ public class ComputerSnoop : Snoop
                 GameManager.DEFAULT_DIALOG_DURATION
             );
 
-            GameManager.instance.ComposeLitany();
-
             bool isGood = GameManager.instance.RollFinalOutcome();
 
             if (isGood)
