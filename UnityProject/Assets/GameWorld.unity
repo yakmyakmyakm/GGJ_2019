@@ -1540,11 +1540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snoopObjects:
   - {fileID: 1367563044, guid: 5690059881b624362b22e443e2b0b66f, type: 3}
-  - {fileID: 622359428059839246, guid: 598743f3068ee4147b3fa894b5ce5d10, type: 3}
   distractionObjects:
   - {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc, type: 3}
-  - {fileID: 5053675778145263490, guid: c3359ae866d3b4cea809ad9679845e05, type: 3}
-  - {fileID: 4384568277073417516, guid: 32f32f3d87ecc4c53904488c5d271363, type: 3}
   snoopCount: 3
   distractionCount: 3
   xLimit: 15
@@ -2222,7 +2219,7 @@ PrefabInstance:
     - target: {fileID: 1324061854324470566, guid: 9255ae6d6464b40178e6f8e8d344c8f9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9255ae6d6464b40178e6f8e8d344c8f9, type: 3}

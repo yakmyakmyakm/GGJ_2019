@@ -18,6 +18,7 @@ public class TalkingManager : MonoBehaviour
 
     public InputManager inputManager;
     public EvidenceManager evidenceManager;
+    public System.Action onConversationComplete;
 
     [System.Serializable]
     public class SpeechData
