@@ -85,6 +85,11 @@ public class MyFriend : MonoBehaviour
         return currentState == State.WATCHFUL;
     }
 
+    public bool IsPlayerCaught()
+    {
+        return currentState == State.WATCHFUL || currentState == State.APPROACH;
+    }
+
     // pause the update
     public void Pause()
     {

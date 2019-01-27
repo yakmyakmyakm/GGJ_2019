@@ -115,7 +115,7 @@ public class TalkingManager : MonoBehaviour
     void ConversationMouseClick()
     {
         //next speech skip time
-        if(conversation != null) StopCoroutine(conversation);
+        if (conversation != null) StopCoroutine(conversation);
         NextConversation();
     }
 

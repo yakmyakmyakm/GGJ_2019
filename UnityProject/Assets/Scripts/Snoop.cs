@@ -35,6 +35,8 @@ public class Snoop : Interactable
     [SerializeField]
     private GameEvent playerProgressBarEnd;
 
+    ProgressBar progressBar;
+
     public override Interactable.Type GetInteractableType()
     {
         return Type.Snoop;
@@ -45,16 +47,21 @@ public class Snoop : Interactable
         currentAnim = this.active;
         isActive = true;
 
-        // if(MyFriend.Instance.IsWatchful())
-        // {
-        //     //trigger endgame if the AI watches either start or end
-        // }
+        if (MyFriend.Instance.IsPlayerCaught())
+        {
+            //trigger endgame if the AI watches either start or end
+            GameManager.instance.EndGame(true);
+        }
 
 
         playImageSequence.StartAnimation(active);
 
-        if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
-        if (playerProgressBarStart) playerProgressBarStart.Raise();
+        // if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
+        // if (playerProgressBarStart) playerProgressBarStart.Raise();
+
+        if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
+        progressBar.Increase(Duration);
+        progressBar.onCompleteIncrease = EndSnoop;
     }
 
     public void PlayerInterruptSnoop()
@@ -62,7 +69,7 @@ public class Snoop : Interactable
         //progressBar.StopProgress();
         playImageSequence.SetImage(active[0]);
 
-        if (playerProgressBarEnd) playerProgressBarEnd.Raise();
+        //if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }
 
     public void AIInterruptSnoop()
@@ -74,15 +81,16 @@ public class Snoop : Interactable
     {
         currentAnim = this.inactive;
         isActive = false;
-        // crc do delegate dance
 
-        // if (MyFriend.Instance.IsWatchful())
-        // {
-        //     //trigger endgame if the AI watches either start or end
-        // }
+        if (MyFriend.Instance.IsPlayerCaught())
+        {
+            GameManager.instance.EndGame(true);
+        }
 
-        if (playImageSequence) playImageSequence.StartAnimation(inactive);
-        if (playerProgressBarEnd) playerProgressBarEnd.Raise();
+        // if (playImageSequence) playImageSequence.StartAnimation(inactive);
+        // if (playerProgressBarEnd) playerProgressBarEnd.Raise();
+
+        //if AI is watching end game
     }
 
     void Start()
