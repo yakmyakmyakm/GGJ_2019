@@ -16,6 +16,24 @@ public class TalkingUI : MonoBehaviour
 
     int totalItems = 20;
 
+    public static TalkingUI instance;
+
+    void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this);
+
+        Hide();
+    }
+
     public void Show()
     {
         Initalize();
