@@ -1480,18 +1480,39 @@ MonoBehaviour:
   - s: {fileID: 0}
     name: tooth
     description: There's a single tooth in the can. Do they have scurvy?
-    score: 0
+    score: 20
     learned: How you're suffering from scurvy!
   - s: {fileID: 0}
     name: wpwrapper
     description: There's a condom wrapper. Is that a twinge of jealousy you feel?
-    score: 0
+    score: 20
     learned: You're sleeping with other people! Is it that jerk Trevor?
   - s: {fileID: 0}
-    name: 
-    description: 
-    score: 0
-    learned: 
+    name: apple
+    description: An apple core. Apples are high in vitamin C. Hm...
+    score: 20
+    learned: Your brave struggle to cure your own scurvy!
+  - s: {fileID: 0}
+    name: banana
+    description: A banana peel? Everyone hates bananas, except that jerk Trevor.
+    score: 20
+    learned: The disgusting way you let that jerk Trevor eat bananas in your room!
+  - s: {fileID: 0}
+    name: syringes
+    description: Syringes. Sometimes, people who can't absorb Vitamin C need injections.
+    score: 20
+    learned: The admirable way you've faced Short Bowel Syndrome AND scurvy!
+  - s: {fileID: 0}
+    name: todo
+    description: A to-do list. There's an erased item. That jerk Trevor? Your cheeks
+      burn.
+    score: 20
+    learned: The way you wavered on doing that jerkTrevor!
+  - s: {fileID: 0}
+    name: toothbrush
+    description: A toothbrush. Is it slightly pink? Are their gums bleeding?
+    score: 20
+    learned: The pain you must be feeling from your scurvy-related gum bleeding!
 --- !u!208 &1367563045
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1646,7 +1667,7 @@ MonoBehaviour:
     spaceCount: 12
     wordCount: 13
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
