@@ -34,6 +34,8 @@ public class TalkingUI : MonoBehaviour
         Hide();
     }
 
+    bool isShowing;
+
     public void Show()
     {
         Initalize();
@@ -43,6 +45,7 @@ public class TalkingUI : MonoBehaviour
     public void Hide()
     {
         this.gameObject.SetActive(false);
+        isShowing = false;
     }
 
     public void Initalize()
@@ -66,6 +69,12 @@ public class TalkingUI : MonoBehaviour
 
     public void ShowBubble(CharacterType type, string text)
     {
+        if(!isShowing)
+        {
+            isShowing = true;
+            Show();
+        }
+
         SpeechBubbleUI bubble = bubbles[index];
         bubble.DisplayText(type, text);
 
