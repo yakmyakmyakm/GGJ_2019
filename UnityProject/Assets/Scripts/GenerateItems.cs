@@ -44,6 +44,7 @@ public class GenerateItems : MonoBehaviour
             }
         }
 
+            grid.Clear();
         this.genGrid();
 
         snoops.Clear();
