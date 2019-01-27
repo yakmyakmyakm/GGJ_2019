@@ -75,7 +75,7 @@ public class TalkingManager : MonoBehaviour
             case CharacterType.PLAYER: player.Speak(time, textToSay); break;
             case CharacterType.AI: ai.Speak(time, textToSay); break;
             case CharacterType.EVIDENCE:
-                evidenceManager.ShowEvidence();
+                evidenceManager.ShowEvidence(textToSay, time);
                 inputManager.SetState(InputManager.State.EVIDENCE);
                 break;
         }

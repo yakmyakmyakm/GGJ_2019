@@ -15,18 +15,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: New MyScriptableObject
   forward:
-  - {fileID: 21300000, guid: 9ef4e900e3ddd4db1b974c87a4e9db7d, type: 3}
-  - {fileID: 21300000, guid: 64f566fd730e74c78b23ad50334020e7, type: 3}
-  - {fileID: 21300000, guid: 233e8535b22254133a01b7f9dd63ef33, type: 3}
-  - {fileID: 21300000, guid: 7ba9f21111afe41b280a6209eae53a1d, type: 3}
+  - {fileID: 21300000, guid: fbb60ddc7be4a4308a8c57619a6cf624, type: 3}
+  - {fileID: 21300000, guid: 516d9c6523b184ae4ab381dd41de41c4, type: 3}
+  - {fileID: 21300000, guid: dc8ccda6fee684d9ba6bf6f6254cdb71, type: 3}
+  - {fileID: 21300000, guid: fa312d65f56c64dd8998f989584388db, type: 3}
   back:
-  - {fileID: 21300000, guid: 9ef4e900e3ddd4db1b974c87a4e9db7d, type: 3}
-  - {fileID: 21300000, guid: 64f566fd730e74c78b23ad50334020e7, type: 3}
-  - {fileID: 21300000, guid: 233e8535b22254133a01b7f9dd63ef33, type: 3}
-  - {fileID: 21300000, guid: 7ba9f21111afe41b280a6209eae53a1d, type: 3}
+  - {fileID: 21300000, guid: 41d2ec0c6811940669c0c5e705ef2285, type: 3}
+  - {fileID: 21300000, guid: 93d69b9163bcd486eac7618c3512a55a, type: 3}
+  - {fileID: 21300000, guid: 3636b040e1daf4334a287a3f9e96b929, type: 3}
+  - {fileID: 21300000, guid: ce54c4bd78f1c4c5fb239bb28912efd4, type: 3}
   sideways:
-  - {fileID: 21300000, guid: 9ef4e900e3ddd4db1b974c87a4e9db7d, type: 3}
-  - {fileID: 21300000, guid: 64f566fd730e74c78b23ad50334020e7, type: 3}
-  - {fileID: 21300000, guid: 233e8535b22254133a01b7f9dd63ef33, type: 3}
-  - {fileID: 21300000, guid: 7ba9f21111afe41b280a6209eae53a1d, type: 3}
-  idle: {fileID: 21300000, guid: 3f9d6c4a3d16646d78f0ee61807d7dc0, type: 3}
+  - {fileID: 21300000, guid: dce04613142934333b0c25950ce572da, type: 3}
+  - {fileID: 21300000, guid: cbf27c68b807f4803b7b6618cf539ddc, type: 3}
+  - {fileID: 21300000, guid: 79d6c6fc085714116abf3fc47a9db9e3, type: 3}
+  - {fileID: 21300000, guid: 8ccec2203e92348b8aa27b1c55165aed, type: 3}
+  idle: {fileID: 21300000, guid: 5ea3519f1535d422d8a73992d7b101df, type: 3}
