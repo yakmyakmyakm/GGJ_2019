@@ -607,6 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381352121}
   - component: {fileID: 381352120}
+  - component: {fileID: 381352122}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -629,6 +630,10 @@ MonoBehaviour:
   GameInit: {fileID: 11400000, guid: eeb7c214a03b1f7458af86b74985816e, type: 2}
   GameStart: {fileID: 11400000, guid: e60ee917efb62b140967563c371490aa, type: 2}
   GameEnd: {fileID: 11400000, guid: 699942486fe65ba4e8f34f9527e10087, type: 2}
+  playerStartPos: {x: 15, y: 0, z: -5}
+  friendStartPos: {x: -5, y: 0, z: 15}
+  player: {fileID: 1178863318}
+  friend: {fileID: 850718193}
 --- !u!4 &381352121
 Transform:
   m_ObjectHideFlags: 0
@@ -643,6 +648,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381352122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381352119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f903f3044405b4b47a99c107c9220c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 699942486fe65ba4e8f34f9527e10087, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 381352120}
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &434011014
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +986,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413952485891893217, guid: 20e52ced2bb9f41c48edb134bec909e3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413952485891893217, guid: 20e52ced2bb9f41c48edb134bec909e3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413952485891893217, guid: 20e52ced2bb9f41c48edb134bec909e3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.06511307
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20e52ced2bb9f41c48edb134bec909e3, type: 3}
@@ -1653,7 +1702,7 @@ PrefabInstance:
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.408029
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
@@ -1663,7 +1712,7 @@ PrefabInstance:
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.86
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
@@ -1752,6 +1801,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a1478a8f787c74e95a0835bcd2fc70e5,
         type: 3}
+    - target: {fileID: 4510887196053402255, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5e518c4d11e4ceca13f89bd2a29506, type: 3}
 --- !u!1 &1178863317 stripped
@@ -2825,7 +2879,7 @@ PrefabInstance:
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.408029
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
@@ -2835,7 +2889,7 @@ PrefabInstance:
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.58018446
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196295359950, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}

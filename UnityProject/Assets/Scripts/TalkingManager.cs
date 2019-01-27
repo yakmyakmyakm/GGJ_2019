@@ -62,10 +62,13 @@ public class TalkingManager : MonoBehaviour
     IEnumerator conversation;
     IEnumerator Conversation()
     {
-        SpeechData data = speeches[conversationIndex];
-        Speak(data.characterType, data.text, data.time);
-        yield return new WaitForSecondsRealtime(data.time);
-        NextConversation();
+        if (speeches.Count > conversationIndex)
+        {
+            SpeechData data = speeches[conversationIndex];
+            Speak(data.characterType, data.text, data.time);
+            yield return new WaitForSecondsRealtime(data.time);
+            NextConversation();
+        }
     }
 
     void NextConversation()
@@ -102,7 +105,9 @@ public class TalkingManager : MonoBehaviour
                 break;
 
             case CharacterType.ENDGAME:
-                Debug.Log("END GAME NOW!");
+                Debug.Log("Ending Game!");
+                evidenceManager.HideEvidence();
+                TalkingUI.instance.Hide();
                 GameManager.instance.EndGame(bool.Parse(textToSay));
                 speeches.Clear();
                 conversationIndex = 0;

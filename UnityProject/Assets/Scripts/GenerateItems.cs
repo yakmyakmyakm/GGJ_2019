@@ -51,12 +51,12 @@ public class GenerateItems : MonoBehaviour
         snoopObjects.Shuffle();
         distractionObjects.Shuffle();
 
-        Snoop concreteBed = Instantiate(bed, new Vector3(-24, 0, 17), new Quaternion(0, 0, 0, 0));
-        snoops.Add(concreteBed);
-        concreteBed.transform.SetParent(bed.transform);
-
         if(s == null) s = new GameObject("Snoops");
         if(d == null) d = new GameObject("Distractions");
+
+        Snoop concreteBed = Instantiate(bed, new Vector3(-24, 0, 17), new Quaternion(0, 0, 0, 0));
+        snoops.Add(concreteBed);
+        concreteBed.transform.SetParent(s.transform);
 
         int saftey = 0;
         for (int i = 0; i < snoopCount; i++)
