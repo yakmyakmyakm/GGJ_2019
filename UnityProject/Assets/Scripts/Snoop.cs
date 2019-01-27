@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Snoop : Interactable
 {
-    public Sprite sprite;
+    public Sprite idle;
+    public Sprite snooped;
 
     private bool isActive;
 
@@ -52,9 +53,10 @@ public class Snoop : Interactable
 
         //playImageSequence.StartAnimation(active);
 
-        // if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
-        // if (playerProgressBarStart) playerProgressBarStart.Raise();
+        if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
+        if (playerProgressBarStart) playerProgressBarStart.Raise();
 
+        if (snooped != null) playImageSequence.SetImage(snooped);
         if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
         progressBar.Increase(Duration);
         progressBar.onCompleteIncrease = EndSnoop;
@@ -92,7 +94,7 @@ public class Snoop : Interactable
     {
         if (playImageSequence == null)
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
-    
-        playImageSequence.SetImage(sprite);
+
+        playImageSequence.SetImage(idle);
     }
 }

@@ -6,6 +6,7 @@ using System;
 
 public class ProgressBar : MonoBehaviour
 {
+    CanvasGroup cg;
     public Image fillImage;
     public Action onCompleteIncrease;
     public Action onCompleteDecrease;
@@ -42,6 +43,8 @@ public class ProgressBar : MonoBehaviour
     {
         Show();
         Ease.Go(this, 0, 1, time, SetFill, DoneIncreasing, Ease.Type.Linear);
+        if(cg == null) cg = this.gameObject.AddComponent<CanvasGroup>();
+        cg.alpha = 0;
     }
 
     void DoneIncreasing()
