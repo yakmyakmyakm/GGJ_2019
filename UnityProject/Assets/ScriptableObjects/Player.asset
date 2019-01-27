@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 81169062993604b5dad3148e83f367cc, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
   objectName: New MyScriptableObject
   forward:
-  - {fileID: 21300000, guid: fbb60ddc7be4a4308a8c57619a6cf624, type: 3}
-  - {fileID: 21300000, guid: 516d9c6523b184ae4ab381dd41de41c4, type: 3}
-  - {fileID: 21300000, guid: dc8ccda6fee684d9ba6bf6f6254cdb71, type: 3}
-  - {fileID: 21300000, guid: fa312d65f56c64dd8998f989584388db, type: 3}
+  - {fileID: 21300000, guid: 39444ba60595b45839320f421df1ae88, type: 3}
+  - {fileID: 21300000, guid: 667074e743a9748c79c3fe186690b5ca, type: 3}
+  - {fileID: 21300000, guid: 61f1c82943d5b441daf8b14638f39dbf, type: 3}
+  - {fileID: 21300000, guid: 0945d9d0521ef4efeb3bfddb5aaedf17, type: 3}
   back:
-  - {fileID: 21300000, guid: 41d2ec0c6811940669c0c5e705ef2285, type: 3}
-  - {fileID: 21300000, guid: 93d69b9163bcd486eac7618c3512a55a, type: 3}
-  - {fileID: 21300000, guid: 3636b040e1daf4334a287a3f9e96b929, type: 3}
-  - {fileID: 21300000, guid: ce54c4bd78f1c4c5fb239bb28912efd4, type: 3}
+  - {fileID: 21300000, guid: 4cdd957e4a1c64ed581d3e7a60050648, type: 3}
+  - {fileID: 21300000, guid: eae11051d23ea460d9ac2bc5f0876756, type: 3}
+  - {fileID: 21300000, guid: 70f6ac063d5f24a489875aec0c615c1e, type: 3}
+  - {fileID: 21300000, guid: 8029d0cd0f19e4cea9cb43d1a73d3db7, type: 3}
   sideways:
-  - {fileID: 21300000, guid: dce04613142934333b0c25950ce572da, type: 3}
-  - {fileID: 21300000, guid: cbf27c68b807f4803b7b6618cf539ddc, type: 3}
-  - {fileID: 21300000, guid: 79d6c6fc085714116abf3fc47a9db9e3, type: 3}
-  - {fileID: 21300000, guid: 8ccec2203e92348b8aa27b1c55165aed, type: 3}
-  idle: {fileID: 21300000, guid: 5ea3519f1535d422d8a73992d7b101df, type: 3}
+  - {fileID: 21300000, guid: 45f589368ce964e26b76262399ddb6b9, type: 3}
+  - {fileID: 21300000, guid: 69f353263dccb4b5db0e6d06fa445259, type: 3}
+  - {fileID: 21300000, guid: ecbde68ef20c64ab086df4a9056251e6, type: 3}
+  - {fileID: 21300000, guid: b1cf0b7c8e357476d87dd165bcebe428, type: 3}
+  idle: {fileID: 21300000, guid: 252905e140b2e446198b738b5f8850f9, type: 3}
