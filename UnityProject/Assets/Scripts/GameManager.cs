@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         snoopedCount = 0;
 
-        Debug.Log("RESETTING GAME!!!");
+        //Debug.Log("RESETTING GAME!!!");
 
         // if (GameInit)
         //     GameInit.Raise();

@@ -29,7 +29,7 @@ public class ComputerSnoop : Snoop
 
         if (MyFriend.Instance.IsWatchful() || gameComplete)
         {
-            Debug.Log("CAUGHT SNOOPING COMPUTER");
+            //Debug.Log("CAUGHT SNOOPING COMPUTER");
 
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,
