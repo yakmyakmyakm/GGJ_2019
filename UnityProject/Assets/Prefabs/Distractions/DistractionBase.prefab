@@ -460,10 +460,7 @@ MonoBehaviour:
   id: player
   speed: 0.2
   sprites:
-  - {fileID: 21300000, guid: 3f9d6c4a3d16646d78f0ee61807d7dc0, type: 3}
-  - {fileID: 21300000, guid: a907addb9a6874f91b0a546c83558240, type: 3}
-  - {fileID: 21300000, guid: 421a7c8775b824b5aba8a1840cf98f78, type: 3}
-  - {fileID: 21300000, guid: 63a5e474ccbda452c8e182442b8e43df, type: 3}
+  - {fileID: 21300000, guid: 3636b040e1daf4334a287a3f9e96b929, type: 3}
   image: {fileID: 7290071650945567669}
 --- !u!1 &7561523719005173731
 GameObject:
@@ -590,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playImageSequence: {fileID: 0}
-  progressBar: {fileID: 6302272030448202440}
+  progressBar: {fileID: 0}
   Duration: 0
   inactive: []
   active: []
