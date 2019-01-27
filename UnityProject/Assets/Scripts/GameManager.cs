@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
         if (GameEnd)
             GameEnd.Raise();
         MyFriend.Instance.EndGame();
-
         if(onEndGame != null) onEndGame();
     }
 

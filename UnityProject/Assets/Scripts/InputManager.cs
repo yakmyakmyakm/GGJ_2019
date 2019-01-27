@@ -32,14 +32,17 @@ public class InputManager : MonoBehaviour
             case State.CONVERSATION:
                 if (pause != null) pause();
                 MyFriend.Instance.Pause();
+                Time.timeScale = 0;
                 break;
             case State.EVIDENCE:
                 if (pause != null) pause();
                 MyFriend.Instance.Pause(); 
+                Time.timeScale = 0;
                 break;
             case State.MOVEMENT:
                 if (resume != null) resume();
                 MyFriend.Instance.Resume(); 
+                Time.timeScale = 1;
                 break;
         }
     }

@@ -86,6 +86,8 @@ public class TalkingManager : MonoBehaviour
 
     void Speak(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
+        evidenceManager.HideEvidence();
+        
         switch (character)
         {
             case CharacterType.PLAYER:
