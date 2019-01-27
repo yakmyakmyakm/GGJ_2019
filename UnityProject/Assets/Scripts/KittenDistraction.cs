@@ -22,17 +22,16 @@ public class KittenDistraction : Distraction
     {
         base.StartPlayerDistraction();
 
-        //add back in, testing AI
-        // TalkingManager.instance.AddSpeechData(
-        //     CharacterType.AI,
-        //     "Seriously, kicking a kitten?",
-        //     GameManager.DEFAULT_DIALOG_DURATION
-        // );
-        // TalkingManager.instance.AddSpeechData(
-        //     CharacterType.AI,
-        //     "That is messed up! Poor kitty.",
-        //     GameManager.DEFAULT_DIALOG_DURATION
-        // );
+        TalkingManager.instance.AddSpeechData(
+            CharacterType.AI,
+            "Seriously, kicking a kitten?",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
+        TalkingManager.instance.AddSpeechData(
+            CharacterType.AI,
+            "That is messed up! Poor kitty.",
+            GameManager.DEFAULT_DIALOG_DURATION
+        );
 
         //AI can begin moving
         //base.StartAIDistraction();

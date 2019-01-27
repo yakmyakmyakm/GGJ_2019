@@ -873,7 +873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006451020}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -7.92, y: 6.58, z: -2.4238615}
+  m_LocalPosition: {x: -23.9, y: 6.58, z: -2.4238615}
   m_LocalScale: {x: 0.01, y: 15, z: 40}
   m_Children: []
   m_Father: {fileID: 1402846910}
@@ -1192,8 +1192,8 @@ MonoBehaviour:
   - {fileID: 1367563044, guid: 5690059881b624362b22e443e2b0b66f, type: 3}
   distractionObjects:
   - {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc, type: 3}
-  snoopCount: 5
-  distractionCount: 5
+  snoopCount: 1
+  distractionCount: 1
   distractions: []
   snoops: []
   xLimit: 15
@@ -1571,6 +1571,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598771634093430025, guid: cf722cf8522a7414e99df6c11b1359c4,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598771634093430025, guid: cf722cf8522a7414e99df6c11b1359c4,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf722cf8522a7414e99df6c11b1359c4, type: 3}

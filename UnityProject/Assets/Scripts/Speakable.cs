@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class Speakable : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public Text text;
     Timer timer;
     public void Speak(float time, string textToSay)
     {

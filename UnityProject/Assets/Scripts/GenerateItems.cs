@@ -17,6 +17,11 @@ public class GenerateItems : MonoBehaviour
 
     void Start()
     {
+        InitalizeWorld();
+    }
+
+    public void InitalizeWorld()
+    {
         if (snoops.Count > 0)
         {
             foreach (Snoop s in snoops)

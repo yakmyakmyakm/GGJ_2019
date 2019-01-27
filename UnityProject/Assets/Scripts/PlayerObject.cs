@@ -22,6 +22,11 @@ public class PlayerObject : MonoBehaviour
     Snoop currentSnoop;
     bool isSnooping;
 
+    public void Initalize()
+    {
+        currentState = State.IDLE;
+    }
+
     void Start()
     {
         inputManager = GetComponent<InputManager>();
