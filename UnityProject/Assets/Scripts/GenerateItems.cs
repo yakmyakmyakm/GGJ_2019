@@ -9,8 +9,8 @@ public class GenerateItems : MonoBehaviour
     public int snoopCount;
     public int distractionCount;
 
-    public List<Distraction> distractions;
-    public List<Snoop> snoops;
+    private List<Distraction> distractions = new List<Distraction>();
+    private List<Snoop> snoops = new List<Snoop>();
 
     public int xLimit = 15;
     public int yLimit = 15;
