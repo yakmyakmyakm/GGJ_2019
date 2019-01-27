@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class SpeechBubbleUI : MonoBehaviour
 {
     public Image image;
@@ -29,7 +30,7 @@ public class SpeechBubbleUI : MonoBehaviour
         Ease.Go(this, 0, 1, 0.15f, SetAlpha, Done, Ease.Type.Linear);
     }
 
-    void SetAlpha(float value)
+    public void SetAlpha(float value)
     {
         cg.alpha = value;
     }
@@ -46,7 +47,6 @@ public class SpeechBubbleUI : MonoBehaviour
 
     void Done()
     {
-
     }
 
     public void DisplayText(CharacterType type, string text)
