@@ -62,8 +62,11 @@ public class GenerateItems : MonoBehaviour
             {
                 saftey = 0;
             }
+
+            //Debug.Log("SAFTEY "  +saftey + " objcount " + distractionObjects.Count + " " + i);
             Distraction distraction = Instantiate(distractionObjects[saftey], GetRandomPosition(), new Quaternion(0, 0, 0, 0));
             distractions.Add(distraction);
+            saftey++;
         }
     }
 

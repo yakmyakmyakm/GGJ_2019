@@ -32,8 +32,6 @@ public class InputManager : MonoBehaviour
             case State.EVIDENCE: Time.timeScale = 0;break;
             case State.MOVEMENT: Time.timeScale = 1; break;
         }
-
-        //if (currentStateChanged != null) currentStateChanged(state);
     }
 
 

@@ -48,5 +48,8 @@ public class Distraction : Interactable
     void Start()
     {
         Destination = this.transform.position;
+
+        if (progressBar == null)
+            progressBar = this.transform.Find("ProgressBar").GetComponent<ProgressBar>();
     }
 }
