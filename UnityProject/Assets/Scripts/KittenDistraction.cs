@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KittenDistraction : Distraction
 {
+    static int count = 0; //how many times this has happened
+
     void Awake()
     {
         name = "kitten";
@@ -25,6 +27,8 @@ public class KittenDistraction : Distraction
             GameManager.DEFAULT_DIALOG_DURATION
         );
 
+        KittenDistraction.count++;
+
         //AI can begin moving
         //base.StartAIDistraction();
     }
@@ -43,6 +47,22 @@ public class KittenDistraction : Distraction
             "Why are we even friends?",
             GameManager.DEFAULT_DIALOG_DURATION
         );
+
+        if(count > 2)
+        {
+            TalkingManager.instance.AddSpeechData(
+                CharacterType.AI,
+                "You know, I routinely murder people for their teeth. But even I don't kick kittens.",
+                GameManager.DEFAULT_DIALOG_DURATION
+            );
+            TalkingManager.instance.AddSpeechData(
+                CharacterType.AI,
+                "That's seriously messed up. I am going to add your teeth to my collection now.",
+                GameManager.DEFAULT_DIALOG_DURATION
+            );
+            TalkingManager.instance.AddSpeechData(CharacterType.ENDGAME, false.ToString(), 0);
+
+        }
 
         base.EndDistraction();
 
