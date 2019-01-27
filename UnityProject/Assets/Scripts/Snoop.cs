@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Snoop : Interactable
 {
-    // public string name;
+    public Sprite sprite;
 
-    // public List<Sprite> inactive;
-    // public List<Sprite> active;
-
-    // private List<Sprite> currentAnim;
     private bool isActive;
 
     public bool IsActive
@@ -44,7 +40,6 @@ public class Snoop : Interactable
 
     public void StartSnoop()
     {
-        currentAnim = this.active;
         isActive = true;
 
         //enable to endgame
@@ -55,7 +50,7 @@ public class Snoop : Interactable
         // }
 
 
-        playImageSequence.StartAnimation(active);
+        //playImageSequence.StartAnimation(active);
 
         // if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
         // if (playerProgressBarStart) playerProgressBarStart.Raise();
@@ -68,7 +63,7 @@ public class Snoop : Interactable
     public void PlayerInterruptSnoop()
     {
         //progressBar.StopProgress();
-        playImageSequence.SetImage(active[0]);
+        //playImageSequence.SetImage(active[0]);
 
         //if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }
@@ -80,7 +75,7 @@ public class Snoop : Interactable
 
     public virtual void EndSnoop()
     {
-        currentAnim = this.inactive;
+        //currentAnim = this.inactive;
         isActive = false;
 
         //enable to endgame
@@ -97,5 +92,7 @@ public class Snoop : Interactable
     {
         if (playImageSequence == null)
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
+    
+        playImageSequence.SetImage(sprite);
     }
 }

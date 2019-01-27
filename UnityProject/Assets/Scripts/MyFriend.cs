@@ -76,6 +76,7 @@ public class MyFriend : MonoBehaviour
     {
         Debug.Log("EnqueueDistraction");
         distractionQueue.Enqueue(inDistraction);
+        
         moveableObject.MoveToPosition(inDistraction.Destination);
     }
 

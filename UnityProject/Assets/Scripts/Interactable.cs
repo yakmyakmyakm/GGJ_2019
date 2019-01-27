@@ -6,9 +6,6 @@ public class Interactable : MonoBehaviour
 {
     public PlayImageSequence playImageSequence;
     public float Duration;
-    public List<Sprite> inactive; // public for easy component editing
-    public List<Sprite> active;
-    public List<Sprite> currentAnim;
 
     public virtual Interactable.Type GetInteractableType()
     {

@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Distraction : Interactable
 {
     public Vector3 Destination;
     public string name;
-    delegate void Handler();
 
-    Handler OnStart = () => { };
-    Handler OnEnd = () => { };
+    public List<Sprite> animSprite;
+
+    public Image image;
+
+    public Sprite canDistract;
+    public Sprite isDistracting;
+
+    public int distractedCount = 0;
 
     public override Interactable.Type GetInteractableType()
     {
@@ -19,18 +25,23 @@ public class Distraction : Interactable
 
     public virtual void StartPlayerDistraction()
     {
-        Debug.Log("StartPlayerDistraction");
-        currentAnim = active;
         this.OnStart();
         MyFriend.Instance.EnqueueDistraction(this);
-        if (playImageSequence) playImageSequence.StartAnimationOnce(active);
+
+        // if(animSprite.Count > 0)
+        // {
+        //     playImageSequence.StartAnimationOnce(animSprite);
+        // }else
+        // {
+        //     playImageSequence.SetImage(isDistracting);
+        // }
+        image.overrideSprite = isDistracting;
     }
 
     public virtual void EndDistraction()
     {
-        Debug.Log("EndDistraction");
-        currentAnim = inactive;
-        this.OnEnd();
+        distractedCount++;
+        image.overrideSprite = canDistract;
     }
 
     //call this once AI has arrived
@@ -50,5 +61,8 @@ public class Distraction : Interactable
         Destination = this.transform.position;
         if (playImageSequence == null)
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
+
+        image.sprite = canDistract;
+    
     }
 }
