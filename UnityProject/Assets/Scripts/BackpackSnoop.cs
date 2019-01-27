@@ -33,7 +33,7 @@ public class BackpackSnoop : Snoop
 
         GameManager.score += 20;
 
-        if (MyFriend.Instance.IsWatchful())
+        if (MyFriend.Instance.IsWatchful() || gameComplete)
         {
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,

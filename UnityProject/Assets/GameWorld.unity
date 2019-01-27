@@ -1558,6 +1558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BedSnoop
       objectReference: {fileID: 0}
+    - target: {fileID: 916635953947306731, guid: 598743f3068ee4147b3fa894b5ce5d10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 916635953947306721, guid: 598743f3068ee4147b3fa894b5ce5d10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1921,7 +1926,7 @@ MonoBehaviour:
   - {fileID: 5053675778145263490, guid: c3359ae866d3b4cea809ad9679845e05, type: 3}
   - {fileID: 4384568277073417516, guid: 32f32f3d87ecc4c53904488c5d271363, type: 3}
   - {fileID: 1943005011994054156, guid: fb2de8ec46b3247869e6d54a0888ab8e, type: 3}
-  snoopCount: 6
+  snoopCount: 1
   distractionCount: 6
   xLimit: 20
   yLimit: 20

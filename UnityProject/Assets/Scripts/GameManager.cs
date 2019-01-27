@@ -89,6 +89,19 @@ public class GameManager : MonoBehaviour
 
     public static int snoopedCount = 0;
 
+    public bool Snooped()
+    {
+        //if (generate == null) generate = GameObject.Find("GenerateSystem").GetComponent<GenerateItems>();
+        snoopedCount++;
+        // if (snoopedCount >= generate.snoopCount)
+        // {
+        //     TalkingManager.instance.AddSpeechData(CharacterType.ENDGAME, "true", 0);
+        //     return true;
+        // }
+
+        return false;
+    }
+
     public Vector3 playerStartPos;
     public Vector3 friendStartPos;
 
@@ -99,11 +112,11 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        if(generate == null) generate = GameObject.Find("GenerateSystem").GetComponent<GenerateItems>();
+        if (generate == null) generate = GameObject.Find("GenerateSystem").GetComponent<GenerateItems>();
         generate.InitalizeWorld();
         player.transform.position = playerStartPos;
         friend.transform.position = friendStartPos;
-        
+
         // if (GameStart)
         //     GameStart.Raise();
         string s = string.Empty;

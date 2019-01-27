@@ -37,7 +37,7 @@ public class TrashcanSnoop : Snoop
         GameManager.learned.Add(item.learned);
         GameManager.score += item.score;
 
-        if (MyFriend.Instance.IsWatchful())
+        if (MyFriend.Instance.IsWatchful() || gameComplete)
         {
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,

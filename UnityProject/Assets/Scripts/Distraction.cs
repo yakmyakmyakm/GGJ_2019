@@ -47,9 +47,9 @@ public class Distraction : Interactable
 
     public virtual void EndDistraction()
     {
-        isActiveForPlayer = true;
+        //isActiveForPlayer = true;
         distractedCount++;
-        image.overrideSprite = canDistract;
+        //image.overrideSprite = canDistract;
     }
 
     //call this once AI has arrived

@@ -9,7 +9,8 @@ public class Snoop : Interactable
 
     public bool isActiveForPlayer = true;
 
-
+    public bool gameComplete;
+    
     public Vector2 location; // (x,z) constrained to the floor
 
     public delegate int IntDelegate();
@@ -36,8 +37,16 @@ public class Snoop : Interactable
     {
         if (isActiveForPlayer)
         {
-            isActiveForPlayer = false;
+            GenerateItems generate = GameObject.Find("GenerateSystem").GetComponent<GenerateItems>();
+        
+            gameComplete = false;
+            GameManager.snoopedCount++;
+            if(GameManager.snoopedCount > generate.snoopCount)
+            {
+                gameComplete = true;
+            }
 
+            isActiveForPlayer = false;
 
             //playImageSequence.StartAnimation(active);
 
@@ -46,8 +55,12 @@ public class Snoop : Interactable
 
             if (snooped != null) playImageSequence.SetImage(snooped);
             if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
-            progressBar.Increase(Duration);
-            progressBar.onCompleteIncrease = EndSnoop;
+            // progressBar.Increase(Duration);
+            // progressBar.onCompleteIncrease = EndSnoop;
+        }
+
+        if(GameManager.instance.Snooped())
+        {
         }
 
     }
@@ -67,10 +80,11 @@ public class Snoop : Interactable
 
     public virtual void EndSnoop()
     {
+        
         //currentAnim = this.inactive;
-        playImageSequence.SetImage(idle);
-        isActiveForPlayer = true;
+        //isActiveForPlayer = true;
 
+        //playImageSequence.SetImage(idle);
         // if (playImageSequence) playImageSequence.StartAnimation(inactive);
         // if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }

@@ -27,7 +27,7 @@ public class ComputerSnoop : Snoop
 
         GameManager.score += 20;
 
-        if (MyFriend.Instance.IsWatchful())
+        if (MyFriend.Instance.IsWatchful() || gameComplete)
         {
             Debug.Log("CAUGHT SNOOPING COMPUTER");
 
