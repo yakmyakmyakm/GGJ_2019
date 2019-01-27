@@ -39,7 +39,7 @@ public class Snoop : Interactable
         return Type.Snoop;
     }
 
-    public void StartSnoop()
+    public virtual void StartSnoop()
     {
         isActive = true;
 
@@ -60,6 +60,8 @@ public class Snoop : Interactable
         if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
         progressBar.Increase(Duration);
         progressBar.onCompleteIncrease = EndSnoop;
+
+
     }
 
     public void PlayerInterruptSnoop()
@@ -78,6 +80,7 @@ public class Snoop : Interactable
     public virtual void EndSnoop()
     {
         //currentAnim = this.inactive;
+        playImageSequence.SetImage(idle);
         isActive = false;
 
         //enable to endgame

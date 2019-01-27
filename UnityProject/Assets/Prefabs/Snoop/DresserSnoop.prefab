@@ -112,9 +112,9 @@ GameObject:
   - component: {fileID: 916635953947306735}
   - component: {fileID: 916635953947306734}
   - component: {fileID: 916635953947306733}
-  - component: {fileID: 622359428059839246}
+  - component: {fileID: 1038197686046635029}
   m_Layer: 0
-  m_Name: BedSnoop
+  m_Name: DresserSnoop
   m_TagString: Snoopable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &622359428059839246
+--- !u!114 &1038197686046635029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,13 +219,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 916635953947306731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b6ddd8dc4354952a7c1d7c419199e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 96ae6398aee8045eca67b3ce84b75790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playImageSequence: {fileID: 0}
   Duration: 0
-  idle: {fileID: 21300000, guid: d63537afaa53648d199b2811a0fb41af, type: 3}
-  snooped: {fileID: 0}
+  idle: {fileID: 21300000, guid: ba5d2505ca0b2499a94ba757363c743c, type: 3}
+  snooped: {fileID: 21300000, guid: c23ae224980c14432b6a3d5e0acc3ccc, type: 3}
   location: {x: 0, y: 0}
   currentSnoopingDuration: {fileID: 11400000, guid: a713a8f2ed03b1a4c8e06fc2bacbfb6c,
     type: 2}
