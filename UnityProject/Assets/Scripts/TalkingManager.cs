@@ -112,6 +112,24 @@ public class TalkingManager : MonoBehaviour
                 speeches.Clear();
                 conversationIndex = 0;
                 if (conversation != null) StopCoroutine(conversation);
+
+                if (bool.Parse(textToSay))
+                {
+                    FinalScene.instance.ShowEnding(1);
+                }
+                else
+                {
+                    float r = Random.Range(0f, 1f);
+                    if (r >= 0.5f)
+                    {
+                        FinalScene.instance.ShowEnding(2);
+                    }
+                    else
+                    {
+                        FinalScene.instance.ShowEnding(3);
+                    }
+                }
+
                 break;
         }
     }
@@ -119,9 +137,9 @@ public class TalkingManager : MonoBehaviour
     public void AddSpeechData(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
         //todo -- first of convo == delay
-        if(character == CharacterType.PLAYER || character == CharacterType.AI) inputManager.SetState(InputManager.State.CONVERSATION);
+        if (character == CharacterType.PLAYER || character == CharacterType.AI) inputManager.SetState(InputManager.State.CONVERSATION);
 
-        if(character == CharacterType.EVIDENCE) inputManager.SetState(InputManager.State.EVIDENCE);
+        if (character == CharacterType.EVIDENCE) inputManager.SetState(InputManager.State.EVIDENCE);
 
         speeches.Add(new SpeechData(character, textToSay, time));
 
