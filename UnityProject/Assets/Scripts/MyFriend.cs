@@ -318,6 +318,7 @@ public class MyFriend : MonoBehaviour
             OnDistractionTimeOut -= RemoveDistraction;
             OnDistractionTimeOut += RemoveDistraction;
             Timer.RunTimer(GetDistraction().Duration, OnDistractionTimeOut);
+            GetDistraction().StartAIDistraction();
         }
     }
 }

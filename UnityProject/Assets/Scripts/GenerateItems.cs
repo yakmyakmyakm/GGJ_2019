@@ -16,7 +16,7 @@ public class GenerateItems : MonoBehaviour
     {
         for (int i = 0; i < snoopCount; i++)
         {
-
+            
         }
 
         for (int i = 0; i < distractionCount; i++)

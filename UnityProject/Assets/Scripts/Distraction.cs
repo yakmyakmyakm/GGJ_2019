@@ -32,6 +32,7 @@ public class Distraction : Interactable
         this.OnEnd();
     }
 
+    //call this once AI has arrived
     public virtual void StartAIDistraction()
     {
         //playImageSequence.StartAnimation(active);
