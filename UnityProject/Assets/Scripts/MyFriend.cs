@@ -92,6 +92,16 @@ public class MyFriend : MonoBehaviour
         moveableObject.Resume();
     }
 
+    public void EndGame()
+    {
+        catchSnooping = true;
+    }
+
+    public void StartGame()
+    {
+        Initialize();
+    }
+
     // Get the first distraction from the queue
     private Distraction GetDistraction()
     {
@@ -211,6 +221,10 @@ public class MyFriend : MonoBehaviour
                 nextState = State.WATCHFUL;
             }
         }
+        else if (currentState == State.CATCH)
+        {
+            UpdateCatch();
+        }
 
         // housekeeping
         lastState = currentState;
@@ -257,6 +271,11 @@ public class MyFriend : MonoBehaviour
                 Debug.Log("[Mock] Pause");
                 Pause();
             }
+        }
+        else if (Input.GetButtonDown("End"))
+        {
+            Debug.Log("[Mock] End");
+            GameManager.instance.EndGame(true);
         }
     }
 
@@ -339,5 +358,11 @@ public class MyFriend : MonoBehaviour
             Timer.RunTimer(GetDistraction().Duration, OnDistractionTimeOut);
             GetDistraction().StartAIDistraction();
         }
+    }
+
+    private void UpdateCatch()
+    {
+        // todo: action when it catches the player
+        Pause();
     }
 }
