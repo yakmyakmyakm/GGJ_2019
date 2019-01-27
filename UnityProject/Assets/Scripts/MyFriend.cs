@@ -76,7 +76,7 @@ public class MyFriend : MonoBehaviour
     {
         Debug.Log("EnqueueDistraction");
         distractionQueue.Enqueue(inDistraction);
-        
+        if(distractionQueue.Count == 1)
         moveableObject.MoveToPosition(inDistraction.Destination);
     }
 
@@ -135,6 +135,12 @@ public class MyFriend : MonoBehaviour
             // send end event to the distraction and remove it from the queue
             GetDistraction().EndDistraction();
             distractionQueue.Dequeue();
+            //Debug.Log("Go to new distractin" + distractionQueue.Count);
+            if(distractionQueue.Count > 0)
+            {
+                moveableObject.MoveToPosition(GetDistraction().Destination);
+            }
+
             if (currentDistractionDuration)
             {
                 currentDistractionDuration.SetValue(0);
