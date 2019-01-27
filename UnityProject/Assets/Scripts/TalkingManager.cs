@@ -104,6 +104,9 @@ public class TalkingManager : MonoBehaviour
             case CharacterType.ENDGAME:
                 Debug.Log("END GAME NOW!");
                 GameManager.instance.EndGame(bool.Parse(textToSay));
+                speeches.Clear();
+                conversationIndex = 0;
+                if (conversation != null) StopCoroutine(conversation);
                 break;
         }
     }

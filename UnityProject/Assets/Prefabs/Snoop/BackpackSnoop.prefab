@@ -112,14 +112,14 @@ GameObject:
   - component: {fileID: 916635953947306735}
   - component: {fileID: 916635953947306734}
   - component: {fileID: 916635953947306733}
-  - component: {fileID: 622359428059839246}
+  - component: {fileID: 615418791}
   m_Layer: 0
-  m_Name: BedSnoop
+  m_Name: BackpackSnoop
   m_TagString: Snoopable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &916635953947306721
 Transform:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &622359428059839246
+--- !u!114 &615418791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,20 +219,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 916635953947306731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b6ddd8dc4354952a7c1d7c419199e2, type: 3}
+  m_Script: {fileID: 11500000, guid: c0f3aec0f2bd34a5398aad58b108b473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playImageSequence: {fileID: 0}
   Duration: 0
-  idle: {fileID: 21300000, guid: d63537afaa53648d199b2811a0fb41af, type: 3}
+  idle: {fileID: 21300000, guid: a4c339cd769db4a2d9f7c75c13c2b5ac, type: 3}
   snooped: {fileID: 0}
   location: {x: 0, y: 0}
-  currentSnoopingDuration: {fileID: 11400000, guid: a713a8f2ed03b1a4c8e06fc2bacbfb6c,
-    type: 2}
-  playerProgressBarStart: {fileID: 11400000, guid: 530af1ab9f7e09043a620a05d8bbc495,
-    type: 2}
-  playerProgressBarEnd: {fileID: 11400000, guid: 0d5cf79185cd90e45852f0b15de9aff9,
-    type: 2}
+  currentSnoopingDuration: {fileID: 0}
+  playerProgressBarStart: {fileID: 0}
+  playerProgressBarEnd: {fileID: 0}
 --- !u!1 &916635955001299378
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,8 +265,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 66}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &916635955001299380
 CanvasRenderer:
@@ -299,7 +296,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d63537afaa53648d199b2811a0fb41af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4c339cd769db4a2d9f7c75c13c2b5ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
