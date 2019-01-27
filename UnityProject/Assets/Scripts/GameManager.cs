@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("RESETTING GAME!!!");
 
-        if (GameInit)
-            GameInit.Raise();
+        // if (GameInit)
+        //     GameInit.Raise();
     }
 }
