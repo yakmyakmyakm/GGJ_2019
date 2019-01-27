@@ -41,10 +41,12 @@ public class Snoop : Interactable
         
             gameComplete = false;
             GameManager.snoopedCount++;
-            if(GameManager.snoopedCount > generate.snoopCount)
+            if(GameManager.snoopedCount >= generate.snoopCount)
             {
                 gameComplete = true;
             }
+
+            //Debug.Log(GameManager.snoopedCount + " " + generate.snoopCount + " " + gameComplete);
 
             isActiveForPlayer = false;
 

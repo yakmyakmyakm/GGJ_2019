@@ -19,7 +19,7 @@ public class GenerateItems : MonoBehaviour
     GameObject s;
     GameObject d;
 
-    private List<Vector3> grid;
+    private List<Vector3> grid = new List<Vector3>();
 
     void Start()
     {
