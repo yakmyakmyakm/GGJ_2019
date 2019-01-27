@@ -53,6 +53,7 @@ public class TalkingManager : MonoBehaviour
         player.HideBubble();
         ai.HideBubble();
         inputManager.onEvidenceMouseClick = EvidenceMouseClick;
+        inputManager.onConversationClick = ConversationMouseClick;
     }
 
     public int conversationIndex;
@@ -62,27 +63,34 @@ public class TalkingManager : MonoBehaviour
         SpeechData data = speeches[conversationIndex];
         Speak(data.characterType, data.text, data.time);
         yield return new WaitForSecondsRealtime(data.time);
+        NextConversation();
+    }
+
+    void NextConversation()
+    {
         conversationIndex++;
         if (conversationIndex >= speeches.Count)
         {
             inputManager.SetState(InputManager.State.MOVEMENT);
             conversation = null;
+            TalkingUI.instance.Hide();
         }
         else
         {
             conversation = Conversation();
             StartCoroutine(conversation);
         }
-
-        //pass to next string on mouseclick
     }
 
     void Speak(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
         switch (character)
         {
-            case CharacterType.PLAYER: player.Speak(time, textToSay); break;
-            case CharacterType.AI: ai.Speak(time, textToSay); break;
+            case CharacterType.PLAYER:
+            case CharacterType.AI:
+                TalkingUI.instance.ShowBubble(character, textToSay);
+                break;
+
             case CharacterType.EVIDENCE:
                 evidenceManager.ShowEvidence(textToSay, time);
                 inputManager.SetState(InputManager.State.EVIDENCE);
@@ -102,20 +110,17 @@ public class TalkingManager : MonoBehaviour
         }
     }
 
+    void ConversationMouseClick()
+    {
+        //next speech skip time
+        if(conversation != null) StopCoroutine(conversation);
+        NextConversation();
+    }
+
     void EvidenceMouseClick()
     {
         evidenceManager.HideEvidence();
         inputManager.SetState(InputManager.State.MOVEMENT);
-    }
-
-    public void EnterConvoMode()
-    {
-
-    }
-
-    public void ExitConvoMode()
-    {
-
     }
 
     void Update()

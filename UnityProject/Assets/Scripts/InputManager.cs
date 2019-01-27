@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     public Action<GameObject> onHitDistraction;
     public Action<GameObject> onHitSnoopable;
     public Action releasedMouseButton;
-    public Action onMouseClick;
+    public Action onConversationClick;
     public Action onEvidenceMouseClick;
     public Action<State> currentStateChanged;
 
@@ -26,12 +26,12 @@ public class InputManager : MonoBehaviour
     {
         currentState = state;
 
-        switch (state)
-        {
-            case State.CONVERSATION: Time.timeScale = 0;break;
-            case State.EVIDENCE: Time.timeScale = 0;break;
-            case State.MOVEMENT: Time.timeScale = 1; break;
-        }
+        // switch (state)
+        // {
+        //     case State.CONVERSATION: Time.timeScale = 0;break;
+        //     case State.EVIDENCE: Time.timeScale = 0;break;
+        //     case State.MOVEMENT: Time.timeScale = 1; break;
+        // }
     }
 
 
@@ -54,7 +54,10 @@ public class InputManager : MonoBehaviour
                 break;
 
             case State.CONVERSATION:
-                BroadcastMouseClick();
+                if (Input.GetMouseButtonUp(0))
+        {
+            if (onConversationClick != null) onConversationClick();
+        }
                 break;
 
             case State.EVIDENCE:
@@ -63,14 +66,6 @@ public class InputManager : MonoBehaviour
                     if (onEvidenceMouseClick != null) onEvidenceMouseClick();
                 }
                 break;
-        }
-    }
-
-    void BroadcastMouseClick()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (onMouseClick != null) onMouseClick();
         }
     }
 
