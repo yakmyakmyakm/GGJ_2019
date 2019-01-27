@@ -6,14 +6,6 @@ public class KittenDistraction : Distraction
 {
     void Awake()
     {
-        // this.kitten = new Distraction();
-        // this.kitten.active = this.active;
-        // this.kitten.inactive = this.inactive;
-        // this.kitten
-        // this.kitten
-        //Vector3 pos = GameObject.transform.position;
-        //this.kitten.location = new Vector2(pos.x, pos.z);
-
         name = "kitten";
         Duration = 4.0f + Random.Range(0.0f, 4.0f);
     }
