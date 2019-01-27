@@ -83,5 +83,7 @@ public class GameManager : MonoBehaviour
     {
         if (GameStart)
             GameStart.Raise();
+
+        Debug.Log("STARTING GAME!!!");
     }
 }

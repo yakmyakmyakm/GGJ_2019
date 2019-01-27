@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 916635953947306734}
   - component: {fileID: 916635953947306733}
   - component: {fileID: 615418791}
+  - component: {fileID: 6185532515295429128}
   m_Layer: 0
   m_Name: BackpackSnoop
   m_TagString: Snoopable
@@ -222,15 +223,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3aec0f2bd34a5398aad58b108b473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playImageSequence: {fileID: 0}
+  playImageSequence: {fileID: 916635953562735071}
   Duration: 0
   idle: {fileID: 21300000, guid: a4c339cd769db4a2d9f7c75c13c2b5ac, type: 3}
   snooped: {fileID: 0}
   isActiveForPlayer: 1
   location: {x: 0, y: 0}
-  currentSnoopingDuration: {fileID: 0}
-  playerProgressBarStart: {fileID: 0}
-  playerProgressBarEnd: {fileID: 0}
+  currentSnoopingDuration: {fileID: 11400000, guid: a713a8f2ed03b1a4c8e06fc2bacbfb6c,
+    type: 2}
+  playerProgressBarStart: {fileID: 11400000, guid: 530af1ab9f7e09043a620a05d8bbc495,
+    type: 2}
+  playerProgressBarEnd: {fileID: 11400000, guid: 0d5cf79185cd90e45852f0b15de9aff9,
+    type: 2}
+--- !u!114 &6185532515295429128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916635953947306731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f903f3044405b4b47a99c107c9220c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0d5cf79185cd90e45852f0b15de9aff9, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 615418791}
+        m_MethodName: EndSnoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &916635955001299378
 GameObject:
   m_ObjectHideFlags: 0
