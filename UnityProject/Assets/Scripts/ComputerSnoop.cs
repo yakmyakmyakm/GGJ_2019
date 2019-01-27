@@ -43,6 +43,7 @@ public class ComputerSnoop : Snoop
             );
 
             bool isGood = GameManager.instance.RollFinalOutcome();
+            if(gameComplete) isGood = true;
 
             if (isGood)
             {

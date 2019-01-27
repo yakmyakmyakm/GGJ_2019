@@ -49,6 +49,7 @@ public class BackpackSnoop : Snoop
             GameManager.instance.ComposeLitany();
 
             bool isGood = GameManager.instance.RollFinalOutcome();
+            if(gameComplete) isGood = true;
 
             if (isGood)
             {
