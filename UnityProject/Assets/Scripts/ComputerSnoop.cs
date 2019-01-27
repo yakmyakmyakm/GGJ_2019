@@ -42,7 +42,6 @@ public class ComputerSnoop : Snoop
                 GameManager.DEFAULT_DIALOG_DURATION
             );
 
-
             bool isGood = GameManager.instance.RollFinalOutcome();
 
             if (isGood)
