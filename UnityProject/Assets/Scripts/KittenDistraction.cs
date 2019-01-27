@@ -15,7 +15,7 @@ public class KittenDistraction : Distraction
         //this.kitten.location = new Vector2(pos.x, pos.z);
 
         name = "kitten";
-        Duration =  4.0f + Random.Range(0.0f, 4.0f);
+        Duration = 4.0f + Random.Range(0.0f, 4.0f);
     }
 
     public override void StartPlayerDistraction()
@@ -38,7 +38,7 @@ public class KittenDistraction : Distraction
     }
 
     //AI calls when compelte fixing
-     public override void EndDistraction()
+    public override void EndDistraction()
     {
 
         TalkingManager.instance.AddSpeechData(
