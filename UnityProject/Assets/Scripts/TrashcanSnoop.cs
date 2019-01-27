@@ -2,8 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class TrashCanOptionsData
+{
+    public Sprite s;
+    public string name;
+    public string description;
+    public int score;
+    public string learned;
+}
+
 public class TrashcanSnoop : Snoop
 {
+    public List<TrashCanOptionsData> data = new List<TrashCanOptionsData>();
+
     public void StartSnoop() {
         base.StartSnoop();
     }
