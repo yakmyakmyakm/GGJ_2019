@@ -55,8 +55,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            if (GameInit)
-                GameInit.Raise();
         }
         else
         {
@@ -64,6 +62,12 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        if (GameInit)
+            GameInit.Raise();
     }
 
     bool isGoodEnding;
