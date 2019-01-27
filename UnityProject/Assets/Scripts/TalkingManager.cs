@@ -61,7 +61,7 @@ public class TalkingManager : MonoBehaviour
     {
         SpeechData data = speeches[conversationIndex];
         Speak(data.characterType, data.text, data.time);
-        yield return new WaitForSeconds(data.time);
+        yield return new WaitForSecondsRealtime(data.time);
         conversationIndex++;
         if (conversationIndex >= speeches.Count)
         {

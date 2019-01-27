@@ -26,7 +26,14 @@ public class InputManager : MonoBehaviour
     {
         currentState = state;
 
-        if(currentStateChanged != null) currentStateChanged(state);
+        switch (state)
+        {
+            case State.CONVERSATION: Time.timeScale = 0;break;
+            case State.EVIDENCE: Time.timeScale = 0;break;
+            case State.MOVEMENT: Time.timeScale = 1; break;
+        }
+
+        //if (currentStateChanged != null) currentStateChanged(state);
     }
 
 
