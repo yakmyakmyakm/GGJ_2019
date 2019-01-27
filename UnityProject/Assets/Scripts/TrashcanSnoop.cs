@@ -106,6 +106,11 @@ public class TrashcanSnoop : Snoop
                     "A witness. You sure have a lot of teeth, for a witness...",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "In case this is not clear, I habitually murder people for their teeth.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
                 GameManager.instance.EndGame(false);
             }
         }

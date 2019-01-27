@@ -29,7 +29,9 @@ public class BedSnoop : Snoop
 
 
         GameManager.learned.Add("How you've lost more teeth than I've even had in my life!");
-        //GameManager.score += item.score;
+
+        GameManager.score += 20;
+
         if (MyFriend.Instance.IsWatchful()) {
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,
