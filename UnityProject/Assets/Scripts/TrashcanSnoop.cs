@@ -21,15 +21,19 @@ public class TrashcanSnoop : Snoop
     }
 
     public override void EndSnoop() {
-        base.EndSnoop();
+        TrashCanOptionsData item = data[Random.next(0, data.Count)];
+
         TalkingManager.instance.AddSpeechData(
         CharacterType.EVIDENCE,
-        "Hmm, an empty bottle of chloroform. They must be super into organic chemistry!",
-        GameManager.DEFAULT_DIALOG_DURATION
+        item.description,
+        GameManager.DEFAULT_DIALOG_DURATION,
+        item.s
         );
 
-        GameManager.learned.Add("Your love of organic chemistry!");
-        GameManager.score += 20;
+        GameManager.learned.Add(item.learned);
+        GameManager.score += item.score;
+
+        base.EndSnoop();
     }
 
 

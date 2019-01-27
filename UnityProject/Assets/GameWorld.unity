@@ -1524,6 +1524,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1478a8f787c74e95a0835bcd2fc70e5,
+        type: 3}
     - target: {fileID: 4510887196295359949, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_AngularSpeed
@@ -1539,12 +1545,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 1014
       objectReference: {fileID: 0}
-    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a1478a8f787c74e95a0835bcd2fc70e5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5e518c4d11e4ceca13f89bd2a29506, type: 3}
 --- !u!1 &1178863317 stripped
@@ -1617,6 +1617,28 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b83635cb32b1c4b7aadadf3ea9829c2f, type: 3}
   currentAnim: []
   location: {x: 0, y: 0}
+  data:
+  - s: {fileID: 0}
+    name: chloroform
+    description: There's an empty bottle of chloroform. They must be super into organic
+      chemistry!
+    score: 20
+    learned: Your love of organic chemistry!
+  - s: {fileID: 0}
+    name: tooth
+    description: There's a single tooth in the can. Do they have scurvy?
+    score: 0
+    learned: How you're suffering from scurvy!
+  - s: {fileID: 0}
+    name: wpwrapper
+    description: There's a condom wrapper. Is that a twinge of jealousy you feel?
+    score: 0
+    learned: You're sleeping with other people! Is it that jerk Trevor?
+  - s: {fileID: 0}
+    name: 
+    description: 
+    score: 0
+    learned: 
 --- !u!208 &1367563045
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -2641,6 +2663,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fbb60ddc7be4a4308a8c57619a6cf624,
+        type: 3}
+    - target: {fileID: 4510887196053402255, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4510887196295359949, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
       propertyPath: m_Speed
@@ -2660,6 +2693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510887195637587425, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196053402242, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
@@ -2700,22 +2738,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4510887196053402241, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fbb60ddc7be4a4308a8c57619a6cf624,
-        type: 3}
-    - target: {fileID: 4510887196053402255, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: sprites.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4510887195637587425, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4510887196053402243, guid: 1c5e518c4d11e4ceca13f89bd2a29506,
         type: 3}
@@ -2911,11 +2933,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8585422000278522840, guid: d314073864bc8476a846e6fab6d875cc,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7066611216291172604, guid: d314073864bc8476a846e6fab6d875cc,
         type: 3}
       propertyPath: active.Array.size
@@ -2997,11 +3014,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 2855803707554652915, guid: d314073864bc8476a846e6fab6d875cc,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 515995909}
     - target: {fileID: 1906585844008637033, guid: d314073864bc8476a846e6fab6d875cc,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3053,6 +3065,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8585422000278522840, guid: d314073864bc8476a846e6fab6d875cc,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2855803707554652915, guid: d314073864bc8476a846e6fab6d875cc,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 515995909}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d314073864bc8476a846e6fab6d875cc, type: 3}
 --- !u!114 &7453791969960922760 stripped
