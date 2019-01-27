@@ -47,6 +47,10 @@ public class GenerateItems : MonoBehaviour
         snoopObjects.Shuffle();
         distractionObjects.Shuffle();
 
+        Snoop concreteBed = Instantiate(bed, new Vector3(-24, 0, 17), new Quaternion(0, 0, 0, 0));
+        snoops.Add(concreteBed);
+        concreteBed.transform.SetParent(bed.transform);
+
         if(s == null) s = new GameObject("Snoops");
         if(d == null) d = new GameObject("Distractions");
 
@@ -81,8 +85,17 @@ public class GenerateItems : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
-        int x = Random.Range(-xLimit, xLimit);
-        int z = Random.Range(-yLimit, yLimit);
+        float xWallBonus = 15.0f; // How much more likely, relative to 27, something is to spawn against an x-wall
+        float zWallPenalty  = 30.0f; // How much less likely, relative to 27, something is to spawn against a z-wall
+        float x = Random.Range(-xLimit - xWallBonus, xLimit + xWallBonus);
+        float z = Random.Range(-yLimit, yLimit + (2*zWallPenalty));
+        if (x < -xLimit) { x = -xLimit; };
+        if (x >  xLimit) { x = xLimit; };
+        float zFactor = (yLimit - 6) / zWallPenalty; // increase magic number for more z centrality
+        if (z < 0) { /*leave alone*/ }
+        else if (z > 2*zWallPenalty) { z -= 2 * zWallPenalty; }
+        else { z = (z * zFactor) - yLimit; } // remap onto the middle of z
+
         return new Vector3(x, 0, z);
     }
 }
