@@ -19,6 +19,8 @@ public class GenerateItems : MonoBehaviour
     GameObject s;
     GameObject d;
 
+    private List<Vector3> grid;
+
     void Start()
     {
         InitalizeWorld();
@@ -41,6 +43,8 @@ public class GenerateItems : MonoBehaviour
                 d.gameObject.SetActive(false);
             }
         }
+
+        this.genGrid();
 
         snoops.Clear();
         distractions.Clear();
@@ -83,20 +87,31 @@ public class GenerateItems : MonoBehaviour
         }
     }
 
+    void genGrid() {
+        for (int i = -xLimit; i <= xLimit; i++)
+        {
+            for (int j = -yLimit; j <= yLimit; j++)
+            {
+                if (i > -24 && j > -17) //exclude bed area
+                {
+                    this.grid.Add(new Vector3(i, 0, j));
+                }
+            }
+        }
+
+        this.grid.Shuffle();
+    }
+
     Vector3 GetRandomPosition()
     {
-        float xWallBonus = 15.0f; // How much more likely, relative to 27, something is to spawn against an x-wall
-        float zWallPenalty  = 30.0f; // How much less likely, relative to 27, something is to spawn against a z-wall
-        float x = Random.Range(-xLimit - xWallBonus, xLimit + xWallBonus);
-        float z = Random.Range(-yLimit, yLimit + (2*zWallPenalty));
-        if (x < -xLimit) { x = -xLimit; };
-        if (x >  xLimit) { x = xLimit; };
-        float zFactor = (yLimit - 6) / zWallPenalty; // increase magic number for more z centrality
-        if (z < 0) { /*leave alone*/ }
-        else if (z > 2*zWallPenalty) { z -= 2 * zWallPenalty; }
-        else { z = (z * zFactor) - yLimit; } // remap onto the middle of z
-
-        return new Vector3(x, 0, z);
+        if(this.grid.Count == 0)
+        {
+            //do something, but this shouldn't happen
+            this.genGrid();
+        }
+        Vector3 p = this.grid[this.grid.Count - 1];
+        this.grid.RemoveAt(this.grid.Count - 1);
+        return p;
     }
 }
 
