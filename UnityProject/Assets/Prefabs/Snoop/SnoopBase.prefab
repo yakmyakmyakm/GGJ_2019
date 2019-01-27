@@ -114,7 +114,6 @@ GameObject:
   - component: {fileID: 916635953947306735}
   - component: {fileID: 916635953947306734}
   - component: {fileID: 916635953947306733}
-  - component: {fileID: 916635953947306740}
   m_Layer: 0
   m_Name: SnoopBase
   m_TagString: Snoopable
@@ -212,27 +211,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &916635953947306740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916635953947306731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 5086371653b45491d90fdfa382c37404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playImageSequence: {fileID: 0}
-  progressBar: {fileID: 2244997960012809849}
-  Duration: 0
-  inactive: []
-  active: []
-  currentAnim: []
-  location: {x: 0, y: 0}
-  data: []
 --- !u!1 &916635955001299378
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,4 +69,10 @@ public class Snoop : Interactable
 
         playImageSequence.StartAnimation(inactive);
     }
+
+    void Start()
+    {
+        if (progressBar == null)
+            progressBar = this.transform.Find("ProgressBar").GetComponent<ProgressBar>();
+    }
 }

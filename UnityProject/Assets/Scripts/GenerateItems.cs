@@ -15,6 +15,9 @@ public class GenerateItems : MonoBehaviour
     public int xLimit = 15;
     public int yLimit = 15;
 
+    GameObject s;
+    GameObject d;
+
     void Start()
     {
         InitalizeWorld();
@@ -43,6 +46,9 @@ public class GenerateItems : MonoBehaviour
         snoopObjects.Shuffle();
         distractionObjects.Shuffle();
 
+        if(s == null) s = new GameObject("Snoops");
+        if(d == null) d = new GameObject("Distractions");
+
         int saftey = 0;
         for (int i = 0; i < snoopCount; i++)
         {
@@ -52,6 +58,7 @@ public class GenerateItems : MonoBehaviour
             }
             Snoop snoop = Instantiate(snoopObjects[saftey], GetRandomPosition(), new Quaternion(0, 0, 0, 0));
             snoops.Add(snoop);
+            snoop.transform.SetParent(s.transform);
             saftey++;
         }
 
@@ -62,8 +69,12 @@ public class GenerateItems : MonoBehaviour
             {
                 saftey = 0;
             }
+
+            //Debug.Log("SAFTEY "  +saftey + " objcount " + distractionObjects.Count + " " + i);
             Distraction distraction = Instantiate(distractionObjects[saftey], GetRandomPosition(), new Quaternion(0, 0, 0, 0));
             distractions.Add(distraction);
+            distraction.transform.SetParent(d.transform);
+            saftey++;
         }
     }
 
