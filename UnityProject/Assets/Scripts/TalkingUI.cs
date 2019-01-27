@@ -18,6 +18,8 @@ public class TalkingUI : MonoBehaviour
 
     public static TalkingUI instance;
 
+    public GameObject parent;
+
     void Start()
     {
         if (instance == null)
@@ -26,10 +28,10 @@ public class TalkingUI : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         Hide();
     }
@@ -39,12 +41,12 @@ public class TalkingUI : MonoBehaviour
     public void Show()
     {
         Initalize();
-        this.gameObject.SetActive(true);
+        parent.gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        this.gameObject.SetActive(false);
+        parent.gameObject.SetActive(false);
         isShowing = false;
     }
 
@@ -61,7 +63,7 @@ public class TalkingUI : MonoBehaviour
 
         for (int i = 0; i < totalItems; i++)
         {
-            GameObject o = Instantiate(speechBubble.gameObject, this.transform) as GameObject;
+            GameObject o = Instantiate(speechBubble.gameObject, parent.transform) as GameObject;
             o.GetComponent<RectTransform>().localPosition = startPos;
             bubbles.Add(o.GetComponent<SpeechBubbleUI>());
         }

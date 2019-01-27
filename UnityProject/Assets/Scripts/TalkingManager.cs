@@ -6,7 +6,8 @@ public enum CharacterType
 {
     PLAYER,
     AI,
-    EVIDENCE
+    EVIDENCE,
+    ENDGAME,
 }
 
 public class TalkingManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class TalkingManager : MonoBehaviour
 
     public InputManager inputManager;
     public EvidenceManager evidenceManager;
+    public System.Action onConversationComplete;
 
     [System.Serializable]
     public class SpeechData
@@ -84,22 +86,31 @@ public class TalkingManager : MonoBehaviour
 
     void Speak(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
+        evidenceManager.HideEvidence();
+
         switch (character)
         {
             case CharacterType.PLAYER:
             case CharacterType.AI:
                 TalkingUI.instance.ShowBubble(character, textToSay);
+                inputManager.SetState(InputManager.State.CONVERSATION);
                 break;
 
             case CharacterType.EVIDENCE:
                 evidenceManager.ShowEvidence(textToSay, time);
                 inputManager.SetState(InputManager.State.EVIDENCE);
                 break;
+
+            case CharacterType.ENDGAME:
+                Debug.Log("END GAME NOW!");
+                GameManager.instance.EndGame(bool.Parse(textToSay));
+                break;
         }
     }
 
     public void AddSpeechData(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
+        //todo -- first of convo == delay
         inputManager.SetState(InputManager.State.CONVERSATION);
         speeches.Add(new SpeechData(character, textToSay, time));
 
@@ -113,14 +124,27 @@ public class TalkingManager : MonoBehaviour
     void ConversationMouseClick()
     {
         //next speech skip time
-        if(conversation != null) StopCoroutine(conversation);
+        if (conversation != null) StopCoroutine(conversation);
         NextConversation();
     }
 
     void EvidenceMouseClick()
     {
-        evidenceManager.HideEvidence();
-        inputManager.SetState(InputManager.State.MOVEMENT);
+        if (conversationIndex >= speeches.Count-1)
+        {
+            evidenceManager.HideEvidence();
+            inputManager.SetState(InputManager.State.MOVEMENT);
+        }else
+        {
+             if (conversation != null) StopCoroutine(conversation);
+        NextConversation();
+        }
+        // if (conversation == null)
+        // {
+        //     
+        // }
+
+       
     }
 
     void Update()

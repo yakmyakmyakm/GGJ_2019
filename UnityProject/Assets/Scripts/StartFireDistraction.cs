@@ -14,11 +14,11 @@ public class StartFireDistraction : Distraction
     {
         base.StartPlayerDistraction();
 
-        TalkingManager.instance.AddSpeechData(
-            CharacterType.EVIDENCE,
-            "I bet that jerk Trevor left those logs there. He's always doing that.",
-            GameManager.DEFAULT_DIALOG_DURATION
-        );
+        // TalkingManager.instance.AddSpeechData(
+        //     CharacterType.EVIDENCE,
+        //     "I bet that jerk Trevor left those logs there. He's always doing that.",
+        //     GameManager.DEFAULT_DIALOG_DURATION
+        // );
         TalkingManager.instance.AddSpeechData(
             CharacterType.AI,
             "What the heck! I don't even have matches in my house. Not anymore.",

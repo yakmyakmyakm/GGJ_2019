@@ -26,7 +26,7 @@ public class SpeechBubbleUI : MonoBehaviour
 
     IEnumerator ShowDelay()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSecondsRealtime(0.15f);
         Ease.Go(this, 0, 1, 0.15f, SetAlpha, Done, Ease.Type.Linear);
     }
 

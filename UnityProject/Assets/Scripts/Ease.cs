@@ -86,7 +86,7 @@ public static class Ease
         var i = 0f;
         while (i <= 1f)
         {
-            i += Time.deltaTime / t;
+            i += Time.unscaledDeltaTime / t;
             if(update != null) update(_types[type](start, end, i));
             yield return null;
         }

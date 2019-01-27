@@ -69,7 +69,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3017417655601812056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -92,7 +91,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3017417655601812056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -155,7 +153,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6302272029390802099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -247,7 +244,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6302272030448202442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -270,7 +266,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6302272030448202442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -288,7 +283,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6302272030448202442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 08cd5ae73f03d4c8e994b50d13f30e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -347,7 +341,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6302272030790912314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -403,8 +396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 372, y: 378}
+  m_AnchoredPosition: {x: 0, y: 161}
+  m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4895450013742642687
 CanvasRenderer:
@@ -423,7 +416,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7025623535874316921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -435,7 +427,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1133843bd5eca4e45810a7a07a428e09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daa828f947bb64fd4ae0bb1c8c9a0b15, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -453,7 +445,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7025623535874316921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 801fcf192940744bd908505b2d92cfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -492,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 7561523719005173731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.82, y: 0, z: -6.35}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9024101584997342294}
   - {fileID: 6302272030448202443}
@@ -555,7 +546,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2}
+  m_Size: {x: 1, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &7561523719005173728
 NavMeshObstacle:
@@ -570,7 +561,7 @@ NavMeshObstacle:
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
-  m_CarveOnlyStationary: 1
+  m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!114 &4384568277073417516
@@ -582,15 +573,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7561523719005173731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 3565e926d2fe648f1861eb251c5d982e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playImageSequence: {fileID: 0}
-  progressBar: {fileID: 0}
+  playImageSequence: {fileID: 7305642611240836690}
   Duration: 0
-  inactive: []
-  active: []
-  currentAnim: []
   Destination: {x: 0, y: 0, z: 0}
   name: 
+  animSprite: []
+  image: {fileID: 7290071650945567669}
+  canDistract: {fileID: 21300000, guid: daa828f947bb64fd4ae0bb1c8c9a0b15, type: 3}
+  isDistracting: {fileID: 21300000, guid: a9bf767da083b48d7bb096f141b63231, type: 3}
+  distractedCount: 0

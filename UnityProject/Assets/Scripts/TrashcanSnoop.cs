@@ -17,11 +17,13 @@ public class TrashcanSnoop : Snoop
 {
     public List<TrashCanOptionsData> data = new List<TrashCanOptionsData>();
 
-    public void StartSnoop() {
+    public override void StartSnoop()
+    {
         base.StartSnoop();
     }
 
-    public override void EndSnoop() {
+    public override void EndSnoop()
+    {
         int i = Mathf.FloorToInt(Random.Range(0, data.Count));
         TrashCanOptionsData item = data[i];
 
@@ -35,7 +37,8 @@ public class TrashcanSnoop : Snoop
         GameManager.learned.Add(item.learned);
         GameManager.score += item.score;
 
-        if (MyFriend.Instance.IsWatchful()) {
+        if (MyFriend.Instance.IsWatchful())
+        {
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,
                 "AAAA! I can't believe you were digging through my trash can!",
@@ -60,14 +63,14 @@ public class TrashcanSnoop : Snoop
                 string reason = "";
                 string outcome = "";
 
-                if(item.name == "tooth" || item.name == "apple" ||
+                if (item.name == "tooth" || item.name == "apple" ||
                 item.name == "syringes" || item.name == "toothbrush")
                 {
                     reason = "I've been too ashamed to tell anyone about my scurvy.";
                     outcome = "It's such a relief that you just... know. Weird, but true.";
                 }
 
-                if(item.name == "wpwrapper" || item.name=="banana" ||
+                if (item.name == "wpwrapper" || item.name == "banana" ||
                 item.name == "todo")
                 {
                     reason = "That jerk, Trevor. He, and his stupid logging, broke my heart.";
@@ -91,7 +94,7 @@ public class TrashcanSnoop : Snoop
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
 
-                GameManager.instance.EndGame(true);
+                //GameManager.instance.EndGame(true);
 
             }
             else
@@ -111,7 +114,10 @@ public class TrashcanSnoop : Snoop
                     "In case this is not clear, I habitually murder people for their teeth.",
                     GameManager.DEFAULT_DIALOG_DURATION
                 );
-                GameManager.instance.EndGame(false);
+
+                //GameManager.instance.EndGame(false);
+
+                TalkingManager.instance.AddSpeechData(CharacterType.ENDGAME, isGood.ToString(), 0);
             }
         }
         base.EndSnoop();
@@ -126,12 +132,12 @@ public class TrashcanSnoop : Snoop
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

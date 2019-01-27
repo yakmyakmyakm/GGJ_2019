@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Snoop : Interactable
 {
-    // public string name;
+    public Sprite idle;
+    public Sprite snooped;
 
-    // public List<Sprite> inactive;
-    // public List<Sprite> active;
-
-    // private List<Sprite> currentAnim;
     private bool isActive;
 
     public bool IsActive
@@ -26,29 +23,51 @@ public class Snoop : Interactable
 
     public IntDelegate OnAwardSoulPoints;
 
+    [SerializeField]
+    private FloatVariable currentSnoopingDuration;
+
+    [SerializeField]
+    private GameEvent playerProgressBarStart;
+
+    [SerializeField]
+    private GameEvent playerProgressBarEnd;
+
+    ProgressBar progressBar;
+
     public override Interactable.Type GetInteractableType()
     {
         return Type.Snoop;
     }
 
-    public void StartSnoop()
+    public virtual void StartSnoop()
     {
-        currentAnim = this.active;
         isActive = true;
 
-        // if(MyFriend.Instance.IsWatchful())
+        //enable to endgame
+        // if (MyFriend.Instance.IsPlayerCaught())
         // {
         //     //trigger endgame if the AI watches either start or end
+        //     GameManager.instance.EndGame(true);
         // }
 
 
-        playImageSequence.StartAnimation(active);
+        //playImageSequence.StartAnimation(active);
+
+        if (currentSnoopingDuration) currentSnoopingDuration.SetValue(Duration);
+        if (playerProgressBarStart) playerProgressBarStart.Raise();
+
+        if (snooped != null) playImageSequence.SetImage(snooped);
+        if (progressBar == null) progressBar = this.transform.GetComponentInChildren<ProgressBar>(true);
+        progressBar.Increase(Duration);
+        progressBar.onCompleteIncrease = EndSnoop;
     }
 
     public void PlayerInterruptSnoop()
     {
-        progressBar.StopProgress();
-        playImageSequence.SetImage(active[0]);
+        //progressBar.StopProgress();
+        //playImageSequence.SetImage(active[0]);
+
+        //if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }
 
     public void AIInterruptSnoop()
@@ -58,25 +77,25 @@ public class Snoop : Interactable
 
     public virtual void EndSnoop()
     {
-        currentAnim = this.inactive;
+        //currentAnim = this.inactive;
+        playImageSequence.SetImage(idle);
         isActive = false;
-        // crc do delegate dance
 
-        // if (MyFriend.Instance.IsWatchful())
+        //enable to endgame
+        // if (MyFriend.Instance.IsPlayerCaught())
         // {
-        //     //trigger endgame if the AI watches either start or end
+        //     GameManager.instance.EndGame(true);
         // }
 
-        playImageSequence.StartAnimation(inactive);
+        // if (playImageSequence) playImageSequence.StartAnimation(inactive);
+        // if (playerProgressBarEnd) playerProgressBarEnd.Raise();
     }
 
     void Start()
     {
-        if (progressBar == null)
-            progressBar = this.transform.Find("ProgressBar").GetComponent<ProgressBar>();
-
         if (playImageSequence == null)
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
 
+        playImageSequence.SetImage(idle);
     }
 }

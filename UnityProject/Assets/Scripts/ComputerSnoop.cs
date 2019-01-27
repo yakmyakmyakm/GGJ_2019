@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ComputerSnoop : Snoop
 {
-    public void StartSnoop()
+    public override void StartSnoop()
     {
         base.StartSnoop();
     }
@@ -29,6 +29,8 @@ public class ComputerSnoop : Snoop
 
         if (MyFriend.Instance.IsWatchful())
         {
+            Debug.Log("CAUGHT SNOOPING COMPUTER");
+
             TalkingManager.instance.AddSpeechData(
                 CharacterType.AI,
                 "What are you doing on my computer! That's so rude.",
@@ -39,43 +41,43 @@ public class ComputerSnoop : Snoop
                 "I thought you loved me! But you're buying a chainsaw for that jerk, Trevor.",
                 GameManager.DEFAULT_DIALOG_DURATION
             );
-        }
 
-        bool isGood = GameManager.instance.RollFinalOutcome();
 
-        if (isGood)
-        {
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.AI,
-                "Oh, silly, no! I was getting a chainsaw for you. It was going to be a surprise.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.PLAYER,
-                "So... can we be chainsaw friends?",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.PLAYER,
-                "Forever and ever.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
+            bool isGood = GameManager.instance.RollFinalOutcome();
 
-            GameManager.instance.EndGame(true);
-        }
-        else
-        {
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.AI,
-                "Oh, silly, no! I was getting a chainsaw for YOU.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            TalkingManager.instance.AddSpeechData(
-                CharacterType.AI,
-                "To dismember you, in case this is not entirely clear.",
-                GameManager.DEFAULT_DIALOG_DURATION
-            );
-            GameManager.instance.EndGame(false);
+            if (isGood)
+            {
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "Oh, silly, no! I was getting a chainsaw for you. It was going to be a surprise.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.PLAYER,
+                    "So... can we be chainsaw friends?",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.PLAYER,
+                    "Forever and ever.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+            }
+            else
+            {
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "Oh, silly, no! I was getting a chainsaw for YOU.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "To dismember you, in case this is not entirely clear.",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+            }
+
+            TalkingManager.instance.AddSpeechData(CharacterType.ENDGAME, isGood.ToString(), 0);
         }
 
         base.EndSnoop();

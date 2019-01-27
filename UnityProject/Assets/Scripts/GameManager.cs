@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     // roll above this on 1dscore for good ending
     
     public static List<string> learned = new List<string>();
+
+    public System.Action onEndGame;
 
     public static GameManager instance;
 
@@ -66,6 +69,7 @@ public class GameManager : MonoBehaviour
         if (GameEnd)
             GameEnd.Raise();
         MyFriend.Instance.EndGame();
+        if(onEndGame != null) onEndGame();
     }
 
     public void StartGame()

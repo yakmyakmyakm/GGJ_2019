@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Distraction : Interactable
 {
     public Vector3 Destination;
     public string name;
-    delegate void Handler();
 
-    Handler OnStart = () => { };
-    Handler OnEnd = () => { };
+    public List<Sprite> animSprite;
+
+    public Image image;
+
+    public Sprite canDistract;
+    public Sprite isDistracting;
+
+    public int distractedCount = 0;
 
     public override Interactable.Type GetInteractableType()
     {
@@ -19,24 +25,29 @@ public class Distraction : Interactable
 
     public virtual void StartPlayerDistraction()
     {
-        Debug.Log("start distraction");
-        currentAnim = active;
         this.OnStart();
         MyFriend.Instance.EnqueueDistraction(this);
-        playImageSequence.StartAnimationOnce(active);
+
+        // if(animSprite.Count > 0)
+        // {
+        //     playImageSequence.StartAnimationOnce(animSprite);
+        // }else
+        // {
+        //     playImageSequence.SetImage(isDistracting);
+        // }
+        image.overrideSprite = isDistracting;
     }
 
     public virtual void EndDistraction()
     {
-        currentAnim = inactive;
-        this.OnEnd();
+        distractedCount++;
+        image.overrideSprite = canDistract;
     }
 
     //call this once AI has arrived
     public virtual void StartAIDistraction()
     {
         //playImageSequence.StartAnimation(active);
-        progressBar.Decrease(Duration);
         //progressBar.onCompleteDecrease = EndAIDistraction;
     }
 
@@ -48,12 +59,10 @@ public class Distraction : Interactable
     void Start()
     {
         Destination = this.transform.position;
-
-        if (progressBar == null)
-            progressBar = this.transform.Find("ProgressBar").GetComponent<ProgressBar>();
         if (playImageSequence == null)
             playImageSequence = this.transform.GetComponentInChildren<PlayImageSequence>();
 
-
+        image.sprite = canDistract;
+    
     }
 }

@@ -46,6 +46,15 @@ public class MyFriend : MonoBehaviour
     private Vector3 destination;
 
     [SerializeField]
+    private FloatVariable currentDistractionDuration;
+
+    [SerializeField]
+    private GameEvent AIProgressBarStart;
+
+    [SerializeField]
+    private GameEvent AIProgressBarEnd;
+
+    [SerializeField]
     private GameObject player;
 
     // todo: mock
@@ -67,13 +76,19 @@ public class MyFriend : MonoBehaviour
     {
         Debug.Log("EnqueueDistraction");
         distractionQueue.Enqueue(inDistraction);
+        if(distractionQueue.Count == 1)
         moveableObject.MoveToPosition(inDistraction.Destination);
     }
 
     // Is my friend in watchful state?
     public bool IsWatchful()
     {
-        return currentState == State.WATCHFUL;
+        return currentState == State.WATCHFUL || currentState == State.APPROACH;
+    }
+
+    public bool IsPlayerCaught()
+    {
+        return currentState == State.WATCHFUL || currentState == State.APPROACH;
     }
 
     // pause the update
@@ -120,6 +135,17 @@ public class MyFriend : MonoBehaviour
             // send end event to the distraction and remove it from the queue
             GetDistraction().EndDistraction();
             distractionQueue.Dequeue();
+
+            if(distractionQueue.Count > 0)
+            {
+                moveableObject.MoveToPosition(GetDistraction().Destination);
+            }
+
+            if (currentDistractionDuration)
+            {
+                currentDistractionDuration.SetValue(0);
+                if (AIProgressBarEnd) AIProgressBarEnd.Raise();
+            }
         }
     }
 
@@ -338,6 +364,8 @@ public class MyFriend : MonoBehaviour
             OnDistractionTimeOut += RemoveDistraction;
             Timer.RunTimer(GetDistraction().Duration, OnDistractionTimeOut);
             GetDistraction().StartAIDistraction();
+            if (currentDistractionDuration) currentDistractionDuration.SetValue(GetDistraction().Duration);
+            if (AIProgressBarStart) AIProgressBarStart.Raise();
         }
     }
 
