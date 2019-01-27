@@ -130,21 +130,16 @@ public class TalkingManager : MonoBehaviour
 
     void EvidenceMouseClick()
     {
-        if (conversationIndex >= speeches.Count-1)
+        if (conversationIndex >= speeches.Count - 1)
         {
             evidenceManager.HideEvidence();
             inputManager.SetState(InputManager.State.MOVEMENT);
-        }else
-        {
-             if (conversation != null) StopCoroutine(conversation);
-        NextConversation();
         }
-        // if (conversation == null)
-        // {
-        //     
-        // }
-
-       
+        else
+        {
+            if (conversation != null) StopCoroutine(conversation);
+            NextConversation();
+        }
     }
 
     void Update()
