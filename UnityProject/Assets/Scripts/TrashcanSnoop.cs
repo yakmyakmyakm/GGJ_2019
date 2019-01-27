@@ -35,22 +35,81 @@ public class TrashcanSnoop : Snoop
         GameManager.learned.Add(item.learned);
         GameManager.score += item.score;
 
+        if (MyFriend.Instance.IsWatchful()) {
+            TalkingManager.instance.AddSpeechData(
+                CharacterType.AI,
+                "AAAA! I can't believe you were digging through my trash can!",
+                GameManager.DEFAULT_DIALOG_DURATION
+            );
+            TalkingManager.instance.AddSpeechData(
+                CharacterType.PLAYER,
+                "But I feel like we've gotten so close today!",
+                GameManager.DEFAULT_DIALOG_DURATION
+            );
+            TalkingManager.instance.AddSpeechData(
+                CharacterType.PLAYER,
+                "I've learned so much about you...",
+                GameManager.DEFAULT_DIALOG_DURATION
+            );
+            GameManager.instance.ComposeLitany();
+
+            bool isGood = GameManager.instance.RollFinalOutcome();
+
+            if (isGood)
+            {
+                string reason = "";
+                string outcome = "";
+
+                if(item.name == "tooth" || item.name == "apple" ||
+                item.name == "syringes" || item.name == "toothbrush")
+                {
+                    reason = "I've been too ashamed to tell anyone about my scurvy.";
+                    outcome = "It's such a relief that you just... know. Weird, but true.";
+                }
+
+                if(item.name == "wpwrapper" || item.name=="banana" ||
+                item.name == "todo")
+                {
+                    reason = "That jerk, Trevor. He, and his stupid logging, broke my heart.";
+                    outcome = "It's too hard to talk about, but now you know why I'm hurt.";
+                }
+
+                else
+                {
+                    reason = "Organic chemistry is the best! Do you like carbon?";
+                    outcome = "I have this A-MAZING nucleophilic reagent to show you!";
+                }
+
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    reason,
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    outcome,
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+
+                GameManager.instance.EndGame(true);
+
+            }
+            else
+            {
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "You know what you call someone who knows that much?",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                TalkingManager.instance.AddSpeechData(
+                    CharacterType.AI,
+                    "A witness. You sure have a lot of teeth, for a witness...",
+                    GameManager.DEFAULT_DIALOG_DURATION
+                );
+                GameManager.instance.EndGame(false);
+            }
+        }
         base.EndSnoop();
-    }
-
-
-    public int OnAwardSoulPoints()
-    {
-        if (Random.Range(0.0f, 1.0f) < 0.5f)
-        {
-            return 20;
-            // found a banana peel
-        }
-        else
-        {
-            return 50;
-            // used condom or something
-        }
     }
 
     void Awake()
