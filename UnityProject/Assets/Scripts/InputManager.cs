@@ -36,12 +36,12 @@ public class InputManager : MonoBehaviour
                 break;
             case State.EVIDENCE:
                 if (pause != null) pause();
-                MyFriend.Instance.Pause(); 
+                MyFriend.Instance.Pause();
                 Time.timeScale = 0;
                 break;
             case State.MOVEMENT:
                 if (resume != null) resume();
-                MyFriend.Instance.Resume(); 
+                MyFriend.Instance.Resume();
                 Time.timeScale = 1;
                 break;
         }
@@ -60,10 +60,22 @@ public class InputManager : MonoBehaviour
                     BroadcastHitPoint();
                 }
 
+                BroadcastTouchPoint();
+
                 if (Input.GetMouseButtonUp(0))
                 {
                     if (releasedMouseButton != null) releasedMouseButton();
                 }
+
+                if (Input.touchCount > 0)
+                {
+                    Touch t = Input.GetTouch(0);
+                    if (t.phase == TouchPhase.Ended)
+                    {
+                        if (releasedMouseButton != null) releasedMouseButton();
+                    }
+                }
+
                 break;
 
             case State.CONVERSATION:
@@ -71,6 +83,16 @@ public class InputManager : MonoBehaviour
                 {
                     if (onConversationClick != null) onConversationClick();
                 }
+
+                if (Input.touchCount > 0)
+                {
+                    Touch t = Input.GetTouch(0);
+                    if (t.phase == TouchPhase.Ended)
+                    {
+                        if (onConversationClick != null) onConversationClick();
+                    }
+                }
+
                 break;
 
             case State.EVIDENCE:
@@ -78,30 +100,68 @@ public class InputManager : MonoBehaviour
                 {
                     if (onEvidenceMouseClick != null) onEvidenceMouseClick();
                 }
+
+                if (Input.touchCount > 0)
+                {
+                    Touch t = Input.GetTouch(0);
+                    if (t.phase == TouchPhase.Ended)
+                    {
+                        if (onEvidenceMouseClick != null) onEvidenceMouseClick();
+                    }
+                }
+
+
                 break;
         }
     }
 
     public LayerMask layerMask;
 
+    void Hit(RaycastHit hit)
+    {
+        if (hit.transform.CompareTag("Distraction"))
+        {
+            if (onHitDistraction != null) onHitDistraction(hit.transform.gameObject);
+        }
+        else if (hit.transform.CompareTag("Snoopable"))
+        {
+            if (onHitSnoopable != null) onHitSnoopable(hit.transform.gameObject);
+        }
+        else
+        {
+            if (onHitLocation != null) onHitLocation(hit.point);
+        }
+    }
+
+    void BroadcastTouchPoint()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch t = Input.GetTouch(0);
+            if (t.phase == TouchPhase.Began)
+            {
+                // Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                // Plane plane = new Plane(Vector3.up, transform.position);
+                // float distance = 0;
+                // if (plane.Raycast(ray, out distance))
+                // {
+                //     Vector3 pos = ray.GetPoint(distance);
+                // }
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit, 1000, layerMask))
+                {
+                    Hit(hit);
+                }
+            }
+        }
+    }
+
     void BroadcastHitPoint()
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, layerMask))
         {
-            //Debug.Log(hit.transform.name);
-            if (hit.transform.CompareTag("Distraction"))
-            {
-                if (onHitDistraction != null) onHitDistraction(hit.transform.gameObject);
-            }
-            else if (hit.transform.CompareTag("Snoopable"))
-            {
-                if (onHitSnoopable != null) onHitSnoopable(hit.transform.gameObject);
-            }
-            else
-            {
-                if (onHitLocation != null) onHitLocation(hit.point);
-            }
+            Hit(hit);
         }
     }
 }
