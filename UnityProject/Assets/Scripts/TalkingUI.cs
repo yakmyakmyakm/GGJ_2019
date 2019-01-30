@@ -71,6 +71,8 @@ public class TalkingUI : MonoBehaviour
 
     public void ShowBubble(CharacterType type, string text)
     {
+        //Debug.Log("Shwoing bubble "  + isShowing);
+
         if(!isShowing)
         {
             isShowing = true;

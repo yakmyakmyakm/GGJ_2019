@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    public const float DEFAULT_DIALOG_DURATION = 3.0f;
+    public const float DEFAULT_DIALOG_DURATION = 4.5f;
 
     public static int score = 0;
 
@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
     {
         if (generate == null) generate = GameObject.Find("GenerateSystem").GetComponent<GenerateItems>();
         generate.InitalizeWorld();
+        player.GetComponent<InputManager>().SetState(InputManager.State.MOVEMENT);
         player.transform.position = playerStartPos;
         friend.transform.position = friendStartPos;
 
@@ -136,6 +137,8 @@ public class GameManager : MonoBehaviour
         EndGameScore.instance.SetText(s + " " + score);
         score = 0;
         snoopedCount = 0;
+
+        TalkingManager.instance.Reset();
 
         //Debug.Log("RESETTING GAME!!!");
 

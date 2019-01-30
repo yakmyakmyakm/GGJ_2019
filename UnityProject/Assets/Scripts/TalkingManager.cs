@@ -91,6 +91,12 @@ public class TalkingManager : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        if(conversation != null) StopCoroutine(conversation);
+        conversation = null;
+    }
+
     void Speak(CharacterType character, string textToSay, float time, Sprite evidenceSprite = null)
     {
         evidenceManager.HideEvidence();
@@ -142,7 +148,6 @@ public class TalkingManager : MonoBehaviour
     {
         //todo -- first of convo == delay
         if (character == CharacterType.PLAYER || character == CharacterType.AI) inputManager.SetState(InputManager.State.CONVERSATION);
-
         if (character == CharacterType.EVIDENCE) inputManager.SetState(InputManager.State.EVIDENCE);
 
         speeches.Add(new SpeechData(character, textToSay, time));
@@ -156,9 +161,13 @@ public class TalkingManager : MonoBehaviour
 
     void ConversationMouseClick()
     {
-        //next speech skip time
-        if (conversation != null) StopCoroutine(conversation);
-        NextConversation();
+        if (speeches.Count > 0)
+        {
+            //next speech skip time
+            if (conversation != null) StopCoroutine(conversation);
+            NextConversation();
+        }
+
     }
 
     void EvidenceMouseClick()

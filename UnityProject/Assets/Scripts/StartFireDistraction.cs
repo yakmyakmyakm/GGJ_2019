@@ -7,7 +7,7 @@ public class StartFireDistraction : Distraction
     void Awake()
     {
         name = "startfire";
-        Duration = 4.0f + Random.Range(0.0f, 4.0f);
+        Duration = 6.0f + Random.Range(0.0f, 4.0f);
     }
 
     public override void StartPlayerDistraction()

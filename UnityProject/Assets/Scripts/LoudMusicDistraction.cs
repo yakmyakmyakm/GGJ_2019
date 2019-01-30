@@ -7,7 +7,7 @@ public class LoudMusicDistraction : Distraction
     void Awake()
     {
         name = "loudmusic";
-        Duration = 1.0f + Random.Range(0.0f, 2.0f);
+        Duration = 6.0f + Random.Range(0.0f, 2.0f);
     }
 
     public override void StartPlayerDistraction()

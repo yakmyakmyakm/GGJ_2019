@@ -7,7 +7,7 @@ public class HouseplantDistraction : Distraction
     void Awake()
     {
         name = "houseplant";
-        Duration = 4.0f + Random.Range(0.0f, 2.0f);
+        Duration = 6.0f + Random.Range(0.0f, 2.0f);
     }
 
     public override void StartPlayerDistraction()

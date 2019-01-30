@@ -7,7 +7,7 @@ public class SpillWaterDistraction : Distraction
     void Awake()
     {
         name = "spillwater";
-        Duration = 2.0f + Random.Range(0.0f, 2.0f);
+        Duration = 5.0f + Random.Range(0.0f, 2.0f);
     }
 
     public override void StartPlayerDistraction()

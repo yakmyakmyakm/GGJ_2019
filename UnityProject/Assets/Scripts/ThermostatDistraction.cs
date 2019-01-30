@@ -7,7 +7,7 @@ public class ThermostatDistraction : Distraction
     void Awake()
     {
         name = "thermostat";
-        Duration = 1.0f + Random.Range(0.0f, 5.0f);
+        Duration = 5.0f + Random.Range(0.0f, 5.0f);
     }
 
     public override void StartPlayerDistraction()

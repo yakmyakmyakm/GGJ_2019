@@ -86,6 +86,6 @@ public class ComputerSnoop : Snoop
     void Awake()
     {
         name = "computer";
-        Duration = 2.0f + Random.Range(0.0f, 6.0f);
+        Duration = 2.0f + Random.Range(0.0f, 1.0f);
     }
 }
